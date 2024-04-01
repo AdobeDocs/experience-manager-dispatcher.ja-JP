@@ -9,10 +9,10 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: f2036e8f73d5f9f58ff713df8f04caad89d660fc
-workflow-type: ht
-source-wordcount: '1040'
-ht-degree: 100%
+source-git-commit: 7bf3bf55abe5a015df9b9e99fe838388a4fe6360
+workflow-type: tm+mt
+source-wordcount: '1101'
+ht-degree: 91%
 
 ---
 
@@ -23,9 +23,9 @@ ht-degree: 100%
 |  |  |
 |--- |--- |
 | 商品 | Adobe Experience Manager (AEM) Dispatcher |
-| バージョン | 4.3.6 |
+| バージョン | 4.3.7 |
 | タイプ | マイナーリリース |
-| 日付 | 2023年7月25日（PT） |
+| 日付 | 2024年3月27日（PT） |
 | ダウンロード URL | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet Information Services（IIS）](release-notes.md#iis)</li></ul> |
 | 互換性 | AEM 6.1 以降 |
 
@@ -40,6 +40,15 @@ ht-degree: 100%
 詳しい手順については、[Dispatcher のインストール](dispatcher-install.md)を参照してください。
 
 ## リリース履歴 {#release-history}
+
+### リリース 4.3.7（2024 年 3 月 28 日） {#march}
+
+**改善点**：
+
+* DISP-1009 — ヘッダー長を再度設定する
+* DISP-1013 - Linux 用の openssl 3.0 サポートを追加
+* DISP-1014 - response.location の処理による無効なリダイレクトの原因となる
+* DISP-1017 - DTD 定義の変更
 
 ### リリース 4.3.6（2023年7月25日）（PT） {#jyly}
 
@@ -173,25 +182,29 @@ ht-degree: 100%
 
 | プラットフォーム | アーキテクチャ | OpenSSL サポート | ダウンロード |
 |---|---|---|---|
-| Linux | i686（32 ビット） | なし | [dispatcher-apache2.4-linux-i686-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.6.tar.gz) |
-| Linux | i686（32 ビット） | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.6.tar.gz) |
-| Linux | i686（32 ビット） | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.6.tar.gz) |
-| Linux | x86_64（64 ビット） | なし | [dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz) |
-| Linux | x86_64（64 ビット） | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz) |
-| Linux | x86_64（64 ビット） | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz) |
-| Linux | aarch64（64 ビット） | なし | [dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz) |
-| Linux | aarch64（64 ビット） | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz) |
-| Linux | aarch64（64 ビット） | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz) |
-| macOS | arm64（64 ビット） | なし | [dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz) |
-| macOS | x86_64（64 ビット） | なし | [dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz) |
+| Linux | i686（32 ビット） | なし | [dispatcher-apache2.4-linux-i686-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.7.tar.gz) |
+| Linux | i686（32 ビット） | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz) |
+| Linux | i686（32 ビット） | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz) |
+| Linux | i686（32 ビット） | 3.0 | [dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz) |
+| Linux | x86_64（64 ビット） | なし | [dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz) |
+| Linux | x86_64（64 ビット） | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz) |
+| Linux | x86_64（64 ビット） | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz) |
+| Linux | x86_64（64 ビット） | 3.0 | [dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz) |
+| Linux | aarch64（64 ビット） | なし | [dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz) |
+| Linux | aarch64（64 ビット） | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz) |
+| Linux | aarch64（64 ビット） | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz) |
+| Linux | aarch64（64 ビット） | 3.0 | [dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz) |
+| macOS | arm64（64 ビット） | なし | [dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz) |
+| macOS | x86_64（64 ビット） | なし | [dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz) |
 
 ### IIS {#iis}
 
 | プラットフォーム | アーキテクチャ | OpenSSL サポート | ダウンロード |
 |---|---|---|---|
-| Windows | x86（32ビット） | なし | [dispatcher-iis-windows-x86-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.6.zip) |
-| Windows | x86（32ビット） | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.6.zip) |
-| Windows | x86（32ビット） | 1.1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.6.zip) |
-| Windows | x64（64 ビット） | なし | [dispatcher-iis-windows-x64-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.6.zip) |
-| Windows | x64（64 ビット） | 1.0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.6.zip) |
-| Windows | x64（64 ビット） | 1.1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.6.zip) |
+| Windows | x86（32ビット） | なし | [dispatcher-iis-windows-x86-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.7.zip) |
+| Windows | x86（32ビット） | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip) |
+| Windows | x86（32ビット） | 1.1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip) |
+| Windows | x64（64 ビット） | なし | [dispatcher-iis-windows-x64-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.7.zip) |
+| Windows | x64（64 ビット） | 1.0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip) |
+| Windows | x64（64 ビット） | 1.1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip) |
+| Windows | x64（64 ビット） | 3.0 | [dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip) |
