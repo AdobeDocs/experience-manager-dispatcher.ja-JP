@@ -3,7 +3,7 @@ title: Dispatcher の設定
 description: Dispatcher の設定方法について説明します。IPv4 と IPv6 のサポート、設定ファイル、環境変数、インスタンスの命名、ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 336e69a4635c9822a97bbffd0b1410807012f9e7
-workflow-type: ht
+workflow-type: tm+mt
 source-wordcount: '8857'
 ht-degree: 100%
 
