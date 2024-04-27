@@ -1,9 +1,6 @@
 ---
 title: Dispatcher に関する問題のトラブルシューティング
-seo-title: Troubleshooting AEM Dispatcher Problems
 description: Dispatcher に関する問題のトラブルシューティングについて説明します。
-seo-description: Learn to troubleshoot AEM Dispatcher issues.
-uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
@@ -11,12 +8,11 @@ contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
-workflow-type: ht
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+workflow-type: tm+mt
 source-wordcount: '538'
-ht-degree: 100%
+ht-degree: 96%
 
 ---
 
@@ -30,7 +26,7 @@ ht-degree: 100%
 
 >[!NOTE]
 >
->詳しくは、[Dispatcher ナレッジベース](https://helpx.adobe.com/jp/experience-manager/kb/index/dispatcher.html?lang=ja)、[Dispatcher のフラッシュ問題のトラブルシューティング](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])および [Dispatcher に関する主な問題とよくある質問](dispatcher-faq.md)を参照してください。
+>を確認します [Dispatcher ナレッジベース](https://helpx.adobe.com/jp/experience-manager/kb/index/dispatcher.html?lang=ja), [Dispatcher のフラッシュに関する問題のトラブルシューティング](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])、および [Dispatcher に関するよくある問題](dispatcher-faq.md) を参照してください。
 
 ## 基本設定の確認 {#check-the-basic-configuration}
 

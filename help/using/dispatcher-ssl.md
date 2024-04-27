@@ -1,28 +1,24 @@
 ---
 title: Dispatcher での SSL の使用
-seo-title: Using SSL with Dispatcher
 description: SSL 接続を使用して AEM と通信するよう Dispatcher を設定する方法について説明します。
-seo-description: Learn how to configure Dispatcher to communicate with AEM using SSL connections.
-uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: e87af532ee3268f0a45679e20031c3febc02de58
-workflow-type: ht
-source-wordcount: '1311'
-ht-degree: 100%
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+workflow-type: tm+mt
+source-wordcount: '1302'
+ht-degree: 90%
 
 ---
 
 # Dispatcher での SSL の使用 {#using-ssl-with-dispatcher}
 
-Dispatcher とレンダーコンピューター間には次の SSL 接続を使用します。
+Dispatcher とレンダリングコンピューター間の SSL 接続を使用します。
 
 * [一方向 SSL](#use-ssl-when-dispatcher-connects-to-aem)
 * [相互 SSL](#configuring-mutual-ssl-between-dispatcher-and-aem)
@@ -37,9 +33,9 @@ Dispatcher が SSL 接続を使用して AEM または CQ レンダーインス�
 
 Dispatcher を設定する前に、SSL を使用するように AEM または CQ を設定します。
 
-* AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=ja)
-* AEM 6.1：[HTTP over SSL の有効化](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=ja)
-* 旧バージョンの AEM：[このページ](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=ja)を参照してください。
+* AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.1：[HTTP over SSL の有効化](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* 旧バージョンの AEM：[このページ](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)を参照してください。
 
 ### SSL に関連する要求ヘッダー {#ssl-related-request-headers}
 
@@ -133,14 +129,14 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
 相互 SSL を設定するには、次の手順を実行します。
 
-1. 使用するプラットフォームに適した最新バージョンの Dispatcher を[インストール](dispatcher-install.md)します。SSL をサポートしている Dispatcher バイナリを使用してください（dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar のように、SSL がファイル名に含まれています）。
+1. 使用するプラットフォームに適した最新バージョンの Dispatcher を[インストール](dispatcher-install.md)します。SSL をサポートする Dispatcher バイナリを使用します（SSL は、ファイル名に含まれます）。例： `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`）に設定します。
 1. Dispatcher およびレンダーインスタンス用に [CA 署名済みの証明書を作成または取得](dispatcher-ssl.md#main-pars-title-3)します。
 1. [レンダーの証明書を格納したキーストアを作成](dispatcher-ssl.md#main-pars-title-6)し、レンダーの HTTP サービスを設定します。
 1. 相互 SSL 用に [Dispatcher の Web サーバーモジュールを設定](dispatcher-ssl.md#main-pars-title-4)します。
 
 ### CA 署名済み証明書の作成または取得 {#creating-or-obtaining-ca-signed-certificates}
 
-パブリッシュインスタンスと Dispatcher を認証する CA 署名済みの証明書を作成または取得します。
+公開インスタンスと Dispatcher を認証する CA 署名証明書を作成または取得します。
 
 #### CA の作成 {#creating-your-ca}
 
@@ -161,10 +157,10 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
 OpenSSL を使用して証明書要求を作成し、サードパーティ CA に送信するか、自身の CA によって署名します。
 
-証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。レンダーインスタンスの証明書については、証明書を受け入れるように Dispatcher を設定する場合、および証明書がパブリッシュインスタンスのホスト名と一致する場合にのみ、インスタンスコンピューターのホスト名を Common Name として使用します（[DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティを参照）。
+証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。レンダリングインスタンスの証明書を受け入れるように Dispatcher を設定する場合は、インスタンスコンピューターのホスト名を共通名として使用します。 パブリッシュインスタンスのホスト名と一致する場合にのみ実行してください。 を参照してください。 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティ。
 
 1. ターミナルを開き、現在のディレクトリを OpenSSL ライブラリの CH.sh ファイルを含むディレクトリに変更します。
-1. 次のコマンドを入力し、プロンプトが表示されたら値を指定します。必要に応じて、パブリッシュインスタンスのホスト名を Common Name として使用します。ホスト名は、レンダーの IP アドレスに対して DNS 解決可能な名前です。
+1. 次のコマンドを入力し、プロンプトが表示されたら値を指定します。必要に応じて、パブリッシュインスタンスのホスト名を共通名として使用します。 ホスト名は、レンダーの IP アドレスに対して DNS 解決可能な名前です。
 
    ```shell
    ./CA.sh -newreq
@@ -178,7 +174,7 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
    ./CA.sh -sign
    ```
 
-   `newcert.pem` と `newkey.pem` という名前の 2 つのファイルが、CA 管理ファイルを含むディレクトリに作成されます。この 2 つのファイルは、それぞれレンダーコンピューターの公開証明書と秘密鍵です。
+   `newcert.pem` と `newkey.pem` という名前の 2 つのファイルが、CA 管理ファイルを含むディレクトリに作成されます。これら 2 つのファイルは、それぞれレンダリング コンピュータの公開証明書と秘密キーです。
 
 1. `newcert.pem` の名前を `rendercert.pem` に変更し、`newkey.pem` の名前を `renderkey.pem` に変更します。
 1. 手順 2 と 3 を繰り返して、Dispatcher モジュール用の証明書と公開鍵を作成します。必ず Dispatcher インスタンスに固有の Common Name を使用してください。
@@ -251,11 +247,11 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 #### レンダーインスタンスの設定 {#configuring-the-render-instance}
 
-SSL を使用するようにレンダーインスタンスの HTTP サービスを設定するには、「*パブリッシュインスタンスでの SSL の有効化*」セクションの指示に従ってレンダー証明書を使用します。
+SSL を使用するようにレンダリングインスタンスの HTTP サービスを設定するには、内の手順と共にレンダリング証明書を使用します *`Enable SSL on the Publish Instance`* セクション：
 
-* AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=ja)
-* AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=ja)
-* 旧バージョンの AEM：[このページ](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=ja)を参照してください。
+* AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* 旧バージョンの AEM：[このページ](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)を参照してください。
 
 ### Dispatcher モジュール用の SSL の設定 {#configuring-ssl-for-the-dispatcher-module}
 

@@ -1,19 +1,15 @@
 ---
 title: セキュリティ保護されたコンテンツのキャッシュ
-seo-title: Caching Secured Content in AEM Dispatcher
 description: Dispatcher における権限を区別するキャッシュのしくみについて説明します。
-seo-description: Learn how permission-sensitive caching works in AEM Dispatcher.
-uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
-workflow-type: ht
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+workflow-type: tm+mt
 source-wordcount: '910'
-ht-degree: 100%
+ht-degree: 89%
 
 ---
 
@@ -36,7 +32,7 @@ Dispatcher には、権限を区別するキャッシュを実装する AuthChec
 ![](assets/chlimage_1.png)
 
 1. Dispatcher が、リクエストされたコンテンツがキャッシュされていて有効であると判断します。
-1. Dispatcher がレンダーにリクエストメッセージを送信します。HEAD セクションには、ブラウザーリクエストのヘッダー行がすべて含まれます。
+1. Dispatcher がレンダーにリクエストメッセージを送信します。HEADセクションには、ブラウザーリクエストのすべてのヘッダーラインが含まれます。
 1. レンダーが、認証チェッカーサーブレットを呼び出してセキュリティチェックを実行し、Dispatcher に応答します。応答メッセージには、ユーザーが承認されていることを示す HTTP ステータスコード 200 が含まれます。
 1. Dispatcher がブラウザーに応答メッセージを送信します。応答メッセージは、レンダーの応答のヘッダー行と、本文としてキャッシュされたコンテンツで構成されます。
 
@@ -73,8 +69,8 @@ Dispatcher には、権限を区別するキャッシュを実装する AuthChec
 
 >[!NOTE]
 >
->Dispatcher の前に CDN（またはその他のキャッシュ）がある場合、CDN がプライベートコンテンツをキャッシュしないように、キャッシュヘッダーを設定する必要があります。例：`Header always set Cache-Control private`。
->AEM as a Cloud Service におけるプライベートキャッシュヘッダーの設定方法について詳しくは、[キャッシュ](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html?lang=ja)ページを参照してください。
+>Dispatcher の前に CDN （または他のキャッシュ）がある場合、CDN がプライベートコンテンツをキャッシュしないように、キャッシュヘッダーを適切に設定する必要があります。 例：`Header always set Cache-Control private`。
+>AEMのas a Cloud Serviceについては、を参照してください [キャッシュ](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) プライベートキャッシュヘッダーの設定方法について詳しくは、こちらを参照してください。
 
 ## 認証チェッカーサーブレットの作成 {#create-the-auth-checker-servlet}
 
@@ -82,7 +78,7 @@ Web コンテンツをリクエストするユーザーの認証と承認を実�
 
 このサーブレットには、すべてのユーザーがアクセスできる必要があります。そのため、サーブレットは、`org.apache.sling.api.servlets.SlingSafeMethodsServlet` クラスを拡張して、システムに対して読み取り専用アクセス権を付与する必要があります。
 
-サーブレットは、レンダーから HEAD 要求のみを受信するので、実装する必要があるのは `doHead` メソッドだけです。
+サーブレットは、レンダリングからHEADリクエストのみを受け取るので、 `doHead` メソッド。
 
 レンダーには、要求されたリソースの URI が HTTP 要求のパラメーターとして含まれます。例えば、承認サーブレットには、`/bin/permissioncheck` からアクセスします。/content/geometrixx-outdoors/en.html ページに対するセキュリティチェックを実行するために、レンダーは HTTP 要求に次の URL を含めます。
 
@@ -151,7 +147,7 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 
 >[!NOTE]
 >
->要件で認証済みドキュメントのキャッシュが許可されている場合は、/cache セクションの /allowAuthorized プロパティを `/allowAuthorized 1` に設定します。詳しくは、[認証使用時のキャッシュ](/help/using/dispatcher-configuration.md)を参照してください。
+>要件で認証済みドキュメントのキャッシュが許可されている場合は、/cache セクションの /allowAuthorized プロパティを `/allowAuthorized 1` に設定します。トピックを参照 [認証を使用する場合のキャッシュ](/help/using/dispatcher-configuration.md) を参照してください。
 
 dispatcher.any ファイルの auth_checker セクションで、権限を区別するキャッシュの動作を制御します。auth_checker セクションには、次のサブセクションが含まれます。
 

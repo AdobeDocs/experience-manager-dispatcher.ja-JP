@@ -5,10 +5,10 @@ type: Documentation
 git-repo: https://github.com/AdobeDocs/experience-manager-dispatcher.ja-JP
 index: y
 recommendations: noDisplay
-source-git-commit: 70364ba7229e76ed8b30012029f9a5529b08312d
-workflow-type: ht
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+workflow-type: tm+mt
 source-wordcount: '109'
-ht-degree: 100%
+ht-degree: 82%
 
 ---
 
@@ -20,9 +20,9 @@ metadata.md ファイルには、リポジトリ内にあるユーザーガイ�
 | メタデータ | 機能 |
 |--- |--- |
 | solution-title | 記事ヘッダーでリンクとして使用されます。 |
-| solution-hub-url | helpx ハブページを開きます。 |
+| solution-hub-url | ヘルプハブページを開く |
 | solution-icon | ソリューションタイトルの横にソリューションアイコンを表示します。まだ実装されていません |
-| getting-started-url | helpx の「はじめに」のページへのリンク |
-| tutorials-url | ビデオチュートリアル（helpx チュートリアルまたは KT チュートリアル）へのリンク |
+| getting-started-url | 「はじめに」のページへのリンク |
+| tutorials-url | ビデオチュートリアル（ヘルプチュートリアルまたは KT チュートリアル）へのリンク |
 | mini-toc-levels | 右側のレールに表示される見出しレベルの数を決定します。デフォルトは 2 です。 |
-| git-repo | 内部使用のマスターリポジトリーの場所を指定します。 |
+| git-repo | 内部使用のプライマリリポジトリの場所を指定します。 |

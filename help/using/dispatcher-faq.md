@@ -1,13 +1,11 @@
 ---
-title: Dispatcher に関する主な問題
-seo-title: Top issues for AEM Dispatcher
-description: AEM Dispatcher に関する主な問題
-seo-description: Top issues for Adobe AEM Dispatcher
+title: Dispatcher に関するよくある問題
+description: Adobe Experience Manager Dispatcher の主な問題。
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: f83b02d74a22e055b486305dfe5420e152efb452
-workflow-type: ht
-source-wordcount: '1534'
-ht-degree: 100%
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+workflow-type: tm+mt
+source-wordcount: '1542'
+ht-degree: 89%
 
 ---
 
@@ -19,7 +17,7 @@ ht-degree: 100%
 
 ### Dispatcher とは？
 
-Dispatcher は、Adobe Experience Managerのキャッシングおよびロードバランシングツールで、高速で動的な Web オーサリング環境を実現するのに役立ちます。キャッシュの場合、Dispatcher は Apache などの HTTP サーバーの一部として機能します。このツールは、静的 Web サイトのコンテンツをできるだけ多く保存（または「キャッシュ」）し、Web サイトのレイアウトエンジンへのアクセス頻度をできるだけ少なくすることを目的としています。ロードバランシングの役割では、Dispatcher はさまざまな AEM インスタンス（レンダー）間でユーザーリクエスト（読み込み）を分散します。
+Dispatcher は、Adobe Experience Managerのキャッシングおよびロードバランシングツールで、高速で動的な Web オーサリング環境を実現するのに役立ちます。キャッシュの場合、Dispatcher は Apache などの HTTP サーバーの一部として機能します。これは、静的な web サイトのコンテンツをできるだけ多く保存（または「キャッシュ」）し、web サイトのエンジンのレイアウトにできるだけ頻繁にアクセスすることを目的としています。 ロードバランシングの役割では、Dispatcher はさまざまな AEM インスタンス（レンダー）間でユーザーリクエスト（読み込み）を分散します。
 
 キャッシュ時、Dispatcher モジュールでは Web サーバーの静的コンテンツ提供機能を使用します。キャッシュされたドキュメントは、Dispatcher によって Web サーバーのドキュメントルートに配置されます。
 
@@ -82,9 +80,9 @@ Dispatcher の[インストール](dispatcher-install.md)ページを参照し�
 
 ### Dispatcher とAEM パブリッシュインスタンスは同じ物理マシンに配置できますか？
 
-マシンの性能が十分でれば可能です。ただし、異なるマシン上に Dispatcher および AEM パブリッシュインスタンスを設定することをお勧めします。
+マシンの性能が十分でれば可能です。ただし、Dispatcher とAEM パブリッシュインスタンスは別のコンピューターで設定する必要があります。
 
-通常、パブリッシュインスタンスはファイアウォール内に存在し、Dispatcher は DMZ に存在します。同じ物理マシンにパブリッシュインスタンスと Dispatcher の両方を配置することを決定した場合は、ファイアウォール設定で外部ネットワークからパブリッシュインスタンスへの直接アクセスが禁止されていること確認してください。
+通常、パブリッシングインスタンスはファイアウォール内に存在し、Dispatcher は DMZ 内に存在します。 パブリッシュインスタンスと Dispatcher の両方を同じ物理マシン上に配置する場合は、ファイアウォール設定で、外部ネットワークからパブリッシュインスタンスへの直接アクセスが禁止されていることを確認します。
 
 ### 特定の拡張子を持つファイルのみキャッシュできますか？
 
@@ -117,7 +115,7 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### Dispatcher インスタンスと CQ インスタンス間の通信を保護する方法を教えてください。
 
-[Dispatcher セキュリティチェックリスト](security-checklist.md)ページおよび [AEM セキュリティチェックリスト](https://experienceleague.adobe.com/docs/experience-manager-64/administering/security/security-checklist.html?lang=jp)ページを参照してください。
+[Dispatcher セキュリティチェックリスト](security-checklist.md)ページおよび [AEM セキュリティチェックリスト](https://experienceleague.adobe.com/en/docs/experience-manager-64/administering/security/security-checklist)ページを参照してください。
 
 ### Dispatcher の問題：`jcr:content` が `jcr%3acontent` に変更される
 
@@ -131,7 +129,7 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### パブリッシュインスタンスで Dispatcher フラッシュエージェントを設定する方法を教えてください。
 
-[レプリケーション](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=ja#configuring-your-replication-agents)ページを参照してください。
+[レプリケーション](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents)ページを参照してください。
 
 ### Dispatcher のフラッシュ問題のトラブルシューティング方法を教えてください。
 
@@ -141,7 +139,7 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### Dispatcher キャッシュから DAM アセットをフラッシュする方法を教えてください。
 
-「チェーンレプリケーション」機能を使用できます。この機能を有効にすると、オーサーから複製を受信したとき、Dispatcher フラッシュエージェントがフラッシュリクエストを送信します。
+「チェーンレプリケーション」機能を使用できます。この機能を有効にすると、オーサーからレプリケーションを受信したときに、Dispatcher のフラッシュエージェントがフラッシュリクエストを送信します。
 
 有効にするには：
 
@@ -150,9 +148,11 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ## その他
 
-Dispatcher はドキュメントが最新かどうかをどう判断しますか？ドキュメントが最新かどうかを判断するために、Dispatcher は次の手順を実行します。
+ドキュメントが最新かどうかを Dispatcher はどのように判断しますか？
+ドキュメントが最新かどうかを判断するには、Dispatcher が次のアクションを実行します。
 
-ドキュメントが自動無効化の対象であるかどうかチェックします。対象でない場合、ドキュメントは最新であると認識されます。ドキュメントが自動無効化の対象として設定されている場合、Dispatcher は最新の変更情報と比べてドキュメントが古いかどうかチェックします。ドキュメントが古い場合、Dispatcher は AEM インスタンスに最新バージョンを要求し、キャッシュ内のバージョンを置き換えます。
+ドキュメントが自動無効化の対象であるかどうかチェックします。そうでない場合、ドキュメントは最新と見なされます。
+ドキュメントが自動無効化の対象として設定されている場合、Dispatcher は最新の変更情報と比べてドキュメントが古いかどうかチェックします。ドキュメントが古い場合、Dispatcher は AEM インスタンスに最新バージョンを要求し、キャッシュ内のバージョンを置き換えます。
 
 ### Dispatcher はどのようにドキュメントを返しますか？
 
