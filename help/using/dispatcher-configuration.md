@@ -3,9 +3,9 @@ title: Dispatcher の設定
 description: Dispatcher の設定方法について説明します。IPv4 と IPv6 のサポート、設定ファイル、環境変数、インスタンスの命名、ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8854'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
@@ -19,7 +19,7 @@ ht-degree: 96%
 
 ## IPv4 と IPv6 のサポート {#support-for-ipv-and-ipv}
 
-AEM と Dispatcher のすべての要素は、IPv4 と IPv6 の両方のネットワークにインストールできます。[IPv4 と IPv6](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#ipv-and-ipv) を参照してください。
+AEM と Dispatcher のすべての要素は、IPv4 と IPv6 の両方のネットワークにインストールできます。[IPv4 と IPv6](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#ipv-and-ipv) を参照してください。
 
 ## Dispatcher の設定ファイル {#dispatcher-configuration-files}
 
@@ -133,7 +133,7 @@ AEM と Dispatcher のすべての要素は、IPv4 と IPv6 の両方のネッ�
 /docroot "${PWD}/cache"
 ```
 
-別の例として、という名前の環境変数を作成した場合、 `PUBLISH_IP` AEM パブリッシュインスタンスのホスト名を格納する次の設定は、 [/renders](#defining-page-renderers-renders) 次のプロパティを使用できます。
+もう 1 つの例として、AEM パブリッシュインスタンスのホスト名を格納する `PUBLISH_IP` という環境変数を作成した場合は、[/renders](#defining-page-renderers-renders) プロパティの次の設定を使用できます。
 
 ```xml
 /renders {
@@ -259,7 +259,7 @@ Comment Type: draft
 
 `/clientheaders` プロパティでは、Dispatcher がクライアント HTTP 要求からレンダラー（AEM インスタンス）に渡す HTTP ヘッダーのリストを定義します。
 
-デフォルトでは、Dispatcher から AEM インスタンスに標準の HTTP ヘッダーが転送されます。場合によっては、他のヘッダーを転送したり、特定のヘッダーを削除したりする必要があります。
+デフォルトでは、Dispatcher から AEM インスタンスに標準の HTTP ヘッダーが転送されます。インスタンスによっては、他のヘッダーを転送したり、特定のヘッダーを削除したりできます。
 
 * AEM インスタンスが HTTP リクエストで想定するヘッダー（カスタムヘッダーなど）を追加します。
 * ヘッダー（web サーバーに対してのみ重要な認証ヘッダーなど）を削除します。
@@ -402,9 +402,9 @@ Dispatcher は、以下の方法で最良一致の仮想ホスト値を探しま
 
 >[!CAUTION]
 >
->この機能を有効にするには、`/cache` セクションで `/allowAuthorized` を `"0"` に設定します。[認証使用時のキャッシュ](#caching-when-authentication-is-used)の節で詳しく説明されているように、`/allowAuthorized 0 ` を設定すると、認証情報を含んだリクエストはキャッシュされ&#x200B;**ません**。権限を区別するキャッシュが必要な場合は、[セキュリティ保護されたコンテンツのキャッシュ](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/permissions-cache)ページを参照してください。
+>この機能を有効にするには、`/cache` セクションで `/allowAuthorized` を `"0"` に設定します。[認証使用時のキャッシュ](#caching-when-authentication-is-used)の節で詳しく説明されているように、`/allowAuthorized 0 ` を設定すると、認証情報を含んだリクエストはキャッシュされ&#x200B;**ません**。権限を区別するキャッシュが必要な場合は、[セキュリティ保護されたコンテンツのキャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/permissions-cache)ページを参照してください。
 
-レンダーファームにアクセスするためのセキュアセッションを作成して、このファーム内のページにユーザーがアクセスする際にログインが必要になるようにします。ログイン後、ユーザーはファーム内のページにアクセスできます。閉じられたユーザーグループ（CUG）でのこの機能の使用については、[閉じられたユーザーグループの作成](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used)を参照してください。また、運用を開始する前に、Dispatcher の[セキュリティチェックリスト](/help/using/security-checklist.md)を参照してください。
+レンダーファームにアクセスするためのセキュアセッションを作成して、このファーム内のページにユーザーがアクセスする際にログインが必要になるようにします。ログイン後、ユーザーはファーム内のページにアクセスできます。閉じられたユーザーグループ（CUG）でのこの機能の使用については、[閉じられたユーザーグループの作成](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used)を参照してください。また、運用を開始する前に、Dispatcher の[セキュリティチェックリスト](/help/using/security-checklist.md)を参照してください。
 
 `/sessionmanagement` プロパティは `/farms` のサブプロパティです。
 
@@ -420,7 +420,7 @@ Dispatcher は、以下の方法で最良一致の仮想ホスト値を探しま
 
 >[!CAUTION]
 >
-> ディレクトリサブパラメーターの設定時、 **実行しない** ルートフォルダー（`/directory "/"`）が発生する可能性があります。 セッション情報を格納したフォルダーのパスを常に指定します。次に例を示します。
+> ディレクトリサブパラメーターを設定する場合は、重大な問題が発生する可能性があるので、ルートフォルダー（`/directory "/"`）を指定&#x200B;**しないでください**。セッション情報を格納したフォルダーのパスを常に指定します。次に例を示します。
 
 ```xml
 /sessionmanagement
@@ -513,7 +513,7 @@ AEM インスタンスにアクセスする接続タイムアウトをミリ秒�
 
 応答が返るまでに許容される時間をミリ秒単位で指定します。デフォルトは `"600000"` で、この場合、Dispatcher は 10 分間待機します。`"0"` に設定すると、タイムアウトがなくなります。
 
-応答ヘッダーの解析中にタイムアウトに達した場合は、HTTP ステータス 504（Bad Gateway）が返されます。応答本文の読み取り中にタイムアウトに達した場合、Dispatcher は不完全な応答をクライアントに返します。また、書き込まれた可能性のあるキャッシュ済みファイルもすべて削除されます。
+応答ヘッダーの解析中にタイムアウトに達した場合は、HTTP ステータス 504（Bad Gateway）が返されます。応答本文の読み取り中にタイムアウトに達した場合、Dispatcher は不完全な応答をクライアントに返します。また、書き込まれた可能性のあるキャッシュファイルを削除します。
 
 **/ipv4**
 
@@ -525,7 +525,7 @@ Amazon Elastic Load Balancing（ELB）は、同じ順序になる可能性があ
 
 **/secure**
 
-`/secure` プロパティの値が `"1"` の場合、Dispatcher は HTTPS を使用して AEM インスタンスと通信します。詳しくは、 [SSL を使用する Dispatcher の設定](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
+`/secure` プロパティの値が `"1"` の場合、Dispatcher は HTTPS を使用して AEM インスタンスと通信します。詳しくは、[SSL を使用するように Dispatcher を設定](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl)を参照してください。
 
 **/always-resolve**
 
@@ -555,7 +555,7 @@ Dispatcher が受け入れる HTTP 要求を指定するには、`/filter` セ�
 
 >[!CAUTION]
 >
->Dispatcher を使用してアクセスを制限する場合の詳しい考慮事項については、[Dispatcher セキュリティチェックリスト](security-checklist.md)を参照してください。関連トピック [AEM セキュリティチェックリスト](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) AEMのインストールに関するセキュリティの詳細について説明します。
+>Dispatcher を使用してアクセスを制限する場合の詳しい考慮事項については、[Dispatcher セキュリティチェックリスト](security-checklist.md)を参照してください。また、AEM のインストールに関するセキュリティについて詳しくは、[AEM セキュリティチェックリスト](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/security-checklist#security)も参照してください。
 
 `/filter` セクションは、HTTP リクエストのリクエスト行部分のパターンに応じてコンテンツへのアクセスを拒否または許可する一連のルールで構成されます。`/filter` セクションに対しては、許可リスト戦略を使用します。
 
@@ -670,7 +670,7 @@ Dispatcher バージョン 4.2.0 以降では、フィルターパターンに P
 
 >[!NOTE]
 >
->複数のフィルターパターンがリクエストに適用される場合、最後に適用されたフィルターパターンが有効になります。
+>複数のフィルターパターンを 1 つのリクエストに適用した場合は、最後に適用されたフィルターパターンが有効になります。
 
 #### サンプルフィルター：正規表現の使用 {#example-filter-using-regular-expressions}
 
@@ -680,7 +680,7 @@ Dispatcher バージョン 4.2.0 以降では、フィルターパターンに P
 /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
 ```
 
-#### サンプルフィルター：リクエスト URL の余分な要素のフィルタリング {#example-filter-filter-additional-elements-of-a-request-url}
+#### サンプルフィルター：リクエスト URL の追加要素のフィルタリング {#example-filter-filter-additional-elements-of-a-request-url}
 
 それぞれ path、selector および extensions に対するフィルターを使用して、`/content` パスからのコンテンツの取得をブロックするルールのサンプルを以下に示します。
 
@@ -797,15 +797,15 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
    * `/libs/opensocial/proxy*`
 
-インストールによっては、下により多くのリソースが存在する場合があります `/libs`, `/apps` または他の場所で、使用可能にする必要があります。 外部からアクセスされるリソースを判別するための方法として、`access.log` ファイルを使用することができます。
+インストールによっては、`/libs`、`/apps` またはその他の場所（使用可能にする必要があります）の下に、さらに多くのリソースが存在する場合があります。外部からアクセスされるリソースを判別するための方法として、`access.log` ファイルを使用することができます。
 
 >[!CAUTION]
 >
->コンソールおよびディレクトリへのアクセスによって、実稼動環境でセキュリティのリスクが発生する可能性があります。明示的に正当な理由がない限り、非アクティブ（コメントアウト）のままにします。
+>コンソールおよびディレクトリへのアクセスによって、実稼動環境でセキュリティのリスクが発生する可能性があります。正当な理由が明確でない場合は、これらのエントリを非アクティブ化（コメントアウト）のままにしておいてください。
 
 >[!CAUTION]
 >
->[パブリッシュ環境でレポートを使用](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/operations/reporting#using-reports-in-a-publish-environment)する場合は、外部の訪問者が `/etc/reports` にアクセスできないように、Dispatcher を設定してください。
+>[パブリッシュ環境でレポートを使用](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/sites/administering/operations/reporting#using-reports-in-a-publish-environment)する場合は、外部の訪問者が `/etc/reports` にアクセスできないように、Dispatcher を設定してください。
 
 ### クエリ文字列の制約 {#restricting-query-strings}
 
@@ -937,7 +937,7 @@ AEM ページ用に設定されているバニティ URL へのアクセスを�
 
 >[!NOTE]
 >
->レンダーが AME のインスタンスである場合、バニティ URL サービスを有効にするには、[ソフトウェア配布から VanityURLS-Components パッケージ](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components)をインストールする必要があります（詳しくは、[ソフトウェア配布](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution)を参照してください）。
+>レンダーが AME のインスタンスである場合、バニティ URL サービスを有効にするには、[ソフトウェア配布から VanityURLS-Components パッケージ](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components)をインストールする必要があります（詳しくは、[ソフトウェア配布](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution)を参照してください）。
 
 バニティー URL へのアクセスを有効にするには、以下の手順を実行します。
 
@@ -954,7 +954,7 @@ AEM ページ用に設定されているバニティ URL へのアクセスを�
 
 ## Dispatcher キャッシュの設定 - /cache {#configuring-the-dispatcher-cache-cache}
 
-`/cache` セクションは、Dispatcher によるドキュメントのキャッシュ方法を制御します。キャッシュ戦略を実装するために、いくつかのサブプロパティを設定します。
+`/cache` セクションは、Dispatcher によるドキュメントのキャッシュ方法を制御します。次のいくつかのサブプロパティを設定して、キャッシュ戦略を実装します。
 
 * `/docroot`
 * `/statfile`
@@ -1150,7 +1150,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 `/statfileslevel` プロパティを使用して、キャッシュされたファイルをパスに応じて選択的に無効化します。
 
 * Dispatcher は、ドキュメントルートフォルダーから指定したレベルまでの各フォルダーに `.stat` ファイルを作成します。ドキュメントルートはレベル 0 です。
-* `.stat` ファイルが更新されると、ファイルは無効化されます。`.stat` ファイルの最終変更日と、キャッシュされたドキュメントの最終変更日を比較します。次の場合、ドキュメントが再取得されます `.stat` ファイルの方が新しい。
+* `.stat` ファイルが更新されると、ファイルは無効化されます。`.stat` ファイルの最終変更日と、キャッシュされたドキュメントの最終変更日を比較します。`.stat` ファイルのほうが新しい場合は、ドキュメントを再取得します。
 
 * 特定のレベルにあるファイルが無効化されると、docroot **から**&#x200B;無効化されたファイルのレベルまたは設定された `statsfilevel` まで（いずれか小さい方）の&#x200B;**すべての** `.stat` ファイルに変更が加えられます。
 
@@ -1167,7 +1167,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
 >[!NOTE]
 >
->無効化は、追加のヘッダー `CQ-Action-Scope:ResourceOnly` を送信することで防止できます。このメソッドを使用することで、キャッシュの他の部分を無効化せずに、特定のリソースをフラッシュできます。参照： [このページ](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) および [Dispatcher キャッシュの手動による無効化](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) を参照してください。
+>無効化は、追加のヘッダー `CQ-Action-Scope:ResourceOnly` を送信することで防止できます。このメソッドを使用することで、キャッシュの他の部分を無効化せずに、特定のリソースをフラッシュできます。詳しくは、[このページ](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html)および[手動での Dispatcher キャッシュの無効化](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring)を参照してください。
 
 >[!NOTE]
 >
@@ -1195,7 +1195,7 @@ glob プロパティについて詳しくは、[glob プロパティのパター
 
 * パターン en.* を持つすべてのファイルが `/content/wknd/us` フォルダーから削除されます。
 * `/content/wknd/us/en./_jcr_content` フォルダーは削除されます。
-* `/invalidate` 設定に一致するその他すべてのファイルは、即座には削除されません。これらのファイルは、次回のリクエストが発生すると削除されます。この例では、 `/content/wknd.html` は削除されません。 代わりに、 `/content/wknd.html` がリクエストされました。
+* `/invalidate` 設定に一致するその他すべてのファイルは、即座には削除されません。これらのファイルは、次回のリクエストが発生すると削除されます。この例では、`/content/wknd.html` は削除されません。代わりに、`/content/wknd.html` をリクエストすると削除されます。
 
 自動生成した PDF や ZIP ファイルをダウンロード用に提供する場合は、これらのファイルも自動的に無効化する必要があります。設定例を次に示します。
 
@@ -1229,7 +1229,7 @@ Adobe Analytics との AEM 統合によって、web サイトの `analytics.site
 
 このメソッドは、複数の異なるユースケースを扱う場合に使用できます。例えば、他のアプリケーションに固有のキャッシュを無効化する場合や、ページの外部化された URL とドキュメントルート内のその場所がコンテンツパスと一致しないケースを扱う場合などです。
 
-以下のスクリプトの例では、無効化された各リクエストをファイルに記録しています。
+以下のサンプルスクリプトは、各無効化リクエストをファイルに記録します。
 
 ```xml
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
@@ -1380,7 +1380,7 @@ glob プロパティについては、[glob プロパティのパターンのデ
 
 `/gracePeriod` プロパティは、自動的に無効化された古いリソースを前回のアクティベーション発生後も引き続きキャッシュから使用できる秒数を定義します。このプロパティは、アクティベートのバッチによってキャッシュ全体が繰り返し無効化されるような設定で使用できます。推奨される値は 2 秒です。
 
-詳しくは、 `/invalidate` および `/statfileslevel`さっき。
+詳しくは、上記の `/invalidate` および `/statfileslevel` を参照してください。
 
 ### 時間に基づくキャッシュ無効化の設定 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
@@ -1412,7 +1412,7 @@ Dispatcher 4.3.5 より前では、TTL 無効化ロジックは、設定され�
 
 >[!NOTE]
 >
->その設定に留意してください `/enableTTL` 1 に設定すると、Dispatcher 側でのみ TTL キャッシュが有効になります。 したがって、追加ファイル（上記を参照）に含まれる TTL 情報は、Dispatcher からそのようなファイルタイプをリクエストする他のユーザーエージェントには提供されません。 CDN やブラウザーなどのダウンストリームシステムにキャッシュヘッダーを提供する場合は、それに応じて `/cache/headers` セクションを設定する必要があります。
+>なお、`/enableTTL` を 1 に設定すると、Dispatcher 側でのみ TTL キャッシュが有効になります。そのため、追加ファイル（上記を参照）に含まれている TTL 情報は、Dispatcher からそのようなファイルタイプを要求する他のユーザーエージェントには提供されません。CDN やブラウザーなどのダウンストリームシステムにキャッシュヘッダーを提供する場合は、それに応じて `/cache/headers` セクションを設定する必要があります。
 
 >[!NOTE]
 >
@@ -1619,7 +1619,7 @@ read more data
 
 ## glob プロパティのパターンのデザイン {#designing-patterns-for-glob-properties}
 
-Dispatcher 設定ファイルの複数のセクションでは、 `glob` クライアントリクエストの選択条件としてのプロパティ。 `glob` プロパティの値は、リクエストされたリソースのパスやクライアントの IP アドレスなど、Dispatcher がリクエストの要素と比較するパターンです。例えば、`/filter` セクションのアイテムは、`glob` パターンを使用して、Dispatcher が従う、または拒否するページのパスを識別します。
+Dispatcher 設定ファイルのいくつかのセクションでは、`glob` プロパティをクライアントリクエストの選択条件として使用できます。`glob` プロパティの値は、リクエストされたリソースのパスやクライアントの IP アドレスなど、Dispatcher がリクエストの要素と比較するパターンです。例えば、`/filter` セクションのアイテムは、`glob` パターンを使用して、Dispatcher が従う、または拒否するページのパスを識別します。
 
 `glob` の値にワイルドカード文字と英数字を含めて、パターンを定義することができます。
 
@@ -1751,7 +1751,7 @@ Web サーバー設定で、次の属性を設定できます。
 >
 >インストール後のデフォルトのログレベルは高（レベル 3 = デバッグ）なので、Dispatcher ですべてのエラーおよび警告がログに記録されます。このレベルは、初期の段階では便利です。
 >
->ただし、このようなレベルには、より多くのリソースが必要です。 Dispatcher が&#x200B;*現在の要件で*&#x200B;円滑に動作している場合は、ログレベルを低くしてください。
+>ただし、このようなレベルにはより多くのリソースが必要です。Dispatcher が&#x200B;*現在の要件で*&#x200B;円滑に動作している場合は、ログレベルを低くしてください。
 
 ### トレースログ {#trace-logging}
 

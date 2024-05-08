@@ -11,9 +11,9 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '591'
-ht-degree: 56%
+ht-degree: 100%
 
 ---
 
@@ -30,23 +30,23 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-Adobeでは、実稼動環境に移行する前に、次のチェックリストを確認することをお勧めします。
+実稼動させる前に、以下のチェックリストを確認することをお勧めします。
 
 >[!CAUTION]
 >
->運用開始前に、お使いのバージョンのAEMのセキュリティチェックリストを確認してください。 対応するを参照してください [Adobe Experience Manager ドキュメント](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist).
+>稼動させる前に、使用するバージョンの AEM のセキュリティチェックリストを確認します。詳しくは、対応する [Adobe Experience Manager ドキュメント](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/security-checklist)を参照してください。
 
 ## 最新バージョンの Dispatcher の使用 {#use-the-latest-version-of-dispatcher}
 
-お使いのプラットフォームで利用可能な最新バージョンをインストールします。 製品とセキュリティの強化を活用するには、最新バージョンを使用するように Dispatcher インスタンスをアップグレードしてください。 [Dispatcher のインストール](dispatcher-install.md)を参照してください。
+使用するプラットフォームに適した最新バージョンをインストールします。Dispatcher インスタンスをアップグレードすると、最新バージョンを使用して製品とセキュリティの機能強化を利用できます。詳しくは、[Dispatcher のインストール](dispatcher-install.md)を参照してください。
 
 >[!NOTE]
 >
->Dispatcher ログファイルを確認して、インストールされている Dispatcher の現在のバージョンを確認します。
+>Dispatcher のログファイルを見て、インストールされている Dispatcher の現在のバージョンを確認します。
 >
 >`[Thu Apr 30 17:30:49 2015] [I] [23171(140735307338496)] Dispatcher initialized (build 4.1.9)`
 >
->ログファイルを探すには、で Dispatcher 設定を調べます `httpd.conf`.
+>ログファイルを見つけるには、`httpd.conf` の Dispatcher 設定を調べます。
 
 ## キャッシュをフラッシュできるクライアントの制限 {#restrict-clients-that-can-flush-your-cache}
 
@@ -54,7 +54,7 @@ Adobeでは、実稼動環境に移行する前に、次のチェックリスト
 
 ## トランスポート層のセキュリティ用に HTTPS を有効にする {#enable-https-for-transport-layer-security}
 
-Adobeでは、オーサーインスタンスとパブリッシュインスタンスの両方で HTTPS トランスポートレイヤーを有効にすることをお勧めします。
+アドビでは、オーサーインスタンスとパブリッシュインスタンスの両方で HTTPS トランスポート層を有効にすることをお勧めします。
 
 <!-- 
 
@@ -75,23 +75,23 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## アクセスの制限 {#restrict-access}
 
-Dispatcher を設定する際は、外部アクセスをできるだけ制限します。 Dispatcher に関するドキュメントの[サンプルの /filter セクション](dispatcher-configuration.md#main-pars_184_1_title)を参照してください。
+Dispatcher の設定時に、できる限り外部アクセスを制限します。Dispatcher に関するドキュメントの[サンプルの /filter セクション](dispatcher-configuration.md#main-pars_184_1_title)を参照してください。
 
 ## 管理 URL へのアクセスの拒否 {#make-sure-access-to-administrative-urls-is-denied}
 
-フィルターを使用して、Web コンソールなどすべての管理 URL への外部アクセスを確実にブロックします。
+フィルターを使用して、web コンソールなどすべての管理 URL への外部アクセスを確実にブロックします。
 
-参照： [Dispatcher セキュリティのテスト](dispatcher-configuration.md#testing-dispatcher-security) （ブロックする必要がある URL のリスト）。
+ブロックする必要がある URL のリストについて詳しくは、[Dispatcher のセキュリティのテスト](dispatcher-configuration.md#testing-dispatcher-security)を参照してください。
 
 ## ブロックリストの代わりに許可リストを使用 {#use-allowlists-instead-of-blocklists}
 
-アクセスを制御する方法としては、許可リストのほうが優れています。許可リストは、明示的に許可リストに含まれているもの以外はすべてのアクセス要求を拒否するからです。このモデルを使用すると、特定の設定段階でレビューまたは考慮されていない可能性のある新しい要求を、より制限が厳しく制御できます。
+アクセスを制御する方法としては、許可リストのほうが優れています。許可リストは、明示的に許可リストに含まれているもの以外はすべてのアクセス要求を拒否するからです。このモデルでは、未確認だったり、特定の設定ステージで考慮されていなかった可能性がある新しい要求に対して、より厳しい制御を提供します。
 
 ## 専用システムユーザーでの Dispatcher の実行 {#run-dispatcher-with-a-dedicated-system-user}
 
-Dispatcher を設定する場合は、権限が最小限の専用ユーザーで web サーバーが実行されていることを確認する必要があります。 Dispatcher キャッシュフォルダーへの書き込みアクセス権のみを付与することをお勧めします。
+Dispatcher の設定時に、最低限の権限を持つ専用ユーザーによって web サーバーが実行されていることを確認します。Dispatcher のキャッシュフォルダーへの書き込みアクセス権のみを付与することをお勧めします。
 
-また、IIS ユーザーは、次のように Web サイトを設定する必要があります。
+また、IIS ユーザーは、web サイトを次のように設定する必要があります。
 
 1. Web サイトの物理パス設定で、「**特定のユーザーとして接続**」を選択します。
 1. ユーザーを設定します。
@@ -100,11 +100,11 @@ Dispatcher を設定する場合は、権限が最小限の専用ユーザーで
 
 サービス拒否（DoS）攻撃は、対象となるユーザーがコンピューターリソースを使用できない状態にするものです。
 
-Dispatcher レベルでは、次のものがあります [dos 攻撃を防ぐための 2 つの設定方法](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/configure-aem-dispatcher-to-prevent-dos-attacks-aem-community/m-p/447780).
+Dispatcher レベルでは、[DoS 攻撃を防御するように設定する方法は 2 つ](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/configure-aem-dispatcher-to-prevent-dos-attacks-aem-community/m-p/447780?profile.language=ja)あります。
 
 * mod_rewrite モジュール（[Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html) など）を使用し、URL 検証を実行します（URL パターン規則がそれほど複雑ではない場合）。
 
-* を使用して、Dispatcher が誤った拡張子を持つ URL をキャッシュしないようにします。 [フィルター](dispatcher-configuration.md#configuring-access-to-conten-tfilter).\
+* [フィルター](dispatcher-configuration.md#configuring-access-to-conten-tfilter)を使用することで、疑わしい拡張子を持つ URL を Dispatcher がキャッシングするのを阻止します。\
   例えば、キャッシング規則を変更して、以下のような mime タイプのみをキャッシングするよう制限します。
 
    * `.html`
@@ -130,7 +130,7 @@ Dispatcher レベルでは、次のものがあります [dos 攻撃を防ぐた
 * `/etc/segmentation.segment.js`
 * `/libs/cq/personalization/components/clickstreamcloud/content/config.json`
 * `/libs/wcm/stats/tracker.js`
-* `/libs/cq/personalization/*` （JS、CSS、JSON）
+* `/libs/cq/personalization/*`（JS、CSS および JSON）
 * `/libs/cq/security/userinfo.json` （CQ ユーザー情報）
 * `/libs/granite/security/currentuser.json`（**データをキャッシュしてはいけません**）
 
@@ -148,9 +148,9 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## CSRF 攻撃を防止するための Dispatcher の設定 {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM には、クロスサイトリクエストフォージェリ攻撃を防ぐことを目的とした[フレームワーク](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)があります。このフレームワークを適切に使用するには、Dispatcher で CSRF トークンのサポートを許可リストに加えるする必要があります。
+AEM には、クロスサイトリクエストフォージェリ攻撃を防ぐことを目的とした[フレームワーク](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)があります。このフレームワークを適切に利用するには、Dispatcher で CSRF トークンサポートを許可リストに加える必要があります。
 <!-- OLD URL ABOVE USED TO BE https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps -->
-これは、次の手順で実現できます。
+これを行うには、次の手順に従います。
 
 1. `/libs/granite/csrf/token.json` パスを許可するフィルターを作成する。
 1. Dispatcher 設定の `clientheaders` セクションに `CSRF-Token` ヘッダーを追加する。
@@ -163,4 +163,4 @@ AEM には、クロスサイトリクエストフォージェリ攻撃を防ぐ�
 
 ## 侵入テストの実施 {#perform-a-penetration-test}
 
-Adobeでは、実稼動環境に移行する前に、AEM インフラストラクチャの侵入テストを実施することをお勧めします。
+アドビでは、実稼動に移行する前に、AEM インフラストラクチャの侵入テストを実施することをお勧めします。

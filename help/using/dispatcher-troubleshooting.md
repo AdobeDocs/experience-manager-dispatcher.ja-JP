@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '538'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
@@ -26,7 +26,7 @@ ht-degree: 96%
 
 >[!NOTE]
 >
->を確認します [Dispatcher ナレッジベース](https://helpx.adobe.com/jp/experience-manager/kb/index/dispatcher.html?lang=ja), [Dispatcher のフラッシュに関する問題のトラブルシューティング](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])、および [Dispatcher に関するよくある問題](dispatcher-faq.md) を参照してください。
+>詳しくは、[Dispatcher ナレッジベース](https://helpx.adobe.com/jp/experience-manager/kb/index/dispatcher.html?lang=ja)、[Dispatcher のフラッシュ問題のトラブルシューティング](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])および [Dispatcher に関する主な問題とよくある質問](dispatcher-faq.md)を参照してください。
 
 ## 基本設定の確認 {#check-the-basic-configuration}
 

@@ -10,15 +10,15 @@ internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1302'
-ht-degree: 90%
+ht-degree: 100%
 
 ---
 
 # Dispatcher での SSL の使用 {#using-ssl-with-dispatcher}
 
-Dispatcher とレンダリングコンピューター間の SSL 接続を使用します。
+Dispatcher とレンダリングコンピューター間には次の SSL 接続を使用します。
 
 * [一方向 SSL](#use-ssl-when-dispatcher-connects-to-aem)
 * [相互 SSL](#configuring-mutual-ssl-between-dispatcher-and-aem)
@@ -129,14 +129,14 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
 相互 SSL を設定するには、次の手順を実行します。
 
-1. 使用するプラットフォームに適した最新バージョンの Dispatcher を[インストール](dispatcher-install.md)します。SSL をサポートする Dispatcher バイナリを使用します（SSL は、ファイル名に含まれます）。例： `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`）に設定します。
+1. 使用するプラットフォームに適した最新バージョンの Dispatcher を[インストール](dispatcher-install.md)します。SSL をサポートしている Dispatcher バイナリを使用してください（SSL はファイル名に含まれています。例：`dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`）。
 1. Dispatcher およびレンダーインスタンス用に [CA 署名済みの証明書を作成または取得](dispatcher-ssl.md#main-pars-title-3)します。
 1. [レンダーの証明書を格納したキーストアを作成](dispatcher-ssl.md#main-pars-title-6)し、レンダーの HTTP サービスを設定します。
 1. 相互 SSL 用に [Dispatcher の Web サーバーモジュールを設定](dispatcher-ssl.md#main-pars-title-4)します。
 
 ### CA 署名済み証明書の作成または取得 {#creating-or-obtaining-ca-signed-certificates}
 
-公開インスタンスと Dispatcher を認証する CA 署名証明書を作成または取得します。
+パブリッシュインスタンスと Dispatcher を認証する CA 署名済みの証明書を作成または取得します。
 
 #### CA の作成 {#creating-your-ca}
 
@@ -157,10 +157,10 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
 OpenSSL を使用して証明書要求を作成し、サードパーティ CA に送信するか、自身の CA によって署名します。
 
-証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。レンダリングインスタンスの証明書を受け入れるように Dispatcher を設定する場合は、インスタンスコンピューターのホスト名を共通名として使用します。 パブリッシュインスタンスのホスト名と一致する場合にのみ実行してください。 を参照してください。 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティ。
+証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。レンダーインスタンスの証明書については、証明書を受け入れるように Dispatcher を設定する場合、インスタンスコンピューターのホスト名を Common Name として使用します。これは、証明書がパブリッシュインスタンスのホスト名と一致する場合にのみ実行してください。[DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティを参照してください。
 
 1. ターミナルを開き、現在のディレクトリを OpenSSL ライブラリの CH.sh ファイルを含むディレクトリに変更します。
-1. 次のコマンドを入力し、プロンプトが表示されたら値を指定します。必要に応じて、パブリッシュインスタンスのホスト名を共通名として使用します。 ホスト名は、レンダーの IP アドレスに対して DNS 解決可能な名前です。
+1. 次のコマンドを入力し、プロンプトが表示されたら値を指定します。必要に応じて、パブリッシュインスタンスのホスト名を Common Name として使用します。ホスト名は、レンダーの IP アドレスに対して DNS 解決可能な名前です。
 
    ```shell
    ./CA.sh -newreq
@@ -174,7 +174,7 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
    ./CA.sh -sign
    ```
 
-   `newcert.pem` と `newkey.pem` という名前の 2 つのファイルが、CA 管理ファイルを含むディレクトリに作成されます。これら 2 つのファイルは、それぞれレンダリング コンピュータの公開証明書と秘密キーです。
+   `newcert.pem` と `newkey.pem` という名前の 2 つのファイルが、CA 管理ファイルを含むディレクトリに作成されます。この 2 つのファイルは、それぞれレンダリングコンピューターの公開証明書と秘密鍵です。
 
 1. `newcert.pem` の名前を `rendercert.pem` に変更し、`newkey.pem` の名前を `renderkey.pem` に変更します。
 1. 手順 2 と 3 を繰り返して、Dispatcher モジュール用の証明書と公開鍵を作成します。必ず Dispatcher インスタンスに固有の Common Name を使用してください。
@@ -247,7 +247,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 #### レンダーインスタンスの設定 {#configuring-the-render-instance}
 
-SSL を使用するようにレンダリングインスタンスの HTTP サービスを設定するには、内の手順と共にレンダリング証明書を使用します *`Enable SSL on the Publish Instance`* セクション：
+SSL を使用するようにレンダーインスタンスの HTTP サービスを設定するには、「*`Enable SSL on the Publish Instance`*」セクションの指示に従ってレンダー証明書を使用します。
 
 * AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
 * AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)

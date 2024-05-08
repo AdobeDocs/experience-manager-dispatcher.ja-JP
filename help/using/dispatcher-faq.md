@@ -1,11 +1,11 @@
 ---
-title: Dispatcher に関するよくある問題
-description: Adobe Experience Manager Dispatcher の主な問題。
+title: Dispatcher に関する主な問題
+description: Adobe Experience Manager Dispatcher に関する主な問題
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1542'
-ht-degree: 89%
+ht-degree: 100%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 89%
 
 ### Dispatcher とは？
 
-Dispatcher は、Adobe Experience Managerのキャッシングおよびロードバランシングツールで、高速で動的な Web オーサリング環境を実現するのに役立ちます。キャッシュの場合、Dispatcher は Apache などの HTTP サーバーの一部として機能します。これは、静的な web サイトのコンテンツをできるだけ多く保存（または「キャッシュ」）し、web サイトのエンジンのレイアウトにできるだけ頻繁にアクセスすることを目的としています。 ロードバランシングの役割では、Dispatcher はさまざまな AEM インスタンス（レンダー）間でユーザーリクエスト（読み込み）を分散します。
+Dispatcher は、Adobe Experience Managerのキャッシングおよびロードバランシングツールで、高速で動的な Web オーサリング環境を実現するのに役立ちます。キャッシュの場合、Dispatcher は Apache などの HTTP サーバーの一部として機能します。これは、静的 web サイトのコンテンツをできるだけ多く保存（または「キャッシュ」）し、web サイトのエンジンのレイアウトへのアクセス頻度をできるだけ少なくすることを目的としています。ロードバランシングの役割では、Dispatcher はさまざまな AEM インスタンス（レンダー）間でユーザーリクエスト（読み込み）を分散します。
 
 キャッシュ時、Dispatcher モジュールでは Web サーバーの静的コンテンツ提供機能を使用します。キャッシュされたドキュメントは、Dispatcher によって Web サーバーのドキュメントルートに配置されます。
 
@@ -80,9 +80,9 @@ Dispatcher の[インストール](dispatcher-install.md)ページを参照し�
 
 ### Dispatcher とAEM パブリッシュインスタンスは同じ物理マシンに配置できますか？
 
-マシンの性能が十分でれば可能です。ただし、Dispatcher とAEM パブリッシュインスタンスは別のコンピューターで設定する必要があります。
+マシンの性能が十分でれば可能です。ただし、異なるコンピューター上に Dispatcher と AEM パブリッシュインスタンスを設定することをお勧めします。
 
-通常、パブリッシングインスタンスはファイアウォール内に存在し、Dispatcher は DMZ 内に存在します。 パブリッシュインスタンスと Dispatcher の両方を同じ物理マシン上に配置する場合は、ファイアウォール設定で、外部ネットワークからパブリッシュインスタンスへの直接アクセスが禁止されていることを確認します。
+通常、パブリッシュインスタンスはファイアウォールの内側に存在し、Dispatcher は DMZ に存在します。同じ物理マシンにパブリッシュインスタンスと Dispatcher の両方を配置する場合は、必ずファイアウォールの設定で外部ネットワークからパブリッシュインスタンスへの直接アクセスを禁止します。
 
 ### 特定の拡張子を持つファイルのみキャッシュできますか？
 
@@ -115,7 +115,7 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### Dispatcher インスタンスと CQ インスタンス間の通信を保護する方法を教えてください。
 
-[Dispatcher セキュリティチェックリスト](security-checklist.md)ページおよび [AEM セキュリティチェックリスト](https://experienceleague.adobe.com/en/docs/experience-manager-64/administering/security/security-checklist)ページを参照してください。
+[Dispatcher セキュリティチェックリスト](security-checklist.md)ページおよび [AEM セキュリティチェックリスト](https://experienceleague.adobe.com/ja/docs/experience-manager-64/administering/security/security-checklist)ページを参照してください。
 
 ### Dispatcher の問題：`jcr:content` が `jcr%3acontent` に変更される
 
@@ -129,7 +129,7 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### パブリッシュインスタンスで Dispatcher フラッシュエージェントを設定する方法を教えてください。
 
-[レプリケーション](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents)ページを参照してください。
+[レプリケーション](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents)ページを参照してください。
 
 ### Dispatcher のフラッシュ問題のトラブルシューティング方法を教えてください。
 
@@ -139,7 +139,7 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### Dispatcher キャッシュから DAM アセットをフラッシュする方法を教えてください。
 
-「チェーンレプリケーション」機能を使用できます。この機能を有効にすると、オーサーからレプリケーションを受信したときに、Dispatcher のフラッシュエージェントがフラッシュリクエストを送信します。
+「チェーンレプリケーション」機能を使用できます。この機能を有効にすると、オーサーから複製を受信したとき、Dispatcher フラッシュエージェントがフラッシュリクエストを送信します。
 
 有効にするには：
 
@@ -148,8 +148,8 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ## その他
 
-ドキュメントが最新かどうかを Dispatcher はどのように判断しますか？
-ドキュメントが最新かどうかを判断するには、Dispatcher が次のアクションを実行します。
+Dispatcher はドキュメントが最新かどうかをどう判断しますか？
+ドキュメントが最新かどうかを判断するために、Dispatcher は次の操作を実行します。
 
 ドキュメントが自動無効化の対象であるかどうかチェックします。そうでない場合、ドキュメントは最新と見なされます。
 ドキュメントが自動無効化の対象として設定されている場合、Dispatcher は最新の変更情報と比べてドキュメントが古いかどうかチェックします。ドキュメントが古い場合、Dispatcher は AEM インスタンスに最新バージョンを要求し、キャッシュ内のバージョンを置き換えます。

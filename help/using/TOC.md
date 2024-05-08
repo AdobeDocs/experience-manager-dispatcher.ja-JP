@@ -11,9 +11,9 @@ feature: Dispatcher
 topic: Administration
 role: Admin
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '78'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -28,7 +28,7 @@ ht-degree: 98%
 + 設定 {#configuring}
    + [Dispatcher の設定](dispatcher-configuration.md)
    + [AEM からのキャッシュされたページの無効化](page-invalidate.md)
-   + [Web サイトのキャッシュパフォーマンスの最適化](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [Web サイトのキャッシュパフォーマンスの最適化](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [セキュリティ保護されたコンテンツのキャッシュ](permissions-cache.md)
    + [複数ドメインでの Dispatcher の使用](dispatcher-domains.md)
    + [Dispatcher での SSL の使用](dispatcher-ssl.md)
