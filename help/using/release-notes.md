@@ -1,14 +1,14 @@
 ---
 title: AEM Dispatcher リリースノート
-description: Adobe Experience Manager Dispatcher のリリースノート
+description: Adobe Experience Manager Dispatcher 固有のリリースノート
 topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '1048'
-ht-degree: 100%
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+workflow-type: tm+mt
+source-wordcount: '1089'
+ht-degree: 79%
 
 ---
 
@@ -41,10 +41,10 @@ ht-degree: 100%
 
 **改善点**：
 
-* DISP-1009 - ヘッダー長を再度設定。
-* DISP-1013 - Linux® 用の openssl 3.0 サポートを追加。
-* DISP-1014 - response.location 処理により無効なリダイレクトが発生。
-* DISP-1017 - DTD 定義を変更
+* DISP-1009 - ヘッダー長を再度設定
+* DISP-1013 - Linux® 用の Openssl 3.0 のサポートを追加
+* DISP-1014 - response.location 処理により無効なリダイレクトが発生
+* DISP-1017 - DTD 定義の変更
 
 ### リリース 4.3.6（2023年7月25日）（PT） {#jyly}
 
@@ -59,7 +59,7 @@ ht-degree: 100%
 **改善点**：
 
 * DISP-954 - 有効期限が過ぎていない場合でも無効化をサポート
-* DISP-949 - フィルターによって POST 要求がブロックされている場合でも、Dispatcher が 404 ではなく 200 を返す
+* DISP-949 - フィルターがPOSTーリクエストをブロックする場合でも、Dispatcher は 404 ではなく 200 を返す
 
 ### リリース 4.3.4（2021年11月29日）（PT） {#nov}
 
@@ -70,17 +70,17 @@ ht-degree: 100%
 
 **改善点**：
 
-* DISP-874 - `DispatcherRestrictUncacheableContent` フラグを使用して、DISP-818 の実装をオンまたはオフにする Dispatcher 設定を作成する。デフォルト値はオフです。オンにすると、キャッシュできないコンテンツに対して mod 期限切れによって設定されたキャッシュヘッダーが削除されます。これは、バージョン 4.3.3（デフォルトはオン）の動作とは異なりますが、4.3.3 より前のバージョン（デフォルトはオフ）と同じです。ブラウザーのキャッシュの柔軟性を高めるため、`DispatcherRestrictUncacheableContent` のデフォルトをオフのままにすることをお勧めします。バージョン 4.3.3 から 4.3.4 にアップグレードする際に、バージョン 4.3.3 と同じ動作を保持する場合は、`DispatcherRestrictUncacheableContent` を明示的にオンに設定する必要があります。
+* DISP-874 - `DispatcherRestrictUncacheableContent` フラグを使用して、DISP-818 の実装をオンまたはオフにする Dispatcher 設定を作成する。デフォルト値はオフです。オンにすると、キャッシュできないコンテンツに対して mod 期限切れによって設定されたキャッシュヘッダーが削除されます。この設定は、バージョン 4.3.3 （デフォルトはオン）の動作とは異なりますが、4.3.3 より前のバージョン（デフォルトはオフ）の動作と同じです。 ブラウザーのキャッシュの柔軟性を高めるため、`DispatcherRestrictUncacheableContent` のデフォルトをオフのままにすることをお勧めします。バージョン 4.3.3 から 4.3.4 にアップグレードするときに、バージョン 4.3.3 と同じ動作を維持するには、を明示的に設定する必要があります `DispatcherRestrictUncacheableContent` をオンにします。
 * DISP-841 - Dispatcher が 504 応答コードの /serverStaleOnError を考慮しない
 * DISP-874 - DISP-818 の実装をオンまたはオフにする Dispatcher 設定を作成する
 * DISP-883 - Dispatcher での URL リクエストの分解を示すトレース
-* DISP-944 - バニティ URL をプリロード
+* DISP-944 - バニティ URL のプリロード
 
 ### リリース 4.3.3（2019年10月18日）（PT） {#october}
 
 **バグ修正**：
 
-* DISP-739 - LogLevel Dispatcher：**レベル**&#x200B;が機能しない
+* DISP-739 - ログレベル Dispatcher: **レベル** 動作しない
 * DISP-749 - Alpine Linux® Dispatcher がトレースログレベルでクラッシュする
 
 **改善点**：
@@ -91,8 +91,8 @@ ht-degree: 100%
 * DISP-821 - ソケットにログコンテキストを保存しない
 * DISP-822 - Dispatcher は `pselect` の代わりに `ppoll` を使用する必要がある
 * DISP-824 - セキュアな DispatcherUseForwardedHost
-* DISP-825 - ディスクに空き容量がなくなった場合の特殊メッセージをログに記録する
-* DISP-826 - クエリ文字列を使用した URI の再取得をサポートする
+* DISP-825 - ディスクに空き領域がない場合に特別なメッセージをログに記録します
+* DISP-826 - クエリ文字列でリフェッチ URI をサポートします。
 
 **新機能**：
 
@@ -107,7 +107,7 @@ ht-degree: 100%
 * DISP-734 - ハンドラーとして設定されていない場合、Dispatcher が insert_output_filter でクラッシュする
 * DISP-735 - Alpine Linux® で RE が機能しない
 * DISP-740 - macOS Mojave での Dispatcher の読み込みがデフォルトで無効になっている
-* DISP-742 - ブロックされたリクエストによって、Auth Checker で保護されたリソースに情報が漏洩する可能性がある
+* DISP-742 - ブロックされたリクエストによって Auth Checker で保護されたリソースに情報が漏洩する場合がある
 
 **改善点**：
 
@@ -115,7 +115,7 @@ ht-degree: 100%
 
 **新機能**:
 
-* DISP-747 - Apache 環境で要求の情報を提供
+* DISP-747 - Apache 環境でリクエスト情報を指定する
 
 ### リリース 4.3.1（2018年10月16日）（PT） {#oct}
 
@@ -123,16 +123,16 @@ ht-degree: 100%
 
 * DISP-656 - Dispatcher により誤った ETag ヘッダーが提供される
 * DISP-694 - キープアライブ接続が古くなった場合に警告が表示されない
-* DISP-714 - Cookie ベースのセッション管理は IIS で機能しない
+* DISP-714 - Cookie ベースのセッション管理が IIS で機能しない
 * DISP-715 - RenderID cookie の Secure フラグ
 * DISP-720 - 一時ファイルが閉じられていないため、システムに極端な負荷がかかる可能性がある（開いているファイルが多すぎる）
 * DISP-721 - Apache が正常に子プロセスを再起動したとき、Dispatcher が poll() を中断する
 * DESP-722 - キャッシュファイルが 8 進数モード 0600 で作成される
 * DISP-723 - レンダリングタイムアウトが 0 に設定されている場合の暗黙的な 10 分のタイムアウト（および再試行）
-* DISP-725 - 文字列後の末尾の文字が名称未設定の値に変換される
+* DISP-725 – 文字列の後の末尾の文字は、名前のない値にサイレントに変換されます
 * DISP-726 - ファームが受信ホストと一致していない場合に警告が記録される
 * DESP-727 - Dispatcher が空のキャッシュファイルのコンテンツの長さのリクエストをチェックする
-* DISP-730 - Dispatcher を介してヘッダーファイルにアクセスしようとしたときに 404 が発生する
+* Dispatcher 経由でヘッダーファイルにアクセスしようとすると、DISP-730 - 404 が発生する
 * DISSP-731 - Dispatcher がログインジェクションに対して脆弱性を持つ
 * DISSP-732 - Dispatcher は、URL内の連続した「/」を削除する必要がある
 * DISP-733 - Dispatcher は、Age ヘッダーを設定（計算）する必要がある
@@ -150,17 +150,17 @@ ht-degree: 100%
 **バグ修正**:
 
 * DISP-682 - 数値ログレベルが誤って適用される
-* DISSP-685 - 32 ビット Solaris™ SPARC® バイナリでは __divdi3 への未定義の参照がある
+* DISP-685 - 32 ビット Solaris™ SPARC® バイナリには、__divdi3 への未定義の参照があります
 * DISSP-688 - Dispatcher が 404 応答で「X- Cache- Info」ヘッダーを返さない
 * DISP-690 - Last- Modified ヘッダーがキャッシュできない
 * DISP-691 - w3wp. exe でのアクセス違反
-* DISP-693 - Dispatcher ダウンロードページ上の Solaris™ サーバーのアーキテクチャ詳細をアップデート
+* DISP-693 - Dispatcher ダウンロードページで Solaris™ サーバーのアーキテクチャの詳細を更新する必要がある
 * DISP-695 - Dispatcher モジュール 4.2.3 の DispatcherLog レベルに関する問題
-* DISP-698 - Dispatcher TTL は、s- maxage および private ディレクティブをサポートする必要がある
+* DISP-698 - Dispatcher TTLは、s- maxageおよび private ディレクティブをサポートする必要がある
 * DISP-700 - Alpine Linux® でモジュールが正しく機能しない
 * DISP-704 - %2b を含むブラウザーリクエストが、エンコードされていない状態でパブリッシャーに送信される
-* DISP-705 - 二重の空きまたは破損（`fasttop`）により Dispatcher がクラッシュする。
-* DISP-706 - 無効化中、Dispatcher が逆参照シンボリックリンクをたどるため無限ループが発生する可能性がある
+* DISP-705 - 二重の空きまたは破損（fasttop）により Dispatcher がクラッシュする。
+* DISP-706 – 無効化中、Dispatcher は、無限ループを引き起こす可能性のある後方参照シンボリックリンクをフォローしています
 * DISP-709 - 一部のバニティー URL 拡張のブロック
 * Disp-710- Cent OS 6 では使用できない Linux® 向けのビルド
 
@@ -178,20 +178,20 @@ ht-degree: 100%
 
 | プラットフォーム | アーキテクチャ | OpenSSL のサポート | クリックしてダウンロード |
 |---|---|---|---|
-| Linux® | i686（32 ビット） | なし | [`dispatcher-apache2.4-linux-i686-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.7.tar.gz) |
-| Linux® | i686（32 ビット） | 1.0 | [`dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz) |
-| Linux® | i686（32 ビット） | 1.1 | [`dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz) |
-| Linux® | i686（32 ビット） | 3.0 | [`dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz) |
-| Linux® | x86_64（64 ビット） | なし | [`dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz) |
-| Linux® | x86_64（64 ビット） | 1.0 | [`dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz) |
-| Linux® | x86_64（64 ビット） | 1.1 | [`dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz) |
-| Linux® | x86_64（64 ビット） | 3.0 | [`dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz) |
-| Linux® | aarch64（64 ビット） | なし | [`dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz) |
-| Linux® | aarch64（64 ビット） | 1.0 | [`dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz) |
-| Linux® | aarch64（64 ビット） | 1.1 | [`dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz) |
-| Linux® | aarch64（64 ビット） | 3.0 | [`dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz) |
-| macOS | arm64（64 ビット） | なし | [`dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz) |
-| macOS | x86_64（64 ビット） | なし | [`dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz`](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz) |
+| Linux® | i686（32 ビット） | なし | [dispatcher-apache2.4-linux-i686-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.7.tar.gz) |
+| Linux® | i686（32 ビット） | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz) |
+| Linux® | i686（32 ビット） | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz) |
+| Linux® | i686（32 ビット） | 3.0 | [dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz) |
+| Linux® | x86_64（64 ビット） | なし | [dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz) |
+| Linux® | x86_64（64 ビット） | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz) |
+| Linux® | x86_64（64 ビット） | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz) |
+| Linux® | x86_64（64 ビット） | 3.0 | [dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz) |
+| Linux® | aarch64（64 ビット） | なし | [dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz) |
+| Linux® | aarch64（64 ビット） | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz) |
+| Linux® | aarch64（64 ビット） | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz) |
+| Linux® | aarch64（64 ビット） | 3.0 | [dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz) |
+| macOS | arm64（64 ビット） | なし | [dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz) |
+| macOS | x86_64（64 ビット） | なし | [dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz) |
 
 ### IIS {#iis}
 

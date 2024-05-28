@@ -10,10 +10,10 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '78'
-ht-degree: 100%
+source-git-commit: d8e224401e5ab041bb297b99a99c71a69ca6deac
+workflow-type: tm+mt
+source-wordcount: '83'
+ht-degree: 73%
 
 ---
 
@@ -26,13 +26,13 @@ ht-degree: 100%
    + [Dispatcher のセキュリティチェックリスト](security-checklist.md)
    + [AEM Dispatcher リリースノート](release-notes.md)
 + 設定 {#configuring}
-   + [Dispatcher の設定](dispatcher-configuration.md)
+   + [AEM Dispatcher の設定](dispatcher-configuration.md)
    + [AEM からのキャッシュされたページの無効化](page-invalidate.md)
    + [Web サイトのキャッシュパフォーマンスの最適化](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [セキュリティ保護されたコンテンツのキャッシュ](permissions-cache.md)
-   + [複数ドメインでの Dispatcher の使用](dispatcher-domains.md)
-   + [Dispatcher での SSL の使用](dispatcher-ssl.md)
-   + [CSRF 攻撃を防止するための Dispatcher の設定](configuring-dispatcher-to-prevent-csrf.md)
+   + [複数のドメインでのAEM Dispatcher の使用](dispatcher-domains.md)
+   + [AEM Dispatcher での SSL の使用](dispatcher-ssl.md)
+   + [CSRF 攻撃を防ぐためのAEM Dispatcher の設定](configuring-dispatcher-to-prevent-csrf.md)
 + トラブルシューティング {#troubleshooting}
    + [Dispatcher に関する問題のトラブルシューティング](dispatcher-troubleshooting.md)
    + [Dispatcher に関する主な問題とよくある質問](dispatcher-faq.md)

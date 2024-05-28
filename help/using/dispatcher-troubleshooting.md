@@ -9,10 +9,10 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '538'
-ht-degree: 100%
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+workflow-type: tm+mt
+source-wordcount: '539'
+ht-degree: 90%
 
 ---
 
@@ -20,9 +20,9 @@ ht-degree: 100%
 
 >[!NOTE]
 >
->Dispatcher のバージョンは AEM とは無関係ですが、Dispatcher のドキュメントは AEM のドキュメントに組み込まれています。最新バージョンの AEM のドキュメントに組み込まれている Dispatcher のドキュメントを必ず使用してください。
+>Dispatcher のバージョンは AEM とは無関係です。ただし、Dispatcher のドキュメントは、AEMのドキュメントに組み込まれています。 最新バージョンの AEM のドキュメントに組み込まれている Dispatcher のドキュメントを必ず使用してください。
 >
->以前のバージョンの AEM のドキュメントに組み込まれている Dispatcher ドキュメントへのリンクをたどると、このページにリダイレクトされる可能性があります。
+>Dispatcher のドキュメントへのリンクをたどった場合は、このページにリダイレクトされている可能性があります。 このリンクは、以前のバージョンのAEMのドキュメントに埋め込まれています。
 
 >[!NOTE]
 >
@@ -30,7 +30,7 @@ ht-degree: 100%
 
 ## 基本設定の確認 {#check-the-basic-configuration}
 
-通常どおり、基本事項を確認することが最初の手順です。
+通常どおり、最初の手順は基本を確認することです。
 
 * [基本操作の確認](/help/using/dispatcher-configuration.md#confirming-basic-operation)
 * Web サーバーおよび Dispatcher のログファイルをすべて確認します。必要に応じて、Dispatcher の[ログ](/help/using/dispatcher-configuration.md#logging)に使用する `loglevel` を増やします。
@@ -78,7 +78,7 @@ Dispatcher 経由で AEM のオーサーインスタンスへのアクセス時�
 
 1. 「**はい**」をクリックして確定します。
 1. 次のメッセージを示すエラーメッセージボックスが表示されます。\
-   「`ERROR 'Could not delete workflow model!!`」。
+   `ERROR 'Could not delete workflow model!!`.
 
 **解決方法**
 
