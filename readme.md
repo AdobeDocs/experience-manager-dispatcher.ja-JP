@@ -1,13 +1,13 @@
 ---
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '72'
-ht-degree: 100%
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+workflow-type: tm+mt
+source-wordcount: '70'
+ht-degree: 88%
 
 ---
-# Adobe Experience Manager Dispatcher のドキュメント
+# Adobe Experience Manager パターン検出
 
-これは、Adobe Experience Manager Dispatcher のドキュメントのリポジトリです。
+Adobe Experience Managerのパターン検出用のリポジトリーです。
 
 ドキュメントに関するご意見やご提案をお寄せください。次のリソースを参照してください。
 

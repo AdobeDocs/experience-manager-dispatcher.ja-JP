@@ -10,10 +10,10 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: d8e224401e5ab041bb297b99a99c71a69ca6deac
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '83'
-ht-degree: 73%
+source-wordcount: '82'
+ht-degree: 78%
 
 ---
 
@@ -26,7 +26,7 @@ ht-degree: 73%
    + [Dispatcher のセキュリティチェックリスト](security-checklist.md)
    + [AEM Dispatcher リリースノート](release-notes.md)
 + 設定 {#configuring}
-   + [AEM Dispatcher の設定](dispatcher-configuration.md)
+   + [Dispatcher の設定](dispatcher-configuration.md)
    + [AEM からのキャッシュされたページの無効化](page-invalidate.md)
    + [Web サイトのキャッシュパフォーマンスの最適化](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [セキュリティ保護されたコンテンツのキャッシュ](permissions-cache.md)

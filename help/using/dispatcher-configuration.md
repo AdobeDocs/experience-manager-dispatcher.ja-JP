@@ -1,10 +1,10 @@
 ---
 title: AEM Dispatcher の設定
-description: AEM Dispatcher の設定方法を説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
+description: Dispatcher の設定方法を説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0189feaf345495ba2f992d91eccf5690ec7581ce
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '8898'
+source-wordcount: '8876'
 ht-degree: 82%
 
 ---
@@ -25,7 +25,7 @@ AEM と Dispatcher のすべての要素は、IPv4 と IPv6 の両方のネッ�
 
 デフォルトでは、Dispatcher の設定は `dispatcher.any` テキストファイルに格納されますが、インストール時にこのファイルの名前と場所を変更することができます。
 
-設定ファイルには、AEM Dispatcher の動作を制御する、一連の単一値または複数値のプロパティが含まれています。
+設定ファイルには、Dispatcher の動作を制御する、単一の値または複数の値を持つ一連のプロパティが含まれています。
 
 * プロパティ名の前にはフォワードスラッシュ（「`/`」）が付きます。
 * 複数値プロパティは、中括弧（「`{ }`」）を使用して子アイテムを囲みます。
@@ -152,7 +152,7 @@ Dispatcher インスタンスを識別する一意の名前を指定するには
 
 `/farms` プロパティは、1 つまたは複数の Dispatcher の動作セットを定義します。各セットは、異なる Web サイトまたは URL に関連付けられます。`/farms` プロパティには、1 つまたは複数のファームを含めることができます。
 
-* AEM Dispatcher ですべての web ページまたは web サイトを同じ方法で処理する場合は、1 つのファームを使用します。
+* Dispatcher ですべての web ページまたは web サイトを同じ方法で処理する場合は、単一のファームを使用します。
 * Web サイトの異なる領域または異なる web サイトに異なる Dispatcher 動作が必要な場合は、複数のファームを作成します。
 
 `/farms` プロパティは、設定構造の最上位プロパティです。ファームを定義するには、`/farms` プロパティに子プロパティを追加します。Dispatcher インスタンス内でファームを一意に識別するプロパティ名を使用してください。
@@ -197,7 +197,7 @@ Dispatcher インスタンスを識別する一意の名前を指定するには
 | [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | このファームの仮想ホスト。 |
 | [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | セッション管理および認証のサポート。 |
 | [/renders](#defining-page-renderers-renders) | レンダリングされたページを提供するサーバー（一般的には AEM パブリッシュインスタンス）。 |
-| [/filter](#configuring-access-to-content-filter) | AEM Dispatcher がアクセスを有効にする URL を定義します。 |
+| [/filter](#configuring-access-to-content-filter) | Dispatcher がアクセスを有効にする URL を定義します。 |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | バニティー URL へのアクセスを設定します。 |
 | [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | シンジケーション要求の転送のサポート。 |
 | [/cache](#configuring-the-dispatcher-cache-cache) | キャッシュ動作を設定します。 |
@@ -259,7 +259,7 @@ Comment Type: draft
 
 `/clientheaders` プロパティでは、Dispatcher がクライアント HTTP 要求からレンダラー（AEM インスタンス）に渡す HTTP ヘッダーのリストを定義します。
 
-デフォルトでは、AEM Dispatcher は標準 HTTP ヘッダーをAEM インスタンスに転送します。 場合によっては、追加のヘッダーを転送したり、特定のヘッダーを削除したりする必要があります。
+デフォルトでは、Dispatcher は標準 HTTP ヘッダーをAEM インスタンスに転送します。 場合によっては、追加のヘッダーを転送したり、特定のヘッダーを削除したりする必要があります。
 
 * AEM インスタンスが HTTP リクエストで想定するヘッダー（カスタムヘッダーなど）を追加します。
 * ヘッダー（web サーバーに対してのみ重要な認証ヘッダーなど）を削除します。
@@ -455,7 +455,7 @@ Dispatcher は、以下の方法で最良一致の仮想ホスト値を探しま
 
 ## ページレンダラーの定義 {#defining-page-renderers-renders}
 
-この `/renders` プロパティは、ドキュメントをレンダリングするためのリクエストをAEM Dispatcher が送信する URL を定義します。 次の `/renders` セクションの例では、レンダリングのために単一の AEM インスタンスを識別しています。
+この `/renders` プロパティは、ドキュメントをレンダリングするリクエストを Dispatcher が送信する URL を定義します。 次の `/renders` セクションの例では、レンダリングのために単一の AEM インスタンスを識別しています。
 
 ```xml
 /renders
@@ -618,7 +618,7 @@ Dispatcher バージョン 4.2.0 以降では、フィルターパターンに P
 
 #### サンプルフィルター：すべて拒否 {#example-filter-deny-all}
 
-次のフィルターセクションの例では、AEM Dispatcher がすべてのファイルに対するリクエストを拒否します。 すべてのファイルへのアクセスを拒否してから、特定の領域へのアクセスを許可します。
+次のフィルターセクションの例では、Dispatcher がすべてのファイルに対するリクエストを拒否します。 すべてのファイルへのアクセスを拒否してから、特定の領域へのアクセスを許可します。
 
 ```xml
 /0001  { /type "deny" /url "*"  }
@@ -695,7 +695,7 @@ Dispatcher バージョン 4.2.0 以降では、フィルターパターンに P
 
 ### 例 `/filter` セクション {#example-filter-section}
 
-AEM Dispatcher を設定する場合は、外部アクセスをできるだけ制限します。 次の例では、外部の訪問者に最小限のアクセス権を付与します。
+Dispatcher の設定時に、できる限り外部アクセスを制限します。次の例では、外部の訪問者に最小限のアクセス権を付与します。
 
 * `/content`
 * デザインなどのその他のコンテンツおよびクライアントライブラリ。次に例を示します。
@@ -914,7 +914,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">The "com.adobe.granite.dispatcher.vanityurl.content" package needs to be made public before publishing this contnet.</p>
  -->
 
-AEM Dispatcher を設定して、AEM ページ用に設定されたバニティー URL へのアクセスを有効にします。
+AEM ページ用に設定されたバニティー URL へのアクセスを有効にするように Dispatcher を設定します。
 
 バニティ URL へのアクセスが有効になると、レンダーインスタンス上で実行されているサービスを Dispatcher が定期的に呼び出して、バニティ URL のリストを取得します。Dispatcher がこのリストをローカルファイルに保存します。ページの要求が `/filter` セクションのフィルターによって拒否されると、Dispatcher はバニティー URL のリストを調べます。拒否された URL がリストにある場合、Dispatcher はバニティー URL へのアクセスを許可します。
 
@@ -932,7 +932,7 @@ AEM Dispatcher を設定して、AEM ページ用に設定されたバニティ�
 
 * `/url`：レンダーインスタンス上で実行されているバニティー URL サービスへのパス。このプロパティの値は、`"/libs/granite/dispatcher/content/vanityUrls.html"` である必要があります。
 
-* `/file`：Dispatcher がバニティー URL のリストを保存するローカルファイルへのパス。AEM Dispatcher がこのファイルへの書き込みアクセス権を持っていることを確認します。
+* `/file`：Dispatcher がバニティー URL のリストを保存するローカルファイルへのパス。Dispatcher にこのファイルへの書き込みアクセス権があることを確認します。
 * `/delay`：バニティー URL サービスの呼び出し間隔（秒単位）。
 
 >[!NOTE]
@@ -1003,7 +1003,7 @@ AEM Dispatcher を設定して、AEM ページ用に設定されたバニティ�
 
 >[!NOTE]
 >
->AEM Dispatcher と web サーバーが同じファイルを処理できるように、値は web サーバーのドキュメントルートと同じパスにする必要があります。\
+>Dispatcher と web サーバーが同じファイルを処理できるように、値は web サーバーのドキュメントルートと同じパスにする必要があります。\
 >Dispatcher のキャッシュファイルが使用されると、web サーバーは適切なステータスコードを配信します。そのため、キャッシュファイルを見つけられることが重要になります。
 
 複数のファームを使用する場合は、ファームごとに異なるドキュメントルートを使用する必要があります。
@@ -1012,7 +1012,7 @@ AEM Dispatcher を設定して、AEM ページ用に設定されたバニティ�
 
 `/statfile` プロパティは、statfile として使用するファイルを識別します。Dispatcher は、このファイルを使用して、最も新しいコンテンツ更新時刻を登録します。statfile には、web サーバー上の任意のファイルを指定できます。
 
-statfile にはコンテンツがありません。コンテンツが更新されると、AEM Dispatcher はタイムスタンプを更新します。 デフォルトの statfile 名は `.stat` で、ドキュメントルートに保存されます。Dispatcher は、statfile へのアクセスをブロックします。
+statfile にはコンテンツがありません。コンテンツが更新されると、Dispatcher はタイムスタンプを更新します。 デフォルトの statfile 名は `.stat` で、ドキュメントルートに保存されます。Dispatcher は、statfile へのアクセスをブロックします。
 
 >[!NOTE]
 >
@@ -1020,9 +1020,9 @@ statfile にはコンテンツがありません。コンテンツが更新さ�
 
 ### エラー発生時の古くなったドキュメントの返送 {#serving-stale-documents-when-errors-occur}
 
-`/serveStaleOnError` プロパティは、レンダーサーバーがエラーを返した場合に Dispatcher が無効になったドキュメントを返すかどうかを制御します。デフォルトでは、statfile にアクセスすると、キャッシュされたコンテンツが無効になり、AEM Dispatcher によってキャッシュされたコンテンツが削除されます。 このアクションは、次回のリクエスト時に実行されます。
+`/serveStaleOnError` プロパティは、レンダーサーバーがエラーを返した場合に Dispatcher が無効になったドキュメントを返すかどうかを制御します。デフォルトでは、ステータスファイルにアクセスされ、キャッシュされたコンテンツが無効になると、Dispatcher はキャッシュされたコンテンツを削除します。 このアクションは、次回のリクエスト時に実行されます。
 
-次の場合 `/serveStaleOnError` はに設定されています。 `"1"`、Dispatcher は無効化されたコンテンツをキャッシュから削除しません。 つまり、レンダリングサーバーが正常な応答を返さない限り有効です。 AEMから 5xx 応答または接続タイムアウトがあると、AEM Dispatcher は古いコンテンツを提供し、で HTTP ステータス 111 （再検証に失敗しました）で応答します。
+次の場合 `/serveStaleOnError` はに設定されています。 `"1"`、Dispatcher は無効化されたコンテンツをキャッシュから削除しません。 つまり、レンダリングサーバーが正常な応答を返さない限り有効です。 AEMから 5xx 応答または接続タイムアウトが発生すると、Dispatcher が古いコンテンツを提供し、HTTP ステータス 111 （再検証に失敗しました）で応答します。
 
 ### 認証使用時のキャッシュ {#caching-when-authentication-is-used}
 
@@ -1349,7 +1349,7 @@ Glob プロパティについては、を参照してください。 [Glob プ�
 
 >[!NOTE]
 >
->AEM Dispatcher でAEMから ETag 応答ヘッダーを保存して配信する必要がある場合は、次の操作を行います。
+>Dispatcher でAEMから ETag 応答ヘッダーを保存して配信する必要がある場合は、次の操作を行います。
 >
 >* `/cache/headers` セクションにヘッダー名を追加します。
 >* Dispatcher 関連セクションに以下の [Apache ディレクティブ](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)を追加します。
@@ -1389,7 +1389,7 @@ Glob プロパティについては、を参照してください。 [Glob プ�
 Dispatcher 4.3.5 より前では、TTL 無効化ロジックは、設定された TTL 値のみに基づいていました。Dispatcher 4.3.5 では、設定された TTL と Dispatcher キャッシュ無効化ルールの&#x200B;**両方**&#x200B;が考慮されます。そのため、キャッシュされたファイルの場合は次のようになります。
 
 1. `/enableTTL` が 1 に設定されている場合、ファイルの有効期限がチェックされます。設定された TTL に従ってファイルの有効期限が切れた場合、他のチェックは実行されず、キャッシュされたファイルがバックエンドから再要求されます。
-2. ファイルの有効期限が切れていない場合、または `/enableTTL` が設定されていない場合、標準キャッシュ無効化ルール（例：）が適用されます [`/statfileslevel`](#invalidating-files-by-folder-level) および [`/invalidate`](#automatically-invalidating-cached-files) を設定。 このフローにより、AEM Dispatcher で TTL の有効期限が切れていないファイルを無効にすることができます。
+2. ファイルの有効期限が切れていない場合、または `/enableTTL` が設定されていない場合、標準キャッシュ無効化ルール（例：）が適用されます [`/statfileslevel`](#invalidating-files-by-folder-level) および [`/invalidate`](#automatically-invalidating-cached-files) を設定。 このフローは、TTL の有効期限が切れていないファイルを Dispatcher で無効にすることを意味します。
 
 この新しい実装では、ファイルの TTL が長いユースケース（CDN 上など）をサポートしています。 ただし、TTL の有効期限が切れていない場合でも、これらのファイルは引き続き無効化できます。 Dispatcher でのキャッシュヒット率よりもコンテンツの鮮度が優先されます。
 
@@ -1431,7 +1431,7 @@ Dispatcher は、最大 8 個の統計カテゴリをサポートしています
 
 **レンダーの選択**
 
-AEM Dispatcher では、レンダリングされたページが必要になるたびに、次のアルゴリズムを使用してレンダリングを選択します。
+Dispatcher では、レンダリングされたページが必要になるたびに、次のアルゴリズムを使用してレンダリングを選択します。
 
 1. 要求の `renderid` cookie にレンダー名が格納されている場合、Dispatcher はそのレンダーを使用します。
 1. 要求に `renderid` cookie が含まれていない場合、Dispatcher はレンダー統計を比較します。
@@ -1455,7 +1455,7 @@ AEM Dispatcher では、レンダリングされたページが必要になる�
 
 カテゴリ `name` は、ファームに対して一意である必要があります。`pattern` については、[glob プロパティのパターンのデザイン](#designing-patterns-for-glob-properties)のセクションで説明します。
 
-URI のカテゴリを判断するために、AEM Dispatcher は、一致が見つかるまで URI を各カテゴリパターンと比較します。 Dispatcher は、リストの先頭カテゴリから始めて、順序に従って比較を続けます。したがって、より具体的なパターンを持つカテゴリを先頭に配置してください。
+URI のカテゴリを判断するために、一致するものが見つかるまで、Dispatcher は URI と各カテゴリパターンを比較します。 Dispatcher は、リストの先頭カテゴリから始めて、順序に従って比較を続けます。したがって、より具体的なパターンを持つカテゴリを先頭に配置してください。
 
 例えば、Dispatcher のデフォルトの `dispatcher.any` ファイルには、1 つの HTML カテゴリと 1 つの others カテゴリが定義されています。HTML カテゴリのほうが具体的なので、先頭に配置されています。
 
@@ -1548,7 +1548,7 @@ URI のカテゴリを判断するために、AEM Dispatcher は、一致が見�
 
 ### ページ再試行遅延の指定 {#specifying-the-page-retry-delay}
 
-`/retryDelay` プロパティは、Dispatcher が待機する、ファームレンダーへの接続試行周期（秒単位）を設定します。各ラウンドについて、AEM Dispatcher がレンダリングへの接続を試行する最大回数は、ファームでのレンダリング数です。
+`/retryDelay` プロパティは、Dispatcher が待機する、ファームレンダーへの接続試行周期（秒単位）を設定します。各ラウンドについて、Dispatcher がレンダリングへの接続を試行する最大回数は、ファームでのレンダリング数です。
 
 `/retryDelay` が明示的に定義されていない場合、Dispatcher は値 `"1"` を使用します。通常、デフォルト値が適切です。
 
@@ -1560,7 +1560,7 @@ URI のカテゴリを判断するために、AEM Dispatcher は、一致が見�
 
 `/numberOfRetries` プロパティは、Dispatcher がレンダーに対して実行する。接続試行周期の最大回数を設定します。この回数だけ再試行を行っても Dispatcher がレンダーに正常に接続できなかった場合、Dispatcher は失敗応答を返します。
 
-各ラウンドについて、AEM Dispatcher がレンダリングへの接続を試行する最大回数は、ファームでのレンダリング数です。 そのため、AEM Dispatcher が接続を試行する最大回数は（ `/numberOfRetries`） x （レンダリング数）
+各ラウンドについて、Dispatcher がレンダリングへの接続を試行する最大回数は、ファームでのレンダリング数です。 そのため、Dispatcher が接続を試行する最大回数は（ `/numberOfRetries`） x （レンダリング数）
 
 明示的な定義がない場合、`5` がデフォルトの値として使用されます。
 
@@ -1575,7 +1575,7 @@ Dispatcher ファーム上でフェイルオーバーメカニズムを有効に
 * レンダリングへのリクエストで HTTP ステータス 503 （使用不可）が返された場合、Dispatcher は別のレンダリングにリクエストを送信します。
 * レンダリングへのリクエストで HTTP ステータス 50x （503 を除く）が返された場合、Dispatcher はで設定されたページのリクエストを送信します `health_check` プロパティ。
    * ヘルスチェックが 500（INTERNAL_SERVER_ERROR）を返した場合、Dispatcher は元のリクエストを異なるレンダーに送信します。
-   * ヘルスチェックが HTTP ステータス 200 を返した場合、AEM Dispatcher は最初の HTTP 500 エラーをクライアントに返します。
+   * ヘルスチェックが HTTP ステータス 200 を返した場合、Dispatcher は最初の HTTP 500 エラーをクライアントに返します。
 
 フェイルオーバーを有効にするには、次の行をファーム（または Web サイト）に追加します。
 
