@@ -1,10 +1,10 @@
 ---
-title: AEM Dispatcherの設定
+title: AEM Dispatcher の設定
 description: AEM Dispatcher の設定方法を説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: 0189feaf345495ba2f992d91eccf5690ec7581ce
 workflow-type: tm+mt
-source-wordcount: '8897'
+source-wordcount: '8898'
 ht-degree: 82%
 
 ---
@@ -133,7 +133,7 @@ AEM と Dispatcher のすべての要素は、IPv4 と IPv6 の両方のネッ�
 /docroot "${PWD}/cache"
 ```
 
-別の例として、AEM 公開する インスタンスのホスト名を格納する名前付き `PUBLISH_IP` 環境 変数を作成する場合、プロパティの次の構成 [`/renders`](#defining-page-renderers-renders) を使用できます。
+別の例として、という名前の環境変数を作成した場合、 `PUBLISH_IP` AEM パブリッシュインスタンスのホスト名を格納する次の設定は、 [`/renders`](#defining-page-renderers-renders) 次のプロパティを使用できます。
 
 ```xml
 /renders {
@@ -555,7 +555,7 @@ Dispatcher が受け入れる HTTP 要求を指定するには、`/filter` セ�
 
 >[!CAUTION]
 >
->AEM Dispatcher を使用してアクセスを制限する場合のその他の考慮事項については、 [Dispatcher セキュリティチェックリスト](security-checklist.md) を参照してください。 AEM のインストールに関するセキュリティについてさらに詳しくは、[AEM セキュリティチェックリスト](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/security-checklist#security)を参照してください。
+>を参照してください。 [Dispatcher セキュリティチェックリスト](security-checklist.md) AEM Dispatcher を使用してアクセスを制限する際の考慮事項について説明します。 AEM のインストールに関するセキュリティについてさらに詳しくは、[AEM セキュリティチェックリスト](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/security-checklist#security)を参照してください。
 
 `/filter` セクションは、HTTP リクエストのリクエスト行部分のパターンに応じてコンテンツへのアクセスを拒否または許可する一連のルールで構成されます。`/filter` セクションに対しては、許可リスト戦略を使用します。
 
@@ -572,7 +572,7 @@ Dispatcher が受け入れる HTTP 要求を指定するには、`/filter` セ�
 
 * **タイプ**：`/type` は、パターンに一致する要求へのアクセスを許可するか、拒否するかを示します。値は、`allow`または `deny` のどちらかです。
 
-* **リクエスト線要素:**、`/method``/url`、`/query`、または `/protocol`を含めます。また、リクエストをフィルタリングするためのパターンを含めます。 HTTP リクエストのリクエスト行部分の特定の部分に従ってそれらをフィルターします。 要求行全体ではなく、要求行の要素に対してフィルタリングすることをお勧めします。
+* **リクエスト行の要素：** 次を含める `/method`, `/url`, `/query`、または `/protocol`. また、リクエストをフィルタリングするためのパターンを含めます。 HTTP リクエストのリクエストライン部分の特定の部分に応じてフィルタリングします。 要求行全体ではなく、要求行の要素に対してフィルタリングすることをお勧めします。
 
 * **要求行の高度な要素：** Dispatcher 4.2.0 から 4 つの新しいフィルター要素を使用できます。`/path`、`/selectors`、`/extension`、`/suffix` の各要素です。これらを 1 つ以上含めると、URL パターンをさらに制御することができます。
 
@@ -809,7 +809,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 ### クエリ文字列の制約 {#restricting-query-strings}
 
-Dispatcher バージョン 4.1.5 以降では、`/filter` セクションを使用してクエリ文字列を制約します。クエリ文字列を明示的に許可し、フィルター要素による `allow` 一般的な許容値を除外することをお勧めします。
+Dispatcher バージョン 4.1.5 以降では、`/filter` セクションを使用してクエリ文字列を制約します。を使用して、クエリ文字列を明示的に許可し、汎用許可を除外することをお勧めします `allow` 要素をフィルターします。
 
 1 つのエントリに `glob`、または `method`、`url`、`query`、および `version` の組み合わせを含めることができますが、両方を含めることはできません。以下の例では、`/etc` ノードに解決される URL に対してクエリ文字列 `a=*` を許可し、他のすべてのクエリ文字列を拒否しています。
 
@@ -1075,13 +1075,13 @@ statfile にはコンテンツがありません。コンテンツが更新さ�
   }
 ```
 
-Glob プロパティの詳細については、「Glob プロパティ](#designing-patterns-for-glob-properties) のパターンのデザイン」を参照してください[。
+Glob プロパティについては、を参照してください。 [Glob プロパティのパターンの設計](#designing-patterns-for-glob-properties).
 
 ページ内に動的なセクション（ニュースアプリケーションなど）や、非公開のユーザーグループで使用するセクションがある場合は、以下のように例外を定義できます。
 
 >[!NOTE]
 >
->閉じられた ユーザー グループをキャッシュしないでください。 これは、キャッシュされたページに対してユーザー権限がチェックされないためです。
+>クローズドユーザーグループをキャッシュしません。 キャッシュされたページのユーザー権限がチェックされないからです。
 
 ```xml
 /rules
@@ -1229,7 +1229,7 @@ Adobe Analytics との AEM 統合によって、web サイトの `analytics.site
 
 このメソッドは、複数の異なるユースケースを扱う場合に使用できます。例えば、他のアプリケーションに固有のキャッシュを無効化する場合や、ページの外部化された URL とドキュメントルート内のその場所がコンテンツパスと一致しないケースを扱う場合などです。
 
-以下のサンプルスクリプトは、各無効化リクエストをファイルに記録します。
+次のスクリプトの例では、無効化された各リクエストをファイルに記録しています。
 
 ```xml
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
@@ -1275,7 +1275,7 @@ Glob プロパティについては、を参照してください。 [Glob プ�
 * リクエスト URL に含まれているすべてのパラメーターを無視する場合は、ページがキャッシュされます。
 * リクエスト URL に含まれている 1 つ以上のパラメーターを無視しない場合は、ページはキャッシュされません。
 
-あるページに対してパラメーターを無視する場合は、そのページが初めて要求されたときにページがキャッシュされます。ページに対する後続の要求は、リクエスト内のパラメーターの値に関係なく、キャッシュされたページに提供されます。
+あるページに対してパラメーターを無視する場合は、そのページが初めて要求されたときにページがキャッシュされます。それ以降のページのリクエストは、リクエストのパラメーターの値に関係なく、キャッシュされたページに配信されます。
 
 >[!NOTE]
 >
@@ -1283,7 +1283,7 @@ Glob プロパティについては、を参照してください。 [Glob プ�
 
 無視するパラメーターを指定するには、`ignoreUrlParams` プロパティに glob ルールを追加します。
 
-* URL パラメーターを含むリクエストに関係なくページをキャッシュするには、パラメーターを許可する glob プロパティを作成します (無視します)。
+* URL パラメーターを含むリクエストに関係なくページをキャッシュするには、パラメーター（無視できるようにする） glob プロパティを作成します。
 * ページがキャッシュされないようにするには、そのパラメーターを（無視することを）拒否する glob プロパティを作成します。
 
 >[!NOTE]
@@ -1291,7 +1291,7 @@ Glob プロパティについては、を参照してください。 [Glob プ�
 >glob プロパティを設定する場合、プロパティ名はクエリパラメーター名と一致する必要があります。例えば、次の URL `http://example.com/path/test.html?p1=test&p2=v2` の「p1」パラメーターを無視する場合、glob プロパティは次のようにする必要があります。
 > `/0002 { /glob "p1" /type "allow" }`
 
-次の例では、Dispatcher は `nocache` パラメーターを除くすべてのパラメーターを無視します。そのため、Dispatcher次のパラメーターを含む `nocache` URL リクエストキャッシュされません。
+次の例では、Dispatcher は `nocache` パラメーターを除くすべてのパラメーターを無視します。したがって、Dispatcher は次を含むリクエスト URL をキャッシュしません `nocache` パラメーター：
 
 ```xml
 /ignoreUrlParams
@@ -1316,7 +1316,7 @@ GET /mypage.html?nocache=true
 GET /mypage.html?nocache=true&willbecached=true
 ```
 
-Glob プロパティの詳細については、「Glob プロパティ](#designing-patterns-for-glob-properties) のパターンのデザイン」を参照してください[。
+Glob プロパティについては、を参照してください。 [Glob プロパティのパターンの設計](#designing-patterns-for-glob-properties).
 
 ### HTTP 応答ヘッダーのキャッシュ {#caching-http-response-headers}
 
@@ -1349,7 +1349,7 @@ Glob プロパティの詳細については、「Glob プロパティ](#designi
 
 >[!NOTE]
 >
->AEMから ETag 応答ヘッダーストア配信するためにAEM Dispatcherが必要な場合は、次の操作を行います。
+>AEM Dispatcher でAEMから ETag 応答ヘッダーを保存して配信する必要がある場合は、次の操作を行います。
 >
 >* `/cache/headers` セクションにヘッダー名を追加します。
 >* Dispatcher 関連セクションに以下の [Apache ディレクティブ](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)を追加します。
@@ -1389,7 +1389,7 @@ Glob プロパティの詳細については、「Glob プロパティ](#designi
 Dispatcher 4.3.5 より前では、TTL 無効化ロジックは、設定された TTL 値のみに基づいていました。Dispatcher 4.3.5 では、設定された TTL と Dispatcher キャッシュ無効化ルールの&#x200B;**両方**&#x200B;が考慮されます。そのため、キャッシュされたファイルの場合は次のようになります。
 
 1. `/enableTTL` が 1 に設定されている場合、ファイルの有効期限がチェックされます。設定された TTL に従ってファイルの有効期限が切れた場合、他のチェックは実行されず、キャッシュされたファイルがバックエンドから再要求されます。
-2. ファイルが期限切れになっていないか`/enableTTL`、設定されていない場合は、標準のキャッシュ無効化ルールが適用されます[`/statfileslevel`](#invalidating-files-by-folder-level)[`/invalidate`](#automatically-invalidating-cached-files)。このフローは、TTL の期限が切れていないファイルをAEM Dispatcherで無効にできることを意味します。
+2. ファイルの有効期限が切れていない場合、または `/enableTTL` が設定されていない場合、標準キャッシュ無効化ルール（例：）が適用されます [`/statfileslevel`](#invalidating-files-by-folder-level) および [`/invalidate`](#automatically-invalidating-cached-files) を設定。 このフローにより、AEM Dispatcher で TTL の有効期限が切れていないファイルを無効にすることができます。
 
 この新しい実装では、ファイルの TTL が長いユースケース（CDN 上など）をサポートしています。 ただし、TTL の有効期限が切れていない場合でも、これらのファイルは引き続き無効化できます。 Dispatcher でのキャッシュヒット率よりもコンテンツの鮮度が優先されます。
 
@@ -1609,7 +1609,7 @@ read more data
 }
 ```
 
-このようなメッセージは、 がセクションで発生した`read more data`ときに`EINTR`生成できます。また、データが受信される前に信号を受信したことが原因です。
+このようなメッセージは、 `EINTR` 次の場合に発生： `read more data` セクション。 また、データを受信する前に信号を受信することが原因です。
 
 このような中断を無視するには、次のパラメーターを `dispatcher.any`（`/farms` の前）に追加します。
 
@@ -1617,9 +1617,9 @@ read more data
 
 `/ignoreEINTR` を `"1"` に設定すると、Dispatcher は応答全体が読み込まれるまでデータの読み込みを続行します。デフォルト値は `0` で、このオプションを無効にします。
 
-## glob プロパティ のパターンのデザイン {#designing-patterns-for-glob-properties}
+## Glob プロパティのパターンの設計 {#designing-patterns-for-glob-properties}
 
-Dispatcher構成ファイルのいくつかのセクションでは、 `glob` クライアント要求の選択条件としてプロパティを使用します。 `glob` プロパティの値は、リクエストされたリソースのパスやクライアントの IP アドレスなど、Dispatcher がリクエストの要素と比較するパターンです。例えば、`/filter` セクションのアイテムは、`glob` パターンを使用して、Dispatcher が従う、または拒否するページのパスを識別します。
+Dispatcher 設定ファイルの複数のセクションでは、 `glob` クライアントリクエストの選択条件としてのプロパティ。 `glob` プロパティの値は、リクエストされたリソースのパスやクライアントの IP アドレスなど、Dispatcher がリクエストの要素と比較するパターンです。例えば、`/filter` セクションのアイテムは、`glob` パターンを使用して、Dispatcher が従う、または拒否するページのパスを識別します。
 
 `glob` の値にワイルドカード文字と英数字を含めて、パターンを定義することができます。
 
@@ -1627,8 +1627,8 @@ Dispatcher構成ファイルのいくつかのセクションでは、 `glob` �
 |--- |--- |--- |
 | `*` | 文字列に含まれる任意の文字の 0 個以上の連続するインスタンスに一致します。次のいずれかの状況で、一致の最終文字が決定されます。 <br/>文字列内の文字は、パターン内の次の文字と一致し、パターン文字には次の特徴があります。<br/><ul><li>ではない `*`</li><li>ではない `?`</li><li>リテラル文字（空白を含む）または文字クラス。</li><li>パターンの終わりに達している。</li></ul>文字クラス内のこの文字は、リテラルとして解釈されます。 | `*/geo*` `/content/geometrixx`ノードと `/content/geometrixx-outdoors` ノードの下にあるすべてのページに一致します。以下の HTTP 要求は、glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*`<br/> `/content/geometrixx-outdoors` ノードの下にあるすべてのページに一致します。例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
 | `?` | 任意の 1 文字に一致します。文字クラス外で使用します。文字クラス内のこの文字は、リテラルとして解釈されます。 | `*outdoors/??/*`<br/> geometrixx-outdoors サイトのすべての言語のページに一致します。例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の要求は glob パターンに一致しません。<br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
-| `[ and ]` | 文字クラスの最初と最後を定めます。文字クラスには、1 つまたは複数の文字範囲および単一の文字を含めることができます。<br/>ターゲット文字が文字クラス内または定義されている範囲内のいずれかの文字に一致する場合、一致が発生します。<br/>閉じ角括弧が含まれない場合、パターンによって一致は発生しません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次のHTTP リクエストとは一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `-` | 文字の範囲を表します。 文字クラス内で使用します。文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[m-p]men.html*`次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `[ and ]` | 文字クラスの最初と最後を定めます。文字クラスには、1 つまたは複数の文字範囲および単一の文字を含めることができます。<br/>ターゲット文字が文字クラス内または定義されている範囲内のいずれかの文字に一致する場合、一致が発生します。<br/>閉じ角括弧が含まれない場合、パターンによって一致は発生しません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `-` | 文字の範囲を示します。 文字クラス内で使用します。文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[m-p]men.html*`次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `!` | 続く文字または文字クラスを打ち消します。文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。ワイルドカード文字 `^ wildcard`.<br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[!o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。 <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> 次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` または `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | 続く文字または文字範囲を打ち消します。文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。`!` ワイルドカードに相当します。<br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | ワイルドカード文字 `!` の例と同様、サンプルパターンの文字 `!` が 文字 `^` に置き換えられます。 |
 
@@ -1868,7 +1868,7 @@ HTTP メソッドは、GETやHEADではありません。 Dispatcher は、キ�
 * **not cacheable: request contained a query string**\
   リクエストにクエリ文字列が含まれていました。Dispatcher は、出力が、提供されたクエリ文字列に依存しているのでキャッシュされないと見なします。
 * **キャッシュできません：セッションマネージャーを認証する必要があります**\
-  セッション マネージャー (構成にはノードが含まれています `sessionmanagement` ) がファームのキャッシュを制御し、リクエストに適切な認証情報が含まれていませんでした。
+  セッションマネージャー（設定には `sessionmanagement` ノード）はファームのキャッシュを管理しますが、リクエストに適切な認証情報が含まれていませんでした。
 * **not cacheable: request contains authorization**\
   ファームはキャッシュの出力（`allowAuthorized 0`）が許可されておらず、リクエストに認証情報が含まれている。
 * **not cacheable: target is a directory**\
