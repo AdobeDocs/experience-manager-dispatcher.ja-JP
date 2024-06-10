@@ -7,7 +7,7 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: 3b24e3eb54aa48c4891943b7458c57525897517f
 workflow-type: ht
 source-wordcount: '2929'
 ht-degree: 100%
@@ -348,7 +348,7 @@ Web サーバー上で次の要素を設定します。
 
 * 各仮想ドメインのドキュメントルートは、サイトのページを格納する Dispatcher キャッシュ内のディレクトリです。（20 行目と 33 行目）
 * 各仮想ドメインの URL 書き換えルールは、正規表現です。正規表現は、リクエストされたページのパスに接頭辞として付加します。キャッシュ内のページのパスを接頭辞として付加します。（19 行目と 35 行目）
-* `DispatherUseProcessedURL` プロパティを `1` に設定します。（10 行目）
+* `DispatcherUseProcessedURL` プロパティを `1` に設定します。（10 行目）
 
 例えば、Web サーバーは、`https://brandA.com/en/products.html` という URL を持つ要求を受信した場合、次のアクションを実行します。
 
