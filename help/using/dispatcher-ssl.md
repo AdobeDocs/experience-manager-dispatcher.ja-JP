@@ -1,6 +1,6 @@
 ---
 title: Dispatcher での SSL の使用
-description: SSL 接続を使用してAEMと通信するように Dispatcher を設定する方法を説明します。
+description: SSL 接続を使用して AEM と通信するよう Dispatcher を設定する方法について説明します。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
@@ -10,15 +10,15 @@ internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
 source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1310'
-ht-degree: 89%
+ht-degree: 100%
 
 ---
 
 # Dispatcher での SSL の使用 {#using-ssl-with-dispatcher}
 
-Dispatcher とレンダリングコンピューター間の SSL 接続を使用します。
+Dispatcher とレンダリングコンピューター間には次の SSL 接続を使用します。
 
 * [一方向 SSL](#use-ssl-when-dispatcher-connects-to-aem)
 * [相互 SSL](#configuring-mutual-ssl-between-dispatcher-and-aem)
@@ -29,7 +29,7 @@ Dispatcher とレンダリングコンピューター間の SSL 接続を使用�
 
 ## Dispatcher が AEM に接続するときに SSL を使用する {#use-ssl-when-dispatcher-connects-to-aem}
 
-SSL 接続を使用してAEMまたは CQ レンダリングインスタンスと通信するように Dispatcher を設定します。
+Dispatcher が SSL 接続を使用して AEM または CQ レンダーインスタンスと通信するように設定します。
 
 Dispatcher を設定する前に、SSL を使用するように AEM または CQ を設定します。
 
@@ -117,11 +117,11 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 相互 SSL を使用するように、Dispatcher とレンダーコンピューター（一般的には AEM または CQ パブリッシュインスタンス）間の接続を設定します。
 
 * Dispatcher が SSL 経由でレンダーインスタンスに接続します。
-* レンダリングインスタンスが Dispatcher の証明書の有効性を確認します。
+* レンダーインスタンスが Dispatcher の証明書の有効性を確認します。
 * Dispatcher が、レンダーインスタンスの証明書の CA が信頼済みであることを確認します。
 * （オプション）Dispatcher が、レンダーインスタンスの証明書がレンダーインスタンスのサーバーアドレスと一致することを確認します。
 
-相互 SSL を構成するには、信頼された証明機関（CA）で署名された証明書が必要です。 自己署名証明書では不十分です。証明書に署名するために、ユーザーが CA の役目を果たすことも、サードパーティ CA のサービスを利用することもできます。相互 SSL を設定するには、以下のアイテムが必要です。
+相互 SSL を設定するには、信頼済みの証明機関（CA）によって署名されている証明書が必要です。自己署名証明書では不十分です。証明書に署名するために、ユーザーが CA の役目を果たすことも、サードパーティ CA のサービスを利用することもできます。相互 SSL を設定するには、以下のアイテムが必要です。
 
 * レンダーインスタンスおよび Dispatcher 用の署名済み証明書
 * CA 証明書（ユーザーが CA の役割を果たす場合）
@@ -130,8 +130,8 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 相互 SSL を設定するには、次の手順を実行します。
 
 1. 使用するプラットフォームに適した最新バージョンの Dispatcher を[インストール](dispatcher-install.md)します。SSL をサポートしている Dispatcher バイナリを使用してください（SSL はファイル名に含まれています。例：`dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`）。
-1. [CA 署名証明書の作成または取得](dispatcher-ssl.md#main-pars-title-3) Dispatcher とレンダーインスタンスの場合は、次のようになります。
-1. [レンダリング証明書を含むキーストアの作成](dispatcher-ssl.md#main-pars-title-6) レンダリングの HTTP サービスを設定します。
+1. Dispatcher およびレンダーインスタンス用に [CA 署名済みの証明書を作成または取得](dispatcher-ssl.md#main-pars-title-3)します。
+1. [レンダーの証明書を格納したキーストアを作成](dispatcher-ssl.md#main-pars-title-6)し、レンダーの HTTP サービスを設定します。
 1. 相互 SSL 用に [Dispatcher の Web サーバーモジュールを設定](dispatcher-ssl.md#main-pars-title-4)します。
 
 ### CA 署名済み証明書の作成または取得 {#creating-or-obtaining-ca-signed-certificates}
@@ -157,7 +157,7 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
 OpenSSL を使用して証明書要求を作成し、サードパーティ CA に送信するか、自身の CA によって署名します。
 
-証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。レンダーインスタンスの証明書については、証明書を受け入れるように Dispatcher を設定する場合、インスタンスコンピューターのホスト名を Common Name として使用します。この手順は、パブリッシュインスタンスのホスト名と一致する場合にのみ実行してください。 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティを参照してください。
+証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。レンダーインスタンスの証明書については、証明書を受け入れるように Dispatcher を設定する場合、インスタンスコンピューターのホスト名を Common Name として使用します。この手順は、証明書がパブリッシュインスタンスのホスト名と一致する場合にのみ実行してください。[DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティを参照してください。
 
 1. ターミナルを開き、現在のディレクトリを OpenSSL ライブラリの CH.sh ファイルを含むディレクトリに変更します。
 1. 次のコマンドを入力し、プロンプトが表示されたら値を指定します。必要に応じて、パブリッシュインスタンスのホスト名を Common Name として使用します。ホスト名は、レンダーの IP アドレスに対して DNS 解決可能な名前です。
@@ -285,8 +285,8 @@ Dispatcher 証明書と暗号化されていない秘密鍵を組み合わせて
 
 以下のプロパティを（`httpd.conf` の）[Dispatcher モジュールの設定](dispatcher-install.md#main-pars-55-35-1022)に追加します。
 
-* `DispatcherCertificateFile`：公開証明書と暗号化されていない秘密鍵を含む、Dispatcher の統合証明書ファイルへのパス。このファイルは、SSL サーバーが Dispatcher クライアント証明書を要求する際に使用されます。
-* `DispatcherCACertificateFile`:CA 証明書ファイルへのパス。 SSL サーバーが、ルート機関が信頼しない CA を提示する場合に使用されます。
+* `DispatcherCertificateFile`：公開証明書と暗号化されていない秘密鍵を含む、Dispatcher の統合証明書ファイルへのパス。このファイルは、SSL サーバーが Dispatcher のクライアント証明書を要求する場合に使用します。
+* `DispatcherCACertificateFile`：CA 証明書ファイルへのパス。SSL サーバーがルート証明機関によって信頼されていない CA を提示する場合に使用されます。
 * `DispatcherCheckPeerCN`：リモートサーバー証明書のホスト名チェックを有効（`On`）にするか無効（`Off`）にするか。
 
 以下のコードは設定のサンプルです。

@@ -1,6 +1,6 @@
 ---
 source-git-commit: 0189feaf345495ba2f992d91eccf5690ec7581ce
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '500'
 ht-degree: 100%
 

@@ -6,9 +6,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3079'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -20,7 +20,7 @@ ht-degree: 97%
 
 Dispatcher は、Adobe Experience Manager のキャッシュやロードバランシングツールで、企業向けの web サーバーと組み合わせて使用します。
 
-Dispatcher をデプロイするプロセスは、web サーバーや選択した OS プラットフォームとは独立しています。
+Dispatcher をデプロイするプロセスは、選択した web サーバーや OS プラットフォームに依存しません。
 
 1. Dispatcher について学習します（このページ）。[Dispatcher に関するよくある質問](/help/using/dispatcher-faq.md)も参照してください。
 1. Web サーバーのドキュメントに従って、[サポートされている Web サーバー](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements)をインストールします。
@@ -30,7 +30,7 @@ Dispatcher をデプロイするプロセスは、web サーバーや選択し�
 
 >[!NOTE]
 >
->AEMと Dispatcher の連携について理解を深めるには、次の手順を実行します。
+>Dispatcher と AEM の連携の仕組みをより深く理解するには、以下を参照してください。
 >
 >* 詳しくは、[2017 年 7 月の AEM コミュニティエキスパートへの質問](https://communities.adobeconnect.com/pf0gem7igw1f/)を参照してください。
 >* [このリポジトリ](https://github.com/adobe/aem-dispatcher-experiments)にアクセスします。実験のコレクションを「テイクホーム」ラボ形式で収蔵しています。
@@ -129,7 +129,7 @@ Web サイトに変更があったとき、Dispatcher では主に 2 つの方�
 次の点に注意してください。
 
 * コンテンツの更新は、通常、置き換える必要のあるコンテンツを「把握している」オーサリングシステムと組み合わせて使用します。
-* ファイルに影響を与えるコンテンツ更新は削除されますが、すぐに置き換えられるわけではありません。そのようなファイルが次回リクエストされると、Dispatcher はAEM インスタンスから新しいファイルを取得し、キャッシュに配置して、古いコンテンツを上書きします。
+* ファイルに影響を与えるコンテンツ更新は削除されますが、すぐに置き換えられるわけではありません。次回このようなファイルがリクエストされると、Dispatcher は AEM インスタンスから新しいファイルを取得し、キャッシュに配置し、古いコンテンツを上書きします。
 * 通常、ページのテキストを取り込んで自動生成された画像は、同じハンドルで始まる画像ファイルに格納されます。したがって、ページと画像ファイルは関連があり、削除の対象となります。例えば、mypage.html というページのタイトルテキストを、mypage.titlePicture.gif ファイルとして同じフォルダーに格納できます。したがって、ページの更新ごとにキャッシュにある画像が自動的に削除されるので、画像のバージョンを常にページの現在のバージョンと合わせることができます。
 * statfile は複数持つことができます。例えば、言語フォルダーごとに 1 つずつ持つことができます。ページが更新されると、AEM は statfile を含む次の親フォルダーを探し、そのファイルに *touch* します。
 

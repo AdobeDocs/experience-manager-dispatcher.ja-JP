@@ -6,9 +6,9 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: e38352c25737c2b2a2ccd71fe23ce673a2390f51
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1062'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
@@ -50,7 +50,7 @@ ht-degree: 96%
 
 **改善点**：
 
-* DISP-911 AEM-05 - X-Edge-Key can be leaked in disp_apache2.c.
+* DISP-911 AEM‑05 - disp_apache2.c で X‑Edge‑Key が漏洩する可能性がある
 * DISP-937 - すべてのセレクターをログに記録
 * DISP-998 - 起動時のバニティ URL の読み込みを設定可能に
 
@@ -66,7 +66,7 @@ ht-degree: 96%
 **バグ修正**：
 
 * DISP-833 - X-Forwarded-Host ヘッダーに、コンマで区切られたホスト名のリストが含まれる場合がある
-* DISP-835 - DispatcherUseForwardedHost は、ホストヘッダーが最後の場合に吸収します。
+* DISP-835 - DispatcherUseForwardedHost が、最後にある場合は Host ヘッダーを吸収する。
 
 **改善点**：
 
@@ -197,10 +197,10 @@ ht-degree: 96%
 
 | プラットフォーム | アーキテクチャ | OpenSSL のサポート | クリックしてダウンロード |
 |---|---|---|---|
-| Windows | x86 （32 ビット） | なし | [`dispatcher-iis-windows-x86-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.7.zip) |
-| Windows | x86 （32 ビット） | 1.0 | [`dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip) |
-| Windows | x86 （32 ビット） | 1.1 | [`dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip) |
-| Windows | x64 （64 ビット版） | なし | [`dispatcher-iis-windows-x64-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.7.zip) |
-| Windows | x64 （64 ビット版） | 1.0 | [`dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip) |
-| Windows | x64 （64 ビット版） | 1.1 | [`dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip) |
-| Windows | x64 （64 ビット版） | 3.0 | [`dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip) |
+| Windows | x86（32 ビット） | なし | [`dispatcher-iis-windows-x86-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.7.zip) |
+| Windows | x86（32 ビット） | 1.0 | [`dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip) |
+| Windows | x86（32 ビット） | 1.1 | [`dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip) |
+| Windows | x64（64 ビット） | なし | [`dispatcher-iis-windows-x64-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.7.zip) |
+| Windows | x64（64 ビット） | 1.0 | [`dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip) |
+| Windows | x64（64 ビット） | 1.1 | [`dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip) |
+| Windows | x64（64 ビット） | 3.0 | [`dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip) |
