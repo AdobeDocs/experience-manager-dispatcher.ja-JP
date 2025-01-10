@@ -2,10 +2,10 @@
 title: AEM Dispatcher の設定
 description: Dispatcher の設定方法について説明します。IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: 23dde3b2ebc6a63d5e1c50e5877338c3bd09d5d2
 workflow-type: tm+mt
-source-wordcount: '8876'
-ht-degree: 100%
+source-wordcount: '8938'
+ht-degree: 99%
 
 ---
 
@@ -945,6 +945,21 @@ AEM ページ用に設定されているバニティ URL へのアクセスを�
 1. AEM または CQ ページ向けに設定したバニティー URL ごとに、[`/filter`](#configuring-access-to-content-filter) 設定がその URL を拒否していることを確認します。必要に応じて、この URL を拒否するフィルターを追加します。
 1. `/farms` の下に `/vanity_urls` セクションを追加します。
 1. Apache Web サーバーを再起動します。
+
+Dispatcher **バージョン 4.3.6** で、新しい `/loadOnStartup` パラメーターが追加されました。 このパラメーターを使用すると、起動時のバニティ URL の読み込みを次のように設定できます。
+
+`/loadOnStartup 0` を追加すると（以下のサンプルを参照）、起動時のバニティー URL の読み込みを無効にすることができます。
+
+```
+/vanity_urls {
+        /url "/libs/granite/dispatcher/content/vanityUrls.html"
+        /file "/tmp/vanity_urls"
+        /loadOnStartup 0
+        /delay 60
+      } 
+```
+
+`/loadOnStartup 1` が起動時にバニティ URL を読み込む間。 `/loadOnStartup 1` はこのパラメーターの現在のデフォルト値であることに注意してください。
 
 ## シンジケーションリクエストの転送 - `/propagateSyndPost` {#forwarding-syndication-requests-propagatesyndpost}
 
