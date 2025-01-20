@@ -2,10 +2,10 @@
 title: AEM Dispatcher の設定
 description: Dispatcher の設定方法について説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 23dde3b2ebc6a63d5e1c50e5877338c3bd09d5d2
-workflow-type: ht
+source-git-commit: da9bf0c1f4cceccfc6be9f4871a21d2bb703f0a4
+workflow-type: tm+mt
 source-wordcount: '8938'
-ht-degree: 100%
+ht-degree: 99%
 
 ---
 
