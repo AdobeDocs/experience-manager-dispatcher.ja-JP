@@ -3,9 +3,9 @@ title: AEM Dispatcher の設定
 description: Dispatcher の設定方法について説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: da9bf0c1f4cceccfc6be9f4871a21d2bb703f0a4
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8938'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -572,7 +572,7 @@ Dispatcher が受け入れる HTTP 要求を指定するには、`/filter` セ�
 
 * **タイプ**：`/type` は、パターンに一致する要求へのアクセスを許可するか、拒否するかを示します。 値は、`allow`または `deny` のどちらかです。
 
-* **リクエスト行の要素**：`/method`、`/url`、`/query` または `/protocol` を含めます。また、リクエストをフィルタリングするためのパターンを含めます。 HTTP リクエストのリクエスト行部分の特定の要素に応じてフィルタリングします。 要求行全体ではなく、要求行の要素に対してフィルタリングすることをお勧めします。
+* **リクエスト行の要素**：`/method`、`/url`、`/query` または `/protocol` を含めます。 また、リクエストをフィルタリングするためのパターンを含めます。 HTTP リクエストのリクエスト行部分の特定の要素に応じてフィルタリングします。 要求行全体ではなく、要求行の要素に対してフィルタリングすることをお勧めします。
 
 * **要求行の高度な要素：** Dispatcher 4.2.0 から 4 つの新しいフィルター要素を使用できます。 `/path`、`/selectors`、`/extension`、`/suffix` の各要素です。 これらを 1 つ以上含めると、URL パターンをさらに制御することができます。
 
@@ -1864,35 +1864,35 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/wknd/us/en.html
 
 以下は、`X-Dispatcher-Info` によって返される応答ヘッダーの一覧です。
 
-* **target file cached**\
+* **ターゲットファイルがキャッシュされました**\
   ターゲットファイルはキャッシュに含まれており、Dispatcher は、そのファイルを配信することが妥当であると判断しました。
-* **caching**\
+* **キャッシュ**\
   ターゲットファイルはキャッシュに含まれていないので、Dispatcher は、出力をキャッシュして配信することが妥当であると判断しました。
 * **caching: stat file is more recent** 
 ターゲットファイルはキャッシュに含まれています。 ただし、より新しい stat ファイルによって無効化される可能性があります。 Dispatcher はターゲットファイルを削除し、出力から再作成して配信します。
 * **not cacheable: document root non-existent**
 ファームの設定にドキュメントルート（設定要素 `cache.docroot`）が含まれていません。
-* **not cacheable: cache file path too long**\
+* **キャッシュ不可 : キャッシュファイルのパスが長すぎます**\
   ターゲットファイル（ドキュメントルートと URL ファイルが連結されたものが）が、システム上で使用可能な最長ファイル名を超えています。
-* **not cacheable: temporary file path too long**\
+* **キャッシュ不可 : 一時ファイルのパスが長すぎます**\
   一時ファイル名テンプレートが、システムで使用可能な最長ファイル名を超えています。 Dispatcher は、キャッシュされたファイルを実際に作成または上書きする前に、まず一時ファイルを作成します。 一時ファイル名は、ターゲットファイル名に文字 `_YYYYXXXXXX` が追加された名前です。`Y` と `X` が置き換えられ、一意の名前が作成されます。
-* **not cacheable: request URL is missing extension**\
+* **キャッシュ不可 : リクエスト URL に拡張子がありません**\
   リクエスト URL に拡張子がないか、ファイル拡張子の後にパスがあります（例：`/test.html/a/path`）。
 * **not cacheable: request needed to be a GET or HEAD**
 HTTP メソッドが GET でも HEAD でもありません。 Dispatcher は、キャッシュすべきでない動的データが出力に含まれていると見なします。
-* **not cacheable: request contained a query string**\
+* **キャッシュ不可 : リクエストにクエリ文字列が含まれています**\
   リクエストにクエリ文字列が含まれていました。 Dispatcher は、出力が、提供されたクエリ文字列に依存しているのでキャッシュされないと見なします。
-* **not cacheable: session manager needs to authenticate**\
+* **キャッシュ不可 : セッションマネージャーが認証を必要とします**\
   セッションマネージャー（設定には `sessionmanagement` ノードを含む）はファームのキャッシュを管理しますが、リクエストには適切な認証情報が含まれていませんでした。
-* **not cacheable: request contains authorization**\
+* **キャッシュ不可 : リクエストに認証が含まれています**\
   ファームはキャッシュの出力（`allowAuthorized 0`）が許可されておらず、リクエストに認証情報が含まれている。
-* **not cacheable: target is a directory**\
+* **キャッシュ不可 : 対象がディレクトリです**\
   ターゲットファイルがディレクトリです。 この場所は、URL と一部のサブ URL の両方にキャッシュ可能な出力が含まれているという概念的な誤りを示している可能性があります。 例えば、`/test.html/a/file.ext` へのリクエストが最初に届き、キャッシュ可能な出力を含んでいる場合、Dispatcher は、`/test.html` への後続のリクエストの出力をキャッシュできません。
-* **not cacheable: request URL has a trailing slash**\
+* **キャッシュ不可 : リクエスト URL の最後にスラッシュがあります**\
   リクエスト URL の末尾にスラッシュが使用されています。
-* **not cacheable: request URL is missing in cache rules**\
+* **キャッシュ不可 : リクエスト URL がキャッシュルールに一致しません**\
   このファームのキャッシュルールは、一部のリクエスト URL の出力をキャッシュすることを明示的に拒否しています。
-* **not cacheable: authorization checker denied access**\
+* **キャッシュ不可 : 認証チェッカーがアクセスを拒否しました**\
   ファームの認証チェッカーがキャッシュされたファイルへのアクセスを拒否しました。
 * **not cacheable: session is invalid**
 セッションマネージャー（設定には `sessionmanagement` ノードを含む）はファームのキャッシュを管理し、ユーザーのセッションが有効でないか、有効でなくなりました。
