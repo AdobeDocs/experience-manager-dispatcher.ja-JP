@@ -7,10 +7,10 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 3b24e3eb54aa48c4891943b7458c57525897517f
+source-git-commit: b8dc67a9633c1a459a2851f4be99a5fcbec7fe79
 workflow-type: tm+mt
-source-wordcount: '2929'
-ht-degree: 100%
+source-wordcount: '3008'
+ht-degree: 97%
 
 ---
 
@@ -195,6 +195,10 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
 仮想ホストは、メインサーバーセクションで設定された [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) プロパティ値を継承します。仮想ホストに DispatcherConfig プロパティを含めて、メインサーバー設定をオーバーライドできます。
+
+>[!NOTE]
+>
+>AEM as a Cloud Serviceでは、各サブページよりも上位レベルの DocumentRoot で、個別の vhost 設定を使用する必要があります。 これはアーキタイプではデフォルトで処理されますが、複数の DocumentRoots を使用する場合は、サイトごとに個別に設定できないので、キャッシュ全体でキャッシュの無効化を処理できるように、より優先度の高い vhost 設定を使用する必要があります。 この新しい設定のサーバーエイリアスは、ホストヘッダー「localhost」を受け入れる必要があります。
 
 ### 複数ドメインを処理するように Dispatcher を設定 {#configure-dispatcher-to-handle-multiple-domains}
 
