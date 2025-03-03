@@ -8,9 +8,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: b8dc67a9633c1a459a2851f4be99a5fcbec7fe79
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3008'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -198,7 +198,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 >[!NOTE]
 >
->AEM as a Cloud Serviceでは、各サブページよりも上位レベルの DocumentRoot で、個別の vhost 設定を使用する必要があります。 これはアーキタイプではデフォルトで処理されますが、複数の DocumentRoots を使用する場合は、サイトごとに個別に設定できないので、キャッシュ全体でキャッシュの無効化を処理できるように、より優先度の高い vhost 設定を使用する必要があります。 この新しい設定のサーバーエイリアスは、ホストヘッダー「localhost」を受け入れる必要があります。
+>AEM as a Cloud Service では、各サブページより上位レベルの DocumentRoot で個別の vhost 設定を使用する必要があります。これはアーキタイプでデフォルトで処理されますが、複数の DocumentRoot を使用する場合は、サイトごとに個別に設定できないので、キャッシュ全体でキャッシュの無効化を処理できるように、より優先度の高い vhost 設定を使用する必要があります。この新しい設定の ServerAlias は、ホストヘッダー「localhost」を受け入れる必要があります。
 
 ### 複数ドメインを処理するように Dispatcher を設定 {#configure-dispatcher-to-handle-multiple-domains}
 
