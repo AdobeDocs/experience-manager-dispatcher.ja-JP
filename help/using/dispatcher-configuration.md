@@ -2,10 +2,10 @@
 title: AEM Dispatcher の設定
 description: Dispatcher の設定方法について説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: da9bf0c1f4cceccfc6be9f4871a21d2bb703f0a4
-workflow-type: ht
-source-wordcount: '8938'
-ht-degree: 100%
+source-git-commit: a9ef9d7d2fe5c421cd8039579fd84961ea901def
+workflow-type: tm+mt
+source-wordcount: '8941'
+ht-degree: 99%
 
 ---
 
@@ -1037,7 +1037,7 @@ statfile にはコンテンツがありません。 コンテンツを更新す�
 
 `/serveStaleOnError` プロパティは、レンダーサーバーがエラーを返した場合に Dispatcher が無効になったドキュメントを返すかどうかを制御します。 デフォルトでは、statfile にタッチし、キャッシュされたコンテンツが無効になると、Dispatcher によってキャッシュされたコンテンツが削除されます。 このアクションは、次回のリクエスト時に実行されます。
 
-`/serveStaleOnError` が `"1"` に設定されている場合、Dispatcher は無効になったコンテンツをキャッシュから削除しません。 ただし、レンダーサーバーが成功応答を返す場合は除きます。 AEM からの応答 5xx または接続タイムアウトによって、Dispatcher は期限切れのコンテンツを返し、HTTP ステータス 111（再検証失敗）で応答します。
+`/serveStaleOnError` が `"1"` に設定されている場合、Dispatcher は無効になったコンテンツをキャッシュから削除しません。 ただし、レンダーサーバーが成功応答を返す場合は除きます。 AEMからの 502、503、504 応答、または接続タイムアウトにより、Dispatcherが古いコンテンツを提供し、HTTP ステータス 111 で応答します（再検証に失敗しました）。
 
 ### 認証使用時のキャッシュ {#caching-when-authentication-is-used}
 
