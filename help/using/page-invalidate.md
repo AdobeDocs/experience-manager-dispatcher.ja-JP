@@ -26,7 +26,7 @@ Dispatcher を AEM と共に使用する際は、キャッシュが効果的に�
 
 詳しくは、AEM セキュリティチェックリストの[レプリケーションユーザーとトランスポートユーザーの設定](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps)の節を参照してください。
 
-<!-- OLD URL from above https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
+<!-- OLD URL from above https://helpx.adobe.com/jp/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
 ## オーサリング環境からの Dispatcher キャッシュの無効化 {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
