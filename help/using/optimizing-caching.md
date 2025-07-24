@@ -1,23 +1,23 @@
 ---
-title: Web サイトのキャッシュパフォーマンスの最適化
+title: キャッシュパフォーマンスのための web サイトの最適化
 description: キャッシュのメリットを最大化するように Web サイトをデザインする方法について説明します。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-redirecttarget: https://helpx.adobe.com/jp/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
 source-wordcount: '1128'
-ht-degree: 100%
+ht-degree: 97%
 
 ---
 
 
-# Web サイトのキャッシュパフォーマンスの最適化 {#optimizing-a-website-for-cache-performance}
+# キャッシュパフォーマンスのための web サイトの最適化 {#optimizing-a-website-for-cache-performance}
 
 <!-- 
 
@@ -31,9 +31,9 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 
 >[!NOTE]
 >
->Dispatcher のバージョンは AEM とは無関係です。Dispatcher のドキュメントへのリンクをたどると、このページにリダイレクトされる可能性があります。このリンクは、旧バージョンの AEM のドキュメントに埋め込まれていたものです。
+>Dispatcher のバージョンは AEM とは無関係です。Dispatcher のドキュメントへのリンクをたどると、このページにリダイレクトされる可能性があります。 このリンクは、旧バージョンの AEM のドキュメントに埋め込まれていたものです。
 
-Dispatcher には、パフォーマンスの最適化に利用できる、複数の組み込みのメカニズムが用意されています。この節では、キャッシュのメリットを最大化するように web サイトをデザインする方法について説明します。
+Dispatcher には、パフォーマンスの最適化に利用できる、複数のビルトインのメカニズムが用意されています。この節では、キャッシュのメリットを最大化するように web サイトをデザインする方法について説明します。
 
 >[!NOTE]
 >
@@ -55,7 +55,7 @@ HTTP リクエストヘッダーはキャッシュされないので、ページ
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
 ```
 
-## URL パラメーターの使用回避 {#avoid-url-parameters}
+## URL パラメーターの回避 {#avoid-url-parameters}
 
 可能な限り、キャッシュするページの URL パラメーターは使用しないでください。例えば、ピクチャーギャラリーがある場合、次の URL はキャッシュされません（Dispatcher が [適切に設定](dispatcher-configuration.md#main-pars_title_24)されている場合を除く）。
 
@@ -95,7 +95,7 @@ www.myCompany.com/news/main.large.html
 >
 >テンプレート定義のスクリプトグロビングを使用して、印刷ページをレンダリングする個別のスクリプトを指定できます。
 
-## タイトルとして使用されている画像ファイルの無効化 {#invalidating-image-files-used-as-titles}
+## タイトルとして使用されている画像ファイルを無効にする {#invalidating-image-files-used-as-titles}
 
 ページのタイトルや他のテキストを画像としてレンダリングする場合は、ページ上のコンテンツの更新時にファイルが削除されるように、ファイルを保存します。
 
@@ -112,7 +112,7 @@ www.myCompany.com/news/main.large.html
 >
 >画像ファイルは、必ずしも AEM インスタンス上に存在するわけではありません。画像ファイルを動的に作成するスクリプトを使用できます。次に、Dispatcher がファイルを web サーバーに保存します。
 
-## ナビゲーションに使用された画像ファイルの無効化 {#invalidating-image-files-used-for-navigation}
+## ナビゲーションに使用する画像ファイルを無効にする {#invalidating-image-files-used-for-navigation}
 
 ナビゲーションエントリに画像を使用する場合、この方法はタイトルと同じですが、少し複雑です。すべてのナビゲーション画像をターゲットページと共に保存します。通常とアクティブ用に 2 つの画像を使用する場合は、次のスクリプトを使用できます。
 

@@ -1,5 +1,5 @@
 ---
-title: Dispatcher に関する問題のトラブルシューティング
+title: Dispatcherの問題のトラブルシューティング
 description: Dispatcher に関する問題のトラブルシューティングについて説明します。
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -9,14 +9,14 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '539'
-ht-degree: 100%
+source-wordcount: '472'
+ht-degree: 93%
 
 ---
 
-# Dispatcher に関する問題のトラブルシューティング {#troubleshooting-dispatcher-problems}
+# Dispatcherの問題のトラブルシューティング {#troubleshooting-dispatcher-problems}
 
 >[!NOTE]
 >
@@ -26,9 +26,9 @@ ht-degree: 100%
 
 >[!NOTE]
 >
->詳しくは、[Dispatcher ナレッジベース](https://helpx.adobe.com/jp/experience-manager/kb/index/dispatcher.html?lang=ja)、[Dispatcher のフラッシュ問題のトラブルシューティング](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])および [Dispatcher に関する主な問題とよくある質問](dispatcher-faq.md)を参照してください。
+><!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[Dispatcherのフラッシュに関する問題のトラブルシューティング ](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]) と [Dispatcherのトップに関する問題の FAQ](dispatcher-faq.md) を参照してください。
 
-## 基本設定の確認 {#check-the-basic-configuration}
+## 基本設定を確認します {#check-the-basic-configuration}
 
 通常どおり、基本事項を確認することが最初の手順です。
 
@@ -54,16 +54,17 @@ IIS には、実際のバージョンに応じて様々なトレースツール�
 
 これらのツールを使用して、アクティビティを監視できます。
 
-## IIS と 404 Not Found {#iis-and-not-found}
+<!-- Both URLs in this topic 404! >
+## IIS and 404 Not Found {#iis-and-not-found}
 
-IIS の使用時、様々な場面で `404 Not Found` が返されることがあります。その場合は、次のナレッジベース記事を参照してください。
+When using IIS, you might experience `404 Not Found` being returned in various scenarios. If so, see the following Knowledge Base articles.
 
-* [IIS 6/7：POST メソッドが 404 を返す](https://helpx.adobe.com/jp/experience-manager/kb/IIS6IsapiFilters.html)
-* [IIS 6：ベースパス `/bin` を含む URL へのリクエストが `404 Not Found` を返す](https://helpx.adobe.com/jp/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7: POST method returns 404](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
+* [IIS 6: Requests to URLs that contain the base path `/bin` return a `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-また、Dispatcher のキャッシュルートと IIS のドキュメントルートが同じディレクトリに設定されていることも確認します。
+Also check that the Dispatcher cache root and the IIS document root are set to the same directory. -->
 
-## ワークフローモデルの削除に関する問題 {#problems-deleting-workflow-models}
+## ワークフローモデル削除の問題 {#problems-deleting-workflow-models}
 
 **症状**
 

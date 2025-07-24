@@ -1,5 +1,5 @@
 ---
-title: AEM からのキャッシュされたページの無効化
+title: AEMのキャッシュされたページを無効にする
 description: 効率的なキャッシュ管理を確保するため、Dispatcher と AEM の間のインタラクションを設定する方法について説明します。
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -9,14 +9,14 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
 source-wordcount: '1407'
-ht-degree: 100%
+ht-degree: 95%
 
 ---
 
-# AEM からのキャッシュされたページの無効化 {#invalidating-cached-pages-from-aem}
+# AEMのキャッシュされたページを無効にする {#invalidating-cached-pages-from-aem}
 
 Dispatcher を AEM と共に使用する際は、キャッシュが効果的に管理されるようにインタラクションを設定する必要があります。環境によっては、この設定でパフォーマンスを向上させることができます。
 
@@ -24,11 +24,11 @@ Dispatcher を AEM と共に使用する際は、キャッシュが効果的に�
 
 デフォルトの `admin` ユーザーアカウントを使用して、デフォルトでインストールされているレプリケーションエージェントを認証します。レプリケーションエージェントで使用する専用のユーザーアカウントを作成します。
 
-詳しくは、AEM セキュリティチェックリストの[レプリケーションユーザーとトランスポートユーザーの設定](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps)の節を参照してください。
+詳しくは、AEM セキュリティチェックリストの [ レプリケーションとトランスポートユーザーの設定 ](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) の節を参照してください。
 
-<!-- OLD URL from above https://helpx.adobe.com/jp/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
+<!-- OLD URL from above https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
-## オーサリング環境からの Dispatcher キャッシュの無効化 {#invalidating-dispatcher-cache-from-the-authoring-environment}
+## オーサー環境からDispatcherのキャッシュを無効にする {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
 ページが公開されると、AEM オーサーインスタンス上のレプリケーションエージェントがキャッシュの無効化要求を Dispatcher に送信します。Dispatcher では、新しいコンテンツが公開されると、最終的にキャッシュ内のファイルを更新します。
 
@@ -80,7 +80,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
 * 公開とキャッシュの無効化は同時に行われます。タイミングによっては、キャッシュからページが削除された直後、新しいページが公開される直前に、削除されたページがリクエストされる場合があります。その場合は、AEM から古いページが返され、Dispatcher で再びキャッシュされます。この状況は、大規模なサイトの場合には、より大きな問題になります。
 
-## パブリッシュインスタンスからの Dispatcher キャッシュの無効化 {#invalidating-dispatcher-cache-from-a-publishing-instance}
+## パブリッシュインスタンスからのDispatcher キャッシュの無効化 {#invalidating-dispatcher-cache-from-a-publishing-instance}
 
 キャッシュ管理をオーサー環境からパブリッシュインスタンスに移行すると、パフォーマンスが向上する場合があります。この場合、公開されたページを受信したときにキャッシュの無効化リクエストを Dispatcher に送信するのは、AEM オーサー環境でなくパブリッシュ環境となります。
 
@@ -120,7 +120,7 @@ Comment Type: draft
 
 1. `<publishserver> 13:29:47 127.0.0.1 POST /dispatcher/invalidate.cache 200`
 
-## 手動での Dispatcher キャッシュの無効化 {#manually-invalidating-the-dispatcher-cache}
+## Dispatcherのキャッシュを手動で無効にする {#manually-invalidating-the-dispatcher-cache}
 
 ページをアクティベートせずに Dispatcher キャッシュを無効化（またはフラッシュ）するには、Dispatcher に HTTP リクエストを発行できます。例えば、管理者や他のアプリケーションによるキャッシュのフラッシュを可能にする AEM アプリケーションを作成できます。
 
@@ -169,7 +169,7 @@ page_path1
 page_pathn
 ```
 
-即時再キャッシュするページのパスは、メッセージ本文に別々の行として一覧表示されます。`CQ-Handle` の値は、再キャッシュするページを無効化するページのパスです。（[キャッシュ](dispatcher-configuration.md#main-pars_146_44_0010)設定項目の `/statfileslevel` パラメーターを参照してください）。以下の HTTP 要求メッセージの例では、`/content/geometrixx-outdoors/en.html page` ページを削除して再キャッシュします。
+即時再キャッシュするページのパスは、メッセージ本文に別々の行として一覧表示されます。`CQ-Handle` の値は、再キャッシュするページを無効化するページのパスです。（`/statfileslevel`Cache[ 設定項目の ](dispatcher-configuration.md#main-pars_146_44_0010) パラメーターを参照。） 次の HTTP リクエストメッセージの例では、リク `/content/geometrixx-outdoors/en.html page` ストを削除し、再キャッシュします。
 
 ```xml
 POST /dispatcher/invalidate.cache HTTP/1.1  

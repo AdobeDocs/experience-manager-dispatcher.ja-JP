@@ -1,5 +1,5 @@
 ---
-title: Dispatcher での SSL の使用
+title: Dispatcherでの SSL の使用
 description: SSL 接続を使用して AEM と通信するよう Dispatcher を設定する方法について説明します。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -9,14 +9,14 @@ index: y
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: 971cffd4f7ba8b1fa88a8af620a723ce59957007
-workflow-type: ht
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
+workflow-type: tm+mt
 source-wordcount: '1305'
-ht-degree: 100%
+ht-degree: 91%
 
 ---
 
-# Dispatcher での SSL の使用 {#using-ssl-with-dispatcher}
+# Dispatcherでの SSL の使用 {#using-ssl-with-dispatcher}
 
 Dispatcher とレンダリングコンピューター間には次の SSL 接続を使用します。
 
@@ -27,7 +27,7 @@ Dispatcher とレンダリングコンピューター間には次の SSL 接続�
 >
 >SSL 証明書に関連する操作は、サードパーティ製品に固有です。Adobe Platinum Maintenance and Support 契約の対象ではありません。
 
-## Dispatcher が AEM に接続するときに SSL を使用する {#use-ssl-when-dispatcher-connects-to-aem}
+## DispatcherがAEMに接続する際に SSL を使用 {#use-ssl-when-dispatcher-connects-to-aem}
 
 Dispatcher が SSL 接続を使用して AEM または CQ レンダーインスタンスと通信するように設定します。
 
@@ -36,7 +36,7 @@ Dispatcher を設定する前に、SSL を使用するように AEM または CQ
 * [デフォルトの SSL/TLS](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/ssl-by-default)
 * [AEM での SSL ウィザードの使用](https://experienceleague.adobe.com/ja/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
 
-### SSL に関連する要求ヘッダー {#ssl-related-request-headers}
+### SSL 関連のリクエストヘッダー {#ssl-related-request-headers}
 
 HTTPS 要求を受信すると、Dispatcher は AEM または CQ に送信する、以降の要求に次のヘッダーを含めます。
 
@@ -53,7 +53,7 @@ X-Forwarded-SSL-Cipher: DHE-RSA-AES256-SHA
 X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239D5C771CB5B4D
 ```
 
-### SSL を使用するように Dispatcher を設定する {#configuring-dispatcher-to-use-ssl}
+### SSL を使用するようにDispatcherを設定 {#configuring-dispatcher-to-use-ssl}
 
 SSL 経由で AEM または CQ と接続するように Dispatcher を設定するには、[dispatcher.any](dispatcher-configuration.md) ファイルに以下のプロパティが必要です。
 
@@ -111,7 +111,7 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 }
 ```
 
-## Dispatcher と AEM 間の相互 SSL の設定 {#configuring-mutual-ssl-between-dispatcher-and-aem}
+## DispatcherとAEM間の相互 SSL の設定 {#configuring-mutual-ssl-between-dispatcher-and-aem}
 
 相互 SSL を使用するように、Dispatcher とレンダーコンピューター（一般的には AEM または CQ パブリッシュインスタンス）間の接続を設定します。
 
@@ -133,13 +133,13 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 1. [レンダーの証明書を格納したキーストアを作成](dispatcher-ssl.md#main-pars-title-6)し、レンダーの HTTP サービスを設定します。
 1. 相互 SSL 用に [Dispatcher の Web サーバーモジュールを設定](dispatcher-ssl.md#main-pars-title-4)します。
 
-### CA 署名済み証明書の作成または取得 {#creating-or-obtaining-ca-signed-certificates}
+### CA 署名証明書の作成または取得 {#creating-or-obtaining-ca-signed-certificates}
 
 パブリッシュインスタンスと Dispatcher を認証する CA 署名済みの証明書を作成または取得します。
 
 #### CA の作成 {#creating-your-ca}
 
-ユーザーが CA の役目を果たす場合は、[OpenSSL](https://www.openssl.org/) を使用して、サーバーとクライアントの証明書に署名する証明機関を作成します。（OpenSSL ライブラリがインストールされている必要があります）。サードパーティ CA を使用する場合は、この手順を実行しないでください。
+ユーザーが CA の役目を果たす場合は、[OpenSSL](https://www.openssl.org/) を使用して、サーバーとクライアントの証明書に署名する証明機関を作成します。（OpenSSL ライブラリがインストールされている必要があります）。 サードパーティの CA を使用している場合は、この手順を実行しないでください。
 
 1. ターミナルを開き、現在のディレクトリを `CA.sh` ファイルを含むディレクトリ（例：`/usr/local/ssl/misc`）に変更します。
 1. CA を作成するには、次のコマンドを入力し、プロンプトに従って値を指定します。
@@ -152,7 +152,7 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
    >
    >`openssl.cnf` ファイルのいくつかのプロパティによって、CA.sh スクリプトの動作が制御されます。CA を作成する前に、必要に応じてこのファイルを編集します。
 
-#### 証明書の作成 {#creating-the-certificates}
+#### 証明書を作成する {#creating-the-certificates}
 
 OpenSSL を使用して証明書要求を作成し、サードパーティ CA に送信するか、自身の CA によって署名します。
 
@@ -179,11 +179,11 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
 1. 手順 2 と 3 を繰り返して、Dispatcher モジュール用の証明書と公開鍵を作成します。必ず Dispatcher インスタンスに固有の Common Name を使用してください。
 1. `newcert.pem` の名前を `dispcert.pem` に変更し、`newkey.pem` の名前を `dispkey.pem` に変更します。
 
-### レンダーコンピューターでの SSL の設定 {#configuring-ssl-on-the-render-computer}
+### レンダリングコンピューターで SSL を設定する {#configuring-ssl-on-the-render-computer}
 
 `rendercert.pem` ファイルと `renderkey.pem` ファイルを使用してレンダーインスタンス上の SSL を設定します。
 
-#### レンダリング証明書の JKS（Java™ KeyStore）形式への変換 {#converting-the-render-certificate-to-jks-format}
+#### レンダリング証明書を JKS （Java™ キーストア）形式に変換 {#converting-the-render-certificate-to-jks-format}
 
 次のコマンドを使用して、PEM ファイルであるレンダー証明書を PKCS#12 ファイルに変換します。レンダー証明書に署名した CA の証明書も含めます。
 
@@ -206,7 +206,7 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
    keytool -changealias -alias 1 -destalias jettyhttp -keystore render.keystore
    ```
 
-#### CA 証明書をレンダーの Truststore に追加 {#adding-the-ca-cert-to-the-render-s-truststore}
+#### CA 証明書をレンダリングのトラストストアに追加します {#adding-the-ca-cert-to-the-render-s-truststore}
 
 ユーザーが CA の機役目を果たす場合は、CA 証明書をキーストアに読み込みます。次に、キーストアを信頼するように、レンダーインスタンスを実行する JVM を設定します。
 
@@ -244,7 +244,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    CQ_JVM_OPTS='-server -Xmx2048m -XX:MaxPermSize=512M -Djavax.net.ssl.trustStore=/usr/lib/cq6.0/publish/ssl/cacerts.keystore'
    ```
 
-#### レンダーインスタンスの設定 {#configuring-the-render-instance}
+#### レンダリングインスタンスの設定 {#configuring-the-render-instance}
 
 SSL を使用するようにレンダーインスタンスの HTTP サービスを設定するには、「*`Enable SSL on the Publish Instance`*」セクションの指示に従ってレンダー証明書を使用します。
 
@@ -252,11 +252,11 @@ SSL を使用するようにレンダーインスタンスの HTTP サービス�
 * AEM 6.2：[HTTP over SSL の有効化](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
 * 旧バージョンの AEM：[このページ](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)を参照してください。
 
-### Dispatcher モジュール用の SSL の設定 {#configuring-ssl-for-the-dispatcher-module}
+### Dispatcherモジュールの SSL の設定 {#configuring-ssl-for-the-dispatcher-module}
 
 相互 SSL を使用するように Dispatcher を設定するには、Dispatcher 証明書を準備して、Web サーバーモジュールを設定します。
 
-### Dispatcher の統合証明書の作成 {#creating-a-unified-dispatcher-certificate}
+### 統合Dispatcher証明書を作成 {#creating-a-unified-dispatcher-certificate}
 
 Dispatcher 証明書と暗号化されていない秘密鍵を組み合わせて、単一の PEM ファイルにします。テキストエディターまたは `cat` コマンドを使用して、以下のサンプルのようなファイルを作成します。
 
@@ -280,7 +280,7 @@ Dispatcher 証明書と暗号化されていない秘密鍵を組み合わせて
    -----END CERTIFICATE-----
    ```
 
-### Dispatcher 用に使用する証明書の指定 {#specifying-the-certificate-to-use-for-dispatcher}
+### Dispatcherに使用する証明書を指定 {#specifying-the-certificate-to-use-for-dispatcher}
 
 以下のプロパティを（`httpd.conf` の）[Dispatcher モジュールの設定](dispatcher-install.md#main-pars-55-35-1022)に追加します。
 

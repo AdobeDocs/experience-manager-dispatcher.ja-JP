@@ -1,19 +1,19 @@
 ---
-title: Dispatcher のインストール
+title: Dispatcherのインストール
 description: Microsoft® Internet Information Server、Apache web サーバーおよび Sun Java™ Web Server-iPlanet に Dispatcher モジュールをインストールする方法について説明します。
 contentOwner: User
 converted: true
 topic-tags: dispatcher
 content-type: reference
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '3748'
-ht-degree: 100%
+source-wordcount: '3720'
+ht-degree: 94%
 
 ---
 
-# Dispatcher のインストール {#installing-dispatcher}
+# Dispatcherのインストール {#installing-dispatcher}
 
 <!-- 
 
@@ -39,9 +39,9 @@ Comment Type: draft
 
 | Web サーバー | インストールキット |
 |--- |--- |
-| Apache 2.4 | dispatcher-apache **2.4**-&lt;other parameters> |
-| Microsoft® Internet Information Server 7.5、8、8.5、10 | dispatcher-**iis**-&lt;other parameters> |
-| Sun Java™ Web Server iPlanet | dispatcher-**ns**-&lt;other parameters> |
+| Apache 2.4 | `dispatcher-apache**2.4**-<other parameters>` |
+| Microsoft® Internet Information Server 7.5、8、8.5、10 | `dispatcher-**iis**-<other parameters>` |
+| Sun Java™ Web Server iPlanet | `dispatcher-**ns**-<other parameters>` |
 
 >[!CAUTION]
 >
@@ -130,7 +130,7 @@ ZIP ファイルには以下のファイルが含まれます。
       * オーサーインスタンス：`author_dispatcher.any`
       * パブリッシュインスタンス：`dispatcher.any`
 
-## Microsoft® IIS - Dispatcher の INI ファイルの設定 {#microsoft-iis-configure-the-dispatcher-ini-file}
+## Microsoft® IIS - Dispatcher INI ファイルの設定 {#microsoft-iis-configure-the-dispatcher-ini-file}
 
 Dispatcher のインストールを設定するには、`disp_iis.ini` ファイルを編集します。`.ini` ファイルの基本的なフォーマットを次に示します。
 
@@ -150,7 +150,7 @@ replaceauthorization=0|1
 | `logfile` | `dispatcher.log` ファイルの場所。この場所が設定されていない場合、ログメッセージは Windows のイベントログに出力されます。 |
 | `loglevel` | イベントログへのメッセージ出力に使用するログレベルを定義します。次の値は、ログファイルのログレベルで指定できます。<br/>0 - エラーメッセージのみ。<br/>1 - エラーと警告。<br/>2 - エラー、警告および情報メッセージ<br/>3 - エラー、警告、情報メッセージおよびデバッグメッセージ。<br/>**メモ**：インストールおよびテスト時はログレベルを 3 に、実稼動環境で実行する場合は 0 に設定します。 |
 | `replaceauthorization` | HTTP 要求内の認証ヘッダーの処理方法を指定します。有効な値は次のとおりです。<br/>0 - 認証ヘッダーは変更されていません。<br/>1 -「Basic」を除く、「Authorization」という名前のすべてのヘッダーを、その「`Basic <IIS:LOGON\_USER>`」と同等のものに置き換えます。<br/> |
-| `servervariables` | サーバー変数の処理方法を定義します。<br/>0 - IIS サーバー変数は Dispatcher および AEM に送信されません。<br/>1 - すべての IIS サーバー変数（`LOGON\_USER, QUERY\_STRING, ...` など）は、要求ヘッダー付きで Dispatcher に（およびキャッシュされていない場合は AEM インスタンスにも）送信されます。<br/>サーバー変数は、`AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` など多数あります。すべてのサーバー変数とその詳細の一覧は、IIS のドキュメントを参照してください。 |
+| `servervariables` | サーバー変数の処理方法を定義します。<br/>0 - IIS サーバー変数は Dispatcher および AEM に送信されません。<br/>1 – すべての IIS サーバー変数（`LOGON\_USER, QUERY\_STRING, ...` など）が、リクエストされたヘッダーと共にDispatcherに送信されます（キャッシュされていない場合はAEM インスタンスにも送信されます）。  <br/>サーバー変数は、`AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` など多数あります。すべてのサーバー変数とその詳細の一覧は、IIS のドキュメントを参照してください。 |
 | `enable_chunked_transfer` | クライアント応答のチャンク転送を有効（1）または無効（0）にするかを定義します。デフォルト値は 0 です。 |
 
 設定例：
@@ -167,17 +167,17 @@ replaceauthorization=0
 
 Dispatcher ISAPI モジュールを統合するように IIS を設定します。IIS では、ワイルドカードアプリケーションマッピングを使用します。
 
-### 匿名アクセスの設定 - IIS 8.5 および 10 {#configuring-anonymous-access-iis-and}
+### 匿名アクセスの設定 – IIS 8.5 および 10 {#configuring-anonymous-access-iis-and}
 
-オーサーインスタンス上のデフォルトのフラッシュレプリケーションエージェントは、フラッシュ要求と一緒にセキュリティ資格情報を送信しないように設定されています。したがって、Dispatcher キャッシュとして使用する web サイトでは、匿名アクセスを許可する必要があります。
+オーサーインスタンス上のデフォルトの `Flush` レプリケーションエージェントは、フラッシュリクエストでセキュリティ資格情報を送信しないように設定されています。 そのため、Dispatcher キャッシュを使用する web サイトでは、匿名アクセスを許可する必要があります。
 
-Web サイトが認証メソッドを使用する場合は、それに応じてフラッシュレプリケーションエージェントを設定する必要があります。
+Web サイトで認証方法を使用する場合は、それに応じて `Flush` レプリケーションエージェントを設定する必要があります。
 
 1. IIS Manager を開き、Dispatcher キャッシュとして使用する Web サイトを選択します。
 1. 機能ビューモードを使用して、「IIS」セクションで「認証」をダブルクリックします。
 1. 匿名認証が有効でない場合は「匿名認証」を選択し、「操作」領域で「有効」をクリックします。
 
-### Dispatcher ISAPI モジュールの統合 - IIS 8.5 および 10 {#integrating-the-dispatcher-isapi-module-iis-and}
+### Dispatcher ISAPI モジュールの統合 – IIS 8.5 および 10 {#integrating-the-dispatcher-isapi-module-iis-and}
 
 以下の手順を実行して、Dispatcher ISAPI モジュールを IIS に追加します。
 
@@ -199,7 +199,7 @@ Web サイトが認証メソッドを使用する場合は、それに応じて�
 1. （IIS 8.0）ハンドラーをまだキャッシュされていないファイルおよびフォルダー用に使用するには、「**要求のマップ先が次の場合のみハンドラーを呼び出す**」をオフにします。「**OK**」をクリックします。
 1. （IIS 8.0）スクリプトマップの編集ダイアログボックスで、「OK」をクリックします。
 
-### キャッシュへのアクセス権の設定 - IIS 8.5 および 10 {#configuring-access-to-the-cache-iis-and}
+### キャッシュへのアクセスの設定 – IIS 8.5 および 10 {#configuring-access-to-the-cache-iis-and}
 
 デフォルトのアプリケーションプールユーザーに、Dispatcher キャッシュとして使用するフォルダーへの書き込みアクセス権を付与します。
 
@@ -217,7 +217,7 @@ Web サイトが認証メソッドを使用する場合は、それに応じて�
 1. 「名前の確認」ボタンをクリックします。Windows によってユーザーアカウントが解決されたら、「OK」をクリックします。
 1. Dispatcher フォルダーの権限ダイアログボックスで、追加したアカウントを選択し、アカウントに対するすべての権限（**フルコントロール以外**）を有効にして、「OK」をクリックします。「OK」をクリックして、フォルダーのプロパティダイアログボックスを閉じます。
 
-### JSON の MIME タイプの登録 - IIS 8.5 および 10 {#registering-the-json-mime-type-iis-and}
+### JSON MIME タイプの登録 – IIS 8.5 および 10 {#registering-the-json-mime-type-iis-and}
 
 Dispatcher で JSON 呼び出しを許可する場合、以下の手順を実行して、JSON の MIME タイプを登録します。
 
@@ -227,14 +227,14 @@ Dispatcher で JSON 呼び出しを許可する場合、以下の手順を実行
    * ファイル名拡張子：`.json`
    * MIME Type: `application/json`
 
-### 非表示セグメント bin の削除 - IIS 8.5 および 10 {#removing-the-bin-hidden-segment-iis-and}
+### bin 非表示セグメントの削除 – IIS 8.5 および 10 {#removing-the-bin-hidden-segment-iis-and}
 
 以下の手順を実行して、非表示セグメント `bin` を削除します。新しくない Web サイトには、この非表示セグメントが含まれていることがあります。
 
 1. IIS Manager で、web サイトを選択し、機能ビューを使用して、「要求のフィルタリング」をダブルクリックします。
 1. `bin` セグメントを選択し、「削除」をクリックしてから、確認ダイアログボックスで「はい」をクリックします。
 
-### IIS メッセージのファイルへの記録 - IIS 8.5 および 10 {#logging-iis-messages-to-a-file-iis-and}
+### IIS メッセージをファイルに記録する：IIS 8.5 および 10 {#logging-iis-messages-to-a-file-iis-and}
 
 以下の手順を実行して、Dispatcher のログメッセージを Windows のイベントログではなくログファイルに書き込みます。Dispatcher がログファイルを使用するように設定し、そのファイルへの書き込みアクセス権を IIS に付与します。
 
@@ -274,7 +274,7 @@ Dispatcher の使用を開始する前に、次のことを理解しておく必
 >
 >インストール手順は、**Windows** の場合と **UNIX®** の場合の両方について記載されています。手順は慎重に実行してください。
 
-### Apache Web サーバーのインストール {#installing-apache-web-server}
+### Apache web サーバーのインストール {#installing-apache-web-server}
 
 Apache Web サーバーのインストールについては、[オンライン](https://httpd.apache.org/)またはディストリビューション内のインストールマニュアルを参照してください。
 
@@ -286,7 +286,7 @@ Apache Web サーバーのインストールについては、[オンライン](
 
 Apache HTTP サーバーの[セキュリティに関するヒント](https://httpd.apache.org/docs/2.4/misc/security_tips.html)および[セキュリティレポート](https://httpd.apache.org/security_report.html)も参照してください。
 
-### Apache Web サーバー - Dispatcher モジュールの追加 {#apache-web-server-add-the-dispatcher-module}
+### Apache web サーバー – Dispatcher モジュールを追加します {#apache-web-server-add-the-dispatcher-module}
 
 Dispatcher は次のいずれかの形式で提供されます。
 
@@ -297,13 +297,13 @@ Dispatcher は次のいずれかの形式で提供されます。
 
 | ファイル | 説明 |
 |--- |--- |
-| disp_apache&lt;x.y>.dll | Windows：Dispatcher のダイナミックリンクライブラリファイル。 |
-| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | UNIX®：Dispatcher の共有オブジェクトライブラリファイル。 |
-| mod_dispatcher.so | UNIX®：サンプルリンク。 |
-| http.conf.disp&lt;x> | Apache サーバー用のサンプル設定ファイル。 |
-| dispatcher.any | Dispatcher 用のサンプルの設定ファイル。 |
-| README | インストール手順と最新の情報を含む Readme ファイル。**メモ**：インストールを開始する前に、このファイルを確認します。 |
-| 変更 | 現在および過去のリリースで修正された問題を記載したファイルを変更します。 |
+| d`isp_apache<x.y>.dll` | Windows：Dispatcher のダイナミックリンクライブラリファイル。 |
+| `dispatcher-apacheM<x.y>-<rel-nr>.so` | UNIX®：Dispatcher の共有オブジェクトライブラリファイル。 |
+| `mod_dispatcher.so` | UNIX®：サンプルリンク。 |
+| `http.conf.disp<x>` | Apache サーバー用のサンプル設定ファイル。 |
+| `dispatcher.any` | Dispatcher 用のサンプルの設定ファイル。 |
+| `README` | インストール手順と最新の情報を含む Readme ファイル。**メモ**：インストールを開始する前に、このファイルを確認します。 |
+| C`HANGES` | 現在および過去のリリースで修正された問題を記載したファイルを変更します。 |
 
 次の手順を実行して、Apache Web サーバーに Dispatcher を追加します。
 
@@ -319,7 +319,7 @@ Dispatcher は次のいずれかの形式で提供されます。
 
    **メモ：** Dispatcher モジュールの DispatcherLog プロパティが適切に設定されていれば、このファイルを別の場所に配置できます（以下の Dispatcher 固有の設定エントリを参照してください）。
 
-### Apache Web サーバー - SELinux プロパティの設定 {#apache-web-server-configure-selinux-properties}
+### Apache web サーバー – SELinux プロパティの設定 {#apache-web-server-configure-selinux-properties}
 
 Red Hat® Linux Kernel 2.6 上で SELinux を有効にして Dispatcher を実行する場合、Dispatcher のログファイルに次のようなエラーメッセージが書き込まれることがあります。
 
@@ -531,7 +531,7 @@ AllowOverride None
 ...
 ```
 
-### HTTPS のサポートの有効化（UNIX® および Linux®）{#enable-support-for-https-unix-and-linux}
+### HTTPS のサポートを有効にする（UNIX® および Linux®） {#enable-support-for-https-unix-and-linux}
 
 Dispatcher は、OpenSSL を使用して HTTP 経由でのセキュアな通信を実装します。Dispatcher バージョン **4.2.0** からは、OpenSSL 1.0.0 および OpenSSL 1.0.1 がサポートされています。デフォルトでは、Dispatcher は OpenSSL 1.0.0 を使用します。OpenSSL 1.0.1 を使用するには、以下の手順を実行して、Dispatcher がインストールされている OpenSSL ライブラリを使用できるように、シンボリックリンクを作成します。
 
@@ -550,7 +550,7 @@ Dispatcher は、OpenSSL を使用して HTTP 経由でのセキュアな通信�
 
 >[!NOTE]
 >
->カスタマイズバージョンの Apache を使用している場合は、Apache と Dispatcher が同じバージョンの [OpenSSL](https://www.openssl.org/source/) を使用してコンパイルされていることを確認してください。
+>カスタマイズ済みバージョンの Apache を使用している場合は、Apache とDispatcherが同じバージョンの OpenSSL を使用してコンパイルされていることを確認してください。<!-- URL has connection error [OpenSSL] (https://www.openssl.org/source/). -->
 
 ### 次の手順 {#next-steps-1}
 
@@ -574,7 +574,7 @@ Dispatcher の使用を開始する前に、次の作業を実行する必要が
 * Sun Java™ System Web Server
 * iPlanet Web Server
 
-### Sun Java™ System Web Server／iPlanet - Dispatcher モジュールの追加 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Sun Java™ System Web Server / iPlanet - Dispatcher モジュールを追加します。 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Dispatcher は次のいずれかの形式で提供されます。
 
