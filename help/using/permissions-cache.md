@@ -70,7 +70,7 @@ Dispatcher には、権限を区別するキャッシュを実装する AuthChec
 >[!NOTE]
 >
 >Dispatcher の前に CDN（またはその他のキャッシュ）がある場合、CDN がプライベートコンテンツをキャッシュしないように、キャッシュヘッダーを設定する必要があります。例：`Header always set Cache-Control private`。
->>AEM as a Cloud Service におけるプライベートキャッシュヘッダーの設定方法について詳しくは、[キャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching)ページを参照してください。
+>&#x200B;>AEM as a Cloud Service におけるプライベートキャッシュヘッダーの設定方法について詳しくは、[キャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching)ページを参照してください。
 
 ## 認証チェッカーサーブレットの作成 {#create-the-auth-checker-servlet}
 
