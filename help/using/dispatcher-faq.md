@@ -3,9 +3,9 @@ title: Dispatcher に関する主な問題
 description: Adobe Experience Manager Dispatcher に関する主な問題
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1538'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -119,9 +119,9 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### Dispatcher の問題：`jcr:content` が `jcr%3acontent` に変更される
 
-**質問**：ビジネスでは最近、Dispatcher レベルで問題に直面しています。CQ リポジトリからデータを取得していた AJAX 呼び出しの 1 つに、`jcr:content` が含まれていました。これが `jcr%3acontent` にエンコードされたので、間違った結果セットが発生しました。
+**質問**：ビジネスでは最近、Dispatcher レベルで問題に直面しています。CQ リポジトリからデータを取得していた AJAX 呼び出しの 1 つに、`jcr:content` が含まれていました。これが `jcr%3acontent` にエンコードされたことで、間違った結果セットが生成されました。
 
-**回答**:`ResourceResolver.map()` を呼び出して、Dispatcher リクエストのわかりやすい URL を生成し、GETのキャッシュの問題を解決します。 map() メソッドは `:` コロンをアンダースコアにエンコードし、resolve() メソッドはそれらを読み取り可能な SLING JCR 形式に戻します。map() メソッドを使用して、Ajax 呼び出しで使用される URL を生成します。
+**回答**：`ResourceResolver.map()` を呼び出して、GET リクエストのわかりやすい URL を生成し、Dispatcher のキャッシュの問題を解決します。map() メソッドは `:` コロンをアンダースコアにエンコードし、resolve() メソッドはそれらを読み取り可能な SLING JCR 形式に戻します。map() メソッドを使用して、Ajax 呼び出しで使用される URL を生成します。
 
 詳しくはこちらをご覧ください。[https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html?#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
@@ -133,7 +133,7 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ### Dispatcher のフラッシュ問題のトラブルシューティング方法を教えてください。
 
-[こちらのトラブルシューティング記事を参照してください](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager])。
+[こちらのトラブルシューティング記事を参照してください](https://experienceleague.adobe.com/search.html?lang=ja#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager])。
 
 削除操作によって Dispatcher がフラッシュされる場合は、[Sensei Martin によるコミュニティブログの投稿に記載された回避策を使用してください](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html)。
 

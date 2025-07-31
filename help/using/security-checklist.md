@@ -1,5 +1,5 @@
 ---
-title: Dispatcher セキュリティチェックリスト
+title: Dispatcher のセキュリティチェックリスト
 description: 実稼動を開始する前に完了する必要がある Dispatcher のセキュリティチェックリストについて説明します。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -11,13 +11,13 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '582'
-ht-degree: 85%
+ht-degree: 100%
 
 ---
 
-# Dispatcher セキュリティチェックリスト{#the-dispatcher-security-checklist}
+# Dispatcher のセキュリティチェックリスト{#the-dispatcher-security-checklist}
 
 <!-- 
 
@@ -36,7 +36,7 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 >
 >稼動させる前に、使用するバージョンの AEM のセキュリティチェックリストを確認します。詳しくは、対応する [Adobe Experience Manager ドキュメント](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/security-checklist)を参照してください。
 
-## Dispatcherの最新バージョンを使用する {#use-the-latest-version-of-dispatcher}
+## 最新バージョンの Dispatcher の使用 {#use-the-latest-version-of-dispatcher}
 
 ご使用のプラットフォームで利用可能な最新バージョンをインストールします。製品とセキュリティの機能強化を活用するには、Dispatcher インスタンスをアップグレードして最新バージョンを使用してください。詳しくは、[Dispatcher のインストール](dispatcher-install.md)を参照してください。
 
@@ -73,23 +73,23 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
  -->
 
-## アクセスを制限 {#restrict-access}
+## アクセスの制限 {#restrict-access}
 
-Dispatcher の設定時に、できる限り外部アクセスを制限します。Dispatcher に関するドキュメントの[サンプルの /filter セクション](dispatcher-configuration.md#main-pars_184_1_title)を参照してください。
+Dispatcher の設定時に、できる限り外部アクセスを制限します。Dispatcher に関するドキュメントで[サンプルの /filter セクション](dispatcher-configuration.md#main-pars_184_1_title)を参照してください。
 
-## 管理 URL へのアクセスが拒否されていることを確認します {#make-sure-access-to-administrative-urls-is-denied}
+## 管理 URL へのアクセスの拒否 {#make-sure-access-to-administrative-urls-is-denied}
 
 フィルターを使用して、web コンソールなどすべての管理 URL への外部アクセスを確実にブロックします。
 
 ブロックする必要がある URL のリストについて詳しくは、[Dispatcher のセキュリティのテスト](dispatcher-configuration.md#testing-dispatcher-security)を参照してください。
 
-## 許可リストの代わりにブロックリストを使用 {#use-allowlists-instead-of-blocklists}
+## ブロックリストの代わりに許可リストを使用 {#use-allowlists-instead-of-blocklists}
 
 アクセスを制御する方法としては、許可リストのほうが優れています。許可リストは、明示的に許可リストに含まれているもの以外はすべてのアクセス要求を拒否するからです。このモデルでは、未確認だったり、特定の設定ステージで考慮されていなかった可能性がある新しい要求に対して、より厳しい制御を提供します。
 
-## 専用のシステムユーザーでDispatcherを実行します {#run-dispatcher-with-a-dedicated-system-user}
+## 専用システムユーザーでの Dispatcher の実行 {#run-dispatcher-with-a-dedicated-system-user}
 
-Dispatcherを設定して、権限の少ない専用のユーザーアカウントで web サーバーを実行するようにします。 Adobeでは、Dispatcher キャッシュフォルダーへの書き込みアクセス権のみを付与することをお勧めします。
+最小限の権限を持つ専用のユーザーアカウントが web サーバーを実行するように、Dispatcher を設定します。Dispatcher のキャッシュフォルダーへの書き込みアクセス権のみを付与することをお勧めします。
 
 また、IIS ユーザーは、web サイトを次のように設定する必要があります。
 
@@ -146,7 +146,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## CSRF 攻撃を防ぐためのDispatcherの設定 {#configure-dispatcher-to-prevent-csrf-attacks}
+## CSRF 攻撃を防止するための Dispatcher の設定 {#configure-dispatcher-to-prevent-csrf-attacks}
 
 AEM には、クロスサイトリクエストフォージェリ攻撃を防ぐことを目的とした[フレームワーク](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)があります。このフレームワークを適切に利用するには、次の手順を実行して、Dispatcher で CSRF トークンサポートを許可リストに登録します。
 

@@ -6,13 +6,13 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3073'
-ht-degree: 95%
+ht-degree: 100%
 
 ---
 
-# Dispatcherの概要 {#dispatcher-overview}
+# Dispatcher の概要 {#dispatcher-overview}
 
 >[!NOTE]
 >
@@ -53,7 +53,7 @@ Dispatcher をデプロイするプロセスは、選択した web サーバー�
 >
 >ただし、Dispatcher を使用して&#x200B;**オーサーインスタンス**&#x200B;の応答性を高めることもできます。これは、特に、多数のユーザーが web サイトを編集および更新する場合に当てはまります。このケースについて詳しくは、以下の[オーサーサーバーでの Dispatcher の使用](#using-a-dispatcher-with-an-author-server)を参照してください。
 
-## Dispatcherを使用してキャッシュを実装する理由 {#why-use-dispatcher-to-implement-caching}
+## Dispatcher を使用してキャッシュを実装する理由？ {#why-use-dispatcher-to-implement-caching}
 
 Web パブリッシングには、次の 2 つの基本的な方法があります。
 
@@ -91,7 +91,7 @@ AEM などの CMS（コンテンツ管理サーバー）を使用する場合、
 
 このワークフローによって、豊富で動的なコンテンツを作成でき、web サイトの柔軟性と機能性を高めることができます。ただし、レイアウトエンジンは静的サーバーより多くの処理能力が必要なので、レイアウトエンジンを設定すると、多くの訪問者がシステムを使用した場合に動作が遅くなる可能性があります。
 
-## Dispatcherのキャッシングの実行方法 {#how-dispatcher-performs-caching}
+## Dispatcher によるキャッシュの実行方法 {#how-dispatcher-performs-caching}
 
 ![](assets/chlimage_1-5.png)
 
@@ -111,7 +111,7 @@ AEM などの CMS（コンテンツ管理サーバー）を使用する場合、
 >
 >ファイル名の長さには OS レベルでの制限がある場合があります。つまり、多数のセレクターを含む URL がある場合です。
 
-### キャッシュのメソッド
+### キャッシュの方法
 
 Web サイトに変更があったとき、Dispatcher では主に 2 つの方法でキャッシュコンテンツを更新します。
 
@@ -145,13 +145,13 @@ Dispatcher は、自動無効化の対象となるファイルのリストを保
 この場合も、注意すべきポイントがいくつかあります。
 
 * 自動無効化は通常、HTML ページなど相互関係が複雑な場合に使用します。このようなページには、リンクやナビゲーションエントリが含まれるので、通常はコンテンツの更新後にこれらのリンクなどを更新する必要があります。自動生成される PDF や画像ファイルがある場合も、これらのファイルに対して自動無効化を選択できます。
-* 自動無効化の機能は、statfile にアクセスする以外は、更新時の Dispatcher の動作に関与しません。ただし、statfile への touch によって、キャッシュコンテンツは自動的に古いものとされます。キャッシュ自体は削除されません。
+* 自動無効化の機能は、statfile にアクセスする以外は、更新時の Dispatcher の動作に関与しません。ただし、statfile にアクセスすると、そのキャッシュコンテンツは自動的に古い情報とみなしますが、キャッシュから物理的に削除されるわけではありません。
 
-## Dispatcherによるドキュメントの返し方 {#how-dispatcher-returns-documents}
+## Dispatcher がドキュメントを返す方法 {#how-dispatcher-returns-documents}
 
 ![](assets/chlimage_1-6.png)
 
-### ドキュメントがキャッシュの対象となるかどうかを判断する
+### ドキュメントがキャッシュの対象かどうかの判断
 
 [どのドキュメントを Dispatcher でキャッシュするかは設定ファイルで定義](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)できます。Dispatcher は、要求とキャッシュ可能なドキュメントのリストを照合します。ドキュメントがこのリストにない場合は、AEM インスタンスにドキュメントを要求します。
 
@@ -165,14 +165,14 @@ Dispatcher は、自動無効化の対象となるファイルのリストを保
 >
 >（HTTP ヘッダー用の）GET または HEAD メソッドは、Dispatcher によってキャッシュ可能です。 応答ヘッダーのキャッシュについて詳しくは、[HTTP 応答ヘッダーのキャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)セクションを参照してください。
 
-### ドキュメントがキャッシュされているかどうかを判断する
+### ドキュメントがキャッシュされているかどうかの判断
 
 Dispatcher はキャッシュされたファイルを、静的 Web サイトに含まれる場合と同様に、Web サーバー上に格納しています。ユーザーがキャッシュ可能なドキュメントを要求すると、Dispatcher はそのドキュメントが web サーバーのファイルシステムに存在するかどうかを確認します。
 
 * ドキュメントがキャッシュされている場合、Dispatcher はそのファイルを返します。
 * ドキュメントがキャッシュされていない場合、Dispatcher は AEM インスタンスにドキュメントを要求します。
 
-### ドキュメントが最新かどうかを判断する
+### ドキュメントが最新かどうかの判断
 
 ドキュメントが最新かどうかを判断するために、Dispatcher は次の 2 つの手順を実行します。
 
@@ -183,7 +183,7 @@ Dispatcher はキャッシュされたファイルを、静的 Web サイトに�
 >
 >**自動無効化**&#x200B;の対象でないドキュメントは、物理的に削除されるまでキャッシュに残ります。例えば、web サイト上のコンテンツ更新などです。
 
-## ロードバランシングの利点 {#the-benefits-of-load-balancing}
+## ロードバランシングのメリット {#the-benefits-of-load-balancing}
 
 ロードバランシングとは、Web サイトの計算負荷を AEM の複数のインスタンスに分散させることです。
 
@@ -207,7 +207,7 @@ Dispatcher はキャッシュされたファイルを、静的 Web サイトに�
 >
 >単一の Dispatcher では、使用可能パブリッシュインスタンスの容量が飽和状態になる可能性がありますが、一部のアプリケーションでは、2 つの Dispatcher インスタンス間でロードバランシングを行うとよい場合が稀にあります。複数の Dispatcher を持つ設定については、慎重に検討する必要があります。Dispatcher を追加すると、使用可能なパブリッシュインスタンスの負荷が大きくなり、ほとんどのアプリケーションでパフォーマンスが低下しやすくなるからです。
 
-## Dispatcherによるロードバランシングの実行方法 {#how-the-dispatcher-performs-load-balancing}
+## Dispatcher によるロードバランシングの実行方法 {#how-the-dispatcher-performs-load-balancing}
 
 ### パフォーマンス統計
 
@@ -229,7 +229,7 @@ Dispatcher は、AEM の各インスタンスのドキュメント処理速度�
 >
 >*一部*&#x200B;のアプリケーションで、スティッキー接続とキャッシュの併用が可能な場合があります。例えば、セッションにデータを書き込むためのフォームを表示する場合です。
 
-## 複数の Dispatcher を使用 {#using-multiple-dispatchers}
+## 複数の Dispatcher の使用 {#using-multiple-dispatchers}
 
 複雑な設定を行う場合は、複数の Dispatcher を使用できます。 例えば、次のように使用できます。
 
@@ -238,7 +238,7 @@ Dispatcher は、AEM の各インスタンスのドキュメント処理速度�
 
 この場合、各要求が経由する Dispatcher は 1 つだけにしてください。 別の Dispatcher から渡された要求は処理されません。 したがって、どちらの Dispatcher も AEM web サイトに直接アクセスするようにしてください。
 
-## CDN でのDispatcherの使用 {#using-dispatcher-with-a-cdn}
+## CDN での Dispatcher の使用 {#using-dispatcher-with-a-cdn}
 
 Akamai Edge Delivery または Amazon Cloud Front などのコンテンツ配信ネットワーク（CDN）は、エンドユーザーに近い場所からコンテンツを配信します。そのため、以下のことが可能です。
 
@@ -262,13 +262,13 @@ HTTP インフラストラクチャコンポーネントとして、CDN は Disp
 
 CDN が Dispatcher から再取得するまでのリソースのキャッシュ期間を制御するには、いくつかの方法があります。
 
-1. 明示的な設定。
-MIME タイプ、拡張機能、リクエストタイプなどに応じて、特定のリソースを CDN のキャッシュに保持する期間を設定します。
+1. 明確な設定。
+MIME タイプ、拡張子、リクエストタイプなどに応じて、特定のリソースを CDN のキャッシュに保持する期間を設定します。
 
 1. 有効期限およびキャッシュ制御ヘッダー。
 ほとんどの CDN は、アップストリームサーバーから送信される場合に、HTTP ヘッダー `Expires:` および `Cache-Control:` を保持します。この方法は、例えば、Apache モジュール [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html?lang=ja) を使用するなどして実行できます。
 
-1. 手動の無効化
+1. 手動での無効化。
 CDN では、Web インターフェイスを使用してリソースをキャッシュから削除できます。
 1. API ベースの無効化。\
    ほとんどの CDN には、リソースをキャッシュから削除できる REST または SOAP API も用意されています。
@@ -283,11 +283,11 @@ CDN では、Web インターフェイスを使用してリソースをキャッ
 >
 >[AEM (CQ) Dispatcher Security and CDN+Browser Caching](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) および [Dispatcher のキャッシュ](https://experienceleague.adobe.com/ja/docs/events/experience-manager-gems-recordings/gems2015/aem-dispatcher-caching-new-features-and-optimizations)に関する録画済みのプレゼンテーションも参照してください。
 
-## オーサーサーバーでDispatcherを使用する {#using-a-dispatcher-with-an-author-server}
+## オーサリングサーバーでの Dispatcher の使用 {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->[タッチ UI 搭載の AEM](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) を使用する場合は、オーサーインスタンスのコンテンツをキャッシュ&#x200B;**しないでください**。オーサーインスタンスのキャッシュが有効な場合は、キャッシュを無効にして、キャッシュディレクトリの内容を削除する必要があります。 キャッシュを無効にするには、`author_dispatcher.any` ファイルを編集し、`/cache` セクションの `/rule` プロパティを次のように変更します。
+>[タッチ UI 搭載の AEM](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) を使用する場合は、オーサーインスタンスのコンテンツをキャッシュ&#x200B;**しないでください**。オーサーインスタンスに対してキャッシュが有効になっている場合、それを無効にしてキャッシュディレクトリの内容を削除する必要があります。キャッシュを無効にするには、`author_dispatcher.any` ファイルを編集し、`/cache` セクションの `/rule` プロパティを次のように変更します。
 
 ```xml
 /rules

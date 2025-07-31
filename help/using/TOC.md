@@ -11,9 +11,9 @@ feature: Dispatcher
 topic: Administration
 role: Admin
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '81'
-ht-degree: 50%
+ht-degree: 100%
 
 ---
 
@@ -22,17 +22,17 @@ ht-degree: 50%
 
 + [概要](dispatcher.md)
 + はじめに {#getting-started}
-   + [Dispatcherのインストール](dispatcher-install.md)
-   + [Dispatcher セキュリティチェックリスト](security-checklist.md)
+   + [Dispatcher のインストール](dispatcher-install.md)
+   + [Dispatcher のセキュリティチェックリスト](security-checklist.md)
    + [AEM Dispatcher リリースノート](release-notes.md)
 + 設定 {#configuring}
    + [Dispatcher の設定](dispatcher-configuration.md)
-   + [AEMのキャッシュされたページを無効にする](page-invalidate.md)
-   + [ キャッシュパフォーマンスのための web サイトの最適化 ](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
-   + [セキュリティで保護されたコンテンツをキャッシュ](permissions-cache.md)
-   + [複数のドメインでのAEM Dispatcherの使用](dispatcher-domains.md)
-   + [AEM Dispatcherでの SSL の使用](dispatcher-ssl.md)
-   + [CSRF 攻撃を防ぐためのAEM Dispatcherの設定](configuring-dispatcher-to-prevent-csrf.md)
+   + [AEM からのキャッシュされたページの無効化](page-invalidate.md)
+   + [Web サイトのキャッシュパフォーマンスの最適化](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [セキュリティ保護されたコンテンツのキャッシュ](permissions-cache.md)
+   + [複数ドメインでの AEM Dispatcher の使用](dispatcher-domains.md)
+   + [AEM Dispatcher での SSL の使用](dispatcher-ssl.md)
+   + [CSRF 攻撃を防止するための AEM Dispatcher の設定](configuring-dispatcher-to-prevent-csrf.md)
 + トラブルシューティング {#troubleshooting}
-   + [Dispatcherの問題のトラブルシューティング](dispatcher-troubleshooting.md)
+   + [Dispatcher に関する問題のトラブルシューティング](dispatcher-troubleshooting.md)
    + [Dispatcher に関する主な問題とよくある質問](dispatcher-faq.md)

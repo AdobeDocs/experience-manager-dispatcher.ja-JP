@@ -1,5 +1,5 @@
 ---
-title: Dispatcherの問題のトラブルシューティング
+title: Dispatcher に関する問題のトラブルシューティング
 description: Dispatcher に関する問題のトラブルシューティングについて説明します。
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -10,13 +10,13 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '472'
-ht-degree: 93%
+ht-degree: 100%
 
 ---
 
-# Dispatcherの問題のトラブルシューティング {#troubleshooting-dispatcher-problems}
+# Dispatcher に関する問題のトラブルシューティング {#troubleshooting-dispatcher-problems}
 
 >[!NOTE]
 >
@@ -26,9 +26,9 @@ ht-degree: 93%
 
 >[!NOTE]
 >
-><!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[Dispatcherのフラッシュに関する問題のトラブルシューティング ](https://experienceleague.adobe.com/search.html?lang=jp#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]) と [Dispatcherのトップに関する問題の FAQ](dispatcher-faq.md) を参照してください。
+>詳しくは、<!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[Dispatcher のフラッシュ問題のトラブルシューティング](https://experienceleague.adobe.com/search.html?lang=ja#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager])および [Dispatcher に関する主な問題とよくある質問](dispatcher-faq.md)を参照してください。
 
-## 基本設定を確認します {#check-the-basic-configuration}
+## 基本設定の確認 {#check-the-basic-configuration}
 
 通常どおり、基本事項を確認することが最初の手順です。
 
@@ -64,7 +64,7 @@ When using IIS, you might experience `404 Not Found` being returned in various s
 
 Also check that the Dispatcher cache root and the IIS document root are set to the same directory. -->
 
-## ワークフローモデル削除の問題 {#problems-deleting-workflow-models}
+## ワークフローモデルの削除に関する問題 {#problems-deleting-workflow-models}
 
 **症状**
 
