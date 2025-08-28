@@ -3,9 +3,9 @@ title: AEM Dispatcher の設定
 description: Dispatcher の設定方法について説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: fbfbe76b730d4037cccb400b70619fbe24b3b1bc
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8938'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -209,7 +209,7 @@ Dispatcher インスタンスを識別する一意の名前を指定するには
 | [/failover](#using-the-failover-mechanism) | 元の要求が失敗した場合に異なるレンダーに要求を再送信します。 |
 | [/auth_checker](permissions-cache.md) | 権限を区別するキャッシュについては、[セキュリティ保護されたコンテンツのキャッシュ](permissions-cache.md)を参照してください。 |
 
-## 既定のページを指定する（IIS のみ） - /homepage {#specify-a-default-page-iis-only-homepage}
+## デフォルトページの指定（IIS のみ） - /homepage {#specify-a-default-page-iis-only-homepage}
 
 >[!CAUTION]
 >
@@ -551,7 +551,7 @@ Dispatcher バージョン **4.1.6** では、次のように `/always-resolve` 
 
 Dispatcher が受け入れる HTTP 要求を指定するには、`/filter` セクションを使用します。 それ以外のすべての要求は、エラーコード 404（ページが見つかりません）で Web サーバーに返送されます。 `/filter` セクションが存在しない場合は、すべての要求が受け入れられます。
 
-**注意：**&#x200B;[statfile](#naming-the-statfile) に対する要求は常に拒否されます。
+**注意：**[statfile](#naming-the-statfile) に対する要求は常に拒否されます。
 
 >[!CAUTION]
 >
@@ -1304,7 +1304,7 @@ Glob プロパティについては、[Glob プロパティのパターンの設
 >[!NOTE]
 >
 >glob プロパティを設定する場合、プロパティ名はクエリパラメーター名と一致する必要があります。 例えば、次の URL `http://example.com/path/test.html?p1=test&p2=v2` の「p1」パラメーターを無視する場合、glob プロパティは次のようにする必要があります。
->&#x200B;> `/0002 { /glob "p1" /type "allow" }`
+>> `/0002 { /glob "p1" /type "allow" }`
 
 次の例では、Dispatcher は `nocache` パラメーターを除くすべてのパラメーターを無視します。 そのため、Dispatcher は `nocache` パラメーターを含んだリクエスト URL をキャッシュしません。
 
@@ -1644,7 +1644,7 @@ Dispatcher 設定ファイルのいくつかのセクションでは、`glob` �
 | `?` | 任意の 1 文字に一致します。 文字クラス外で使用します。 文字クラス内のこの文字は、リテラルとして解釈されます。 | `*outdoors/??/*`<br/> geometrixx-outdoors サイトのすべての言語のページに一致します。 例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の要求は glob パターンに一致しません。<br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
 | `[ and ]` | 文字クラスの最初と最後を定めます。 文字クラスには、1 つまたは複数の文字範囲および単一の文字を含めることができます。<br/>ターゲット文字が文字クラス内または定義されている範囲内のいずれかの文字に一致する場合、一致が発生します。<br/>閉じ角括弧が含まれない場合、パターンによって一致は発生しません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | 文字の範囲を定めます。 文字クラス内で使用します。 文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[m-p]men.html*`次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 ワイルドカード文字 `^ wildcard`. <br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[ !o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[ !o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` または `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
+| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 ワイルドカード文字 `^ wildcard`. <br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[!o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` または `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | 続く文字または文字範囲を打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `!` ワイルドカードに相当します。 <br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | ワイルドカード文字 `!` の例と同様、サンプルパターンの文字 `!` が 文字 `^` に置き換えられます。 |
 
 
