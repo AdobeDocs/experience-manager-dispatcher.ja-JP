@@ -5,10 +5,10 @@ topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: b7ab59ad2da1b73ebbf7819670f056a68162796d
+source-git-commit: f4ed724deccf14c570ca873728a97d0ae5fe0e4f
 workflow-type: tm+mt
-source-wordcount: '1098'
-ht-degree: 94%
+source-wordcount: '1105'
+ht-degree: 93%
 
 ---
 
@@ -41,9 +41,8 @@ ht-degree: 94%
 
 **改善点**：
 
-* DISP-1040 - URL を書き換えているお客様向けの修正
+* DISP-1040 - Dispatcher 設定に `/allowedClients` を実装して、明示的に必要でない限り、キャッシュ無効化を実行したり、ヘッダー（`handle`、`cq-handle` など）をブロックまたは削除したりできる IP を制御します
 * DISP-1046 - stale-while-error は、AEMからの 429 応答も処理する必要がある
-* DISP-1041 – 無効化 URI を設定可能（#179）
 * SKYOPS-107219 - vanityUrl を読み込む現在の実装を最適化する
 
 ### リリース 4.3.7（2024年3月27日（PT）） {#march}
