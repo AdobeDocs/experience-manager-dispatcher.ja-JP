@@ -67,6 +67,6 @@ FileETag none
 
 Dispatcherでのヘッダーのキャッシュと `ETag` ータ処理に関するお客様へのベースラインガイダンスについては、以下を参照してください。
 
-- [Dispatcherの設定 – HTTP 応答ヘッダーのキャッシュ](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
+- [Dispatcherの設定 – HTTP 応答ヘッダーのキャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
 
 「この機能は、Dispatcher `2.0.264` （AEM SDK `2026.2.24464`）で使用できます。 有効にすると、Dispatcherはキャッシュされた `ETag` 値に対して `If-None-Match` を検証し、キャッシュヒット時に `304 Not Modified` を返すことができます。 AEM as a Cloud Serviceでは、これがサポートされており、Cloud Manager Environment Configuration を通じて有効にすることができます。」
