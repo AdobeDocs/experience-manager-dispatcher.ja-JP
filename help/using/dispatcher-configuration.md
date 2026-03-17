@@ -2,10 +2,10 @@
 title: AEM Dispatcher の設定
 description: Dispatcher の設定方法について説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: fbfbe76b730d4037cccb400b70619fbe24b3b1bc
-workflow-type: ht
-source-wordcount: '8938'
-ht-degree: 100%
+source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+workflow-type: tm+mt
+source-wordcount: '9194'
+ht-degree: 99%
 
 ---
 
@@ -198,7 +198,7 @@ Dispatcher インスタンスを識別する一意の名前を指定するには
 | [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | セッション管理および認証のサポート。 |
 | [/renders](#defining-page-renderers-renders) | レンダリングされたページを提供するサーバー（一般的には AEM パブリッシュインスタンス）。 |
 | [/filter](#configuring-access-to-content-filter) | Dispatcher がアクセスを有効にする URL を定義します。 |
-| [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | バニティー URL へのアクセスを設定します。 |
+| [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | バニティ URL へのアクセスを設定します。 |
 | [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | シンジケーション要求の転送のサポート。 |
 | [/cache](#configuring-the-dispatcher-cache-cache) | キャッシュ動作を設定します。 |
 | [/statistics](#configuring-load-balancing-statistics) | ロードバランシング計算用の統計カテゴリの定義。 |
@@ -225,7 +225,7 @@ Comment Type: draft
 <p>Typically this situation occurs when a user specifies an URL for which neither IIS or AEM provides an automatic redirection target. For example, if the AEM render instance is shut down after the content is cached, the content redirect URL is unavailable.</p> 
 <p>The following example configuration displays the <span class="code">index.html</span> page in such circumstances:</p>
 
- -->
+-->
 
 <!-- 
 
@@ -235,7 +235,7 @@ Comment Type: draft
   /homepage&nbsp;"/index.html" 
 </codeblock>
 
- -->
+-->
 
 <!-- 
 
@@ -243,7 +243,7 @@ Comment Type: draft
 
 <p>The <span class="code">/homepage</span> section is located inside the <span class="code">/farms</span> section, for example:<br /> </p>
 
- -->
+-->
 
 <!-- 
 
@@ -253,7 +253,7 @@ Comment Type: draft
   #name&nbsp;of&nbsp;dispatcher!!discoiqbr!!/name&nbsp;"day&nbsp;sites"!!discoiqbr!!!!discoiqbr!!#farms&nbsp;section&nbsp;defines&nbsp;a&nbsp;list&nbsp;of&nbsp;farms&nbsp;or&nbsp;sites!!discoiqbr!!/farms!!discoiqbr!!{!!discoiqbr!!&nbsp;&nbsp;&nbsp;/daycom!!discoiqbr!!&nbsp;&nbsp;&nbsp;{!!discoiqbr!!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/homepage&nbsp;"/index.html"!!discoiqbr!!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...!!discoiqbr!!&nbsp;&nbsp;&nbsp;}!!discoiqbr!!&nbsp;&nbsp;&nbsp;/docdaycom!!discoiqbr!!&nbsp;&nbsp;&nbsp;{!!discoiqbr!!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...!!discoiqbr!!&nbsp;&nbsp;&nbsp;}!!discoiqbr!!} 
 </codeblock>
 
- -->
+-->
 
 ## 通過させる HTTP ヘッダーの指定 {#specifying-the-http-headers-to-pass-through-clientheaders}
 
@@ -402,7 +402,7 @@ Dispatcher は、以下の方法で最良一致の仮想ホスト値を探しま
 
 >[!CAUTION]
 >
->この機能を有効にするには、`/cache` セクションで `/allowAuthorized` を `"0"` に設定します。[認証使用時のキャッシュ](#caching-when-authentication-is-used)の節で詳しく説明されているように、`/allowAuthorized 0 ` を設定すると、認証情報を含んだリクエストはキャッシュされ&#x200B;**ません**。権限を区別するキャッシュが必要な場合は、[セキュリティ保護されたコンテンツのキャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/permissions-cache)ページを参照してください。
+>この機能を有効にするには、`/cache` セクションで `/allowAuthorized` を `"0"` に設定します。 [認証使用時のキャッシュ](#caching-when-authentication-is-used)の節で詳しく説明されているように、`/allowAuthorized 0 ` を設定すると、認証情報を含んだリクエストはキャッシュされ&#x200B;**ません**。 権限を区別するキャッシュが必要な場合は、[セキュリティ保護されたコンテンツのキャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/permissions-cache)ページを参照してください。
 
 レンダーファームにアクセスするためのセキュアセッションを作成して、このファーム内のページにユーザーがアクセスする際にログインが必要になるようにします。 ログイン後、ユーザーはファーム内のページにアクセスできます。 閉じられたユーザーグループ（CUG）でのこの機能の使用については、[閉じられたユーザーグループの作成](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used)を参照してください。 また、運用を開始する前に、Dispatcher の[セキュリティチェックリスト](/help/using/security-checklist.md)を参照してください。
 
@@ -698,7 +698,7 @@ Dispatcher バージョン 4.2.0 以降では、フィルターパターンに P
 Dispatcher の設定時に、できる限り外部アクセスを制限します。 次の例では、外部の訪問者に最小限のアクセス権を付与します。
 
 * `/content`
-* デザインなどのその他のコンテンツおよびクライアントライブラリ。例：
+* デザインなどのその他のコンテンツおよびクライアントライブラリ。 例：
 
    * `/etc/designs/default*`
    * `/etc/designs/mydesign*`
@@ -707,7 +707,7 @@ Dispatcher の設定時に、できる限り外部アクセスを制限します
 
 以下の `dispatcher.any` ファイルの `/filter` セクションは、[Dispatcher 設定ファイル](#dispatcher-configuration-files)で基礎として使用できます。
 
-このサンプルは、Dispatcher に付属するデフォルトの設定ファイルをベースとしており、実稼動環境での使用例の役割を果たすことを目的としています。 `#` という接頭辞が付いた項目は非アクティブ化（コメントアウト）されます。 これらの項目のいずれかを（その行の `#` を削除して）アクティブ化する場合は注意が必要です。 これにより、セキュリティに影響を与える可能性があります。
+このサンプルは、Dispatcher に付属するデフォルトの設定ファイルをベースとしており、本番環境での使用例の役割を果たすことを目的としています。 `#` という接頭辞が付いた項目は非アクティブ化（コメントアウト）されます。 これらの項目のいずれかを（その行の `#` を削除して）アクティブ化する場合は注意が必要です。 これにより、セキュリティに影響を与える可能性があります。
 
 すべてに対するアクセスを拒否してから、特定の（限られた）要素へのアクセスを許可します。
 
@@ -719,7 +719,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 <p>We should mention the config files that are shipped with the dispatcher distribution and only give a few examples here. This aims to avoid confusion and reduce content maintenance.<br /> </p>
 
- -->
+-->
 
 ```xml
   /filter
@@ -778,10 +778,11 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 >
 >Apache と共に使用する場合は、Dispatcher モジュールの DispatcherUseProcessedURL プロパティに応じてフィルター URL パターンをデザインしてください （「[Apache Web サーバー - Dispatcher 用の Apache Web サーバーの設定](dispatcher-install.md##apache-web-server-configure-apache-web-server-for-dispatcher)」を参照。)
 
-<!----
+<!--
 >[!NOTE]
 >
->Filters `0030` and `0031` regarding Dynamic Media are applicable to AEM 6.0 and higher. -->
+>Filters `0030` and `0031` regarding Dynamic Media are applicable to AEM 6.0 and higher. 
+-->
 
 アクセスを拡大する場合は、以下の推奨事項について検討します。
 
@@ -801,7 +802,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 >[!CAUTION]
 >
->コンソールおよびディレクトリへのアクセスによって、実稼動環境でセキュリティのリスクが発生する可能性があります。 正当な理由が明確でない場合は、これらのエントリを非アクティブ化（コメントアウト）のままにしておいてください。
+>コンソールおよびディレクトリへのアクセスによって、本番環境でセキュリティのリスクが発生する可能性があります。 正当な理由が明確でない場合は、これらのエントリを非アクティブ化（コメントアウト）のままにしておいてください。
 
 >[!CAUTION]
 >
@@ -902,7 +903,7 @@ Dispatcher キャッシュの無効化を試み、コード 403 の応答を受�
 
 `curl -H "CQ-Handle: /content" -H "CQ-Path: /content" https://yourhostname/dispatcher/invalidate.cache`
 
-## バニティー URL へのアクセスを有効にする {#enabling-access-to-vanity-urls-vanity-urls}
+## バニティ URL へのアクセスを有効にする {#enabling-access-to-vanity-urls-vanity-urls}
 
 <!-- 
 
@@ -912,13 +913,13 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">For https://jira.corp.adobe.com/browse/DOC-4812</p> 
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">The "com.adobe.granite.dispatcher.vanityurl.content" package needs to be made public before publishing this contnet.</p>
- -->
+-->
 
 AEM ページ用に設定されているバニティ URL へのアクセスを有効にするように Dispatcher を設定します。
 
-バニティ URL へのアクセスが有効になると、レンダーインスタンス上で実行されているサービスを Dispatcher が定期的に呼び出して、バニティ URL のリストを取得します。 Dispatcher がこのリストをローカルファイルに保存します。 ページの要求が `/filter` セクションのフィルターによって拒否されると、Dispatcher はバニティー URL のリストを調べます。 拒否された URL がリストにある場合、Dispatcher はバニティー URL へのアクセスを許可します。
+バニティ URL へのアクセスが有効になると、レンダーインスタンス上で実行されているサービスを Dispatcher が定期的に呼び出して、バニティ URL のリストを取得します。 Dispatcher がこのリストをローカルファイルに保存します。 ページの要求が `/filter` セクションのフィルターによって拒否されると、Dispatcher はバニティ URL のリストを調べます。 拒否された URL がリストにある場合、Dispatcher はバニティ URL へのアクセスを許可します。
 
-バニティー URL へのアクセスを有効にするには、以下の例のような `/vanity_urls` セクションを `/farms` セクションに追加します。
+バニティ URL へのアクセスを有効にするには、以下の例のような `/vanity_urls` セクションを `/farms` セクションに追加します。
 
 ```xml
  /vanity_urls {
@@ -930,19 +931,19 @@ AEM ページ用に設定されているバニティ URL へのアクセスを�
 
 `/vanity_urls` セクションには、以下のプロパティが含まれます。
 
-* `/url`：レンダーインスタンス上で実行されているバニティー URL サービスへのパス。 このプロパティの値は、`"/libs/granite/dispatcher/content/vanityUrls.html"` である必要があります。
+* `/url`：レンダーインスタンス上で実行されているバニティ URL サービスへのパス。 このプロパティの値は、`"/libs/granite/dispatcher/content/vanityUrls.html"` である必要があります。
 
-* `/file`：Dispatcher がバニティー URL のリストを保存するローカルファイルへのパス。 Dispatcher がこのファイルに対する書き込みアクセス権を持っていることを確認してください。
-* `/delay`：バニティー URL サービスの呼び出し間隔（秒単位）。
+* `/file`：Dispatcher がバニティ URL のリストを保存するローカルファイルへのパス。 Dispatcher がこのファイルに対する書き込みアクセス権を持っていることを確認してください。
+* `/delay`：バニティ URL サービスの呼び出し間隔（秒単位）。
 
 >[!NOTE]
 >
 >レンダーが AME のインスタンスである場合、バニティ URL サービスを有効にするには、[ソフトウェア配布から VanityURLS-Components パッケージ](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components)をインストールする必要があります （詳しくは、[ソフトウェア配布](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution)を参照してください）。
 
-バニティー URL へのアクセスを有効にするには、以下の手順を実行します。
+バニティ URL へのアクセスを有効にするには、以下の手順を実行します。
 
 1. 使用するレンダーサービスが AEM インスタンスである場合は、パブリッシュインスタンス上に `com.adobe.granite.dispatcher.vanityurl.content` パッケージをインストールします（上記のメモを参照してください）。
-1. AEM または CQ ページ向けに設定したバニティー URL ごとに、[`/filter`](#configuring-access-to-content-filter) 設定がその URL を拒否していることを確認します。 必要に応じて、この URL を拒否するフィルターを追加します。
+1. AEM または CQ ページ向けに設定したバニティ URL ごとに、[`/filter`](#configuring-access-to-content-filter) 設定がその URL を拒否していることを確認します。 必要に応じて、この URL を拒否するフィルターを追加します。
 1. `/farms` の下に `/vanity_urls` セクションを追加します。
 1. Apache Web サーバーを再起動します。
 
@@ -1130,7 +1131,7 @@ Comment Type: draft
  <p> </p> 
 </note>
 
- -->
+-->
 
 <!-- 
 
@@ -1138,7 +1139,7 @@ Comment Type: draft
 
 <p>The following rule caches all documents in compressed form; Apache can return either the uncompressed or the compressed form to the client:</p>
 
- -->
+-->
 
 <!-- 
 
@@ -1148,7 +1149,7 @@ Comment Type: draft
   /rules!!discoiqbr!!&nbsp;&nbsp;{!!discoiqbr!!&nbsp;&nbsp;&nbsp;/rulelabel&nbsp;&nbsp;{&nbsp;&nbsp;/glob&nbsp;"*"&nbsp;/type&nbsp;"allow"&nbsp;&nbsp;/compress&nbsp;"gzip"&nbsp;}!!discoiqbr!!&nbsp;&nbsp;} 
 </codeblock>
 
- -->
+-->
 
 <!-- 
 
@@ -1158,7 +1159,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
 <p>Hidden the <span class="code">mod_gzip</span> content as requested in CQDOC-11124.</p>
 
- -->
+-->
 
 ### フォルダーレベルでのファイルの無効化 {#invalidating-files-by-folder-level}
 
@@ -1208,7 +1209,7 @@ Glob プロパティについては、[Glob プロパティのパターンの設
 
 この設定によって、`/content/wknd/us/en` がアクティブ化されると、以下のアクティビティが発生します。
 
-* パターン en.* を持つすべてのファイルが `/content/wknd/us` フォルダーから削除されます。
+* パターン en.*の付いたすべてのファイルは、`/content/wknd/us` フォルダーから削除されます。
 * `/content/wknd/us/en./_jcr_content` フォルダーは削除されます。
 * `/invalidate` 設定に一致するその他すべてのファイルは、即座には削除されません。 これらのファイルは、次回のリクエストが発生すると削除されます。 この例では、`/content/wknd.html` は削除されません。`/content/wknd.html` がリクエストされた際に削除されます。
 
@@ -1304,7 +1305,7 @@ Glob プロパティについては、[Glob プロパティのパターンの設
 >[!NOTE]
 >
 >glob プロパティを設定する場合、プロパティ名はクエリパラメーター名と一致する必要があります。 例えば、次の URL `http://example.com/path/test.html?p1=test&p2=v2` の「p1」パラメーターを無視する場合、glob プロパティは次のようにする必要があります。
->> `/0002 { /glob "p1" /type "allow" }`
+> `/0002 { /glob "p1" /type "allow" }`
 
 次の例では、Dispatcher は `nocache` パラメーターを除くすべてのパラメーターを無視します。 そのため、Dispatcher は `nocache` パラメーターを含んだリクエスト URL をキャッシュしません。
 
@@ -1642,13 +1643,14 @@ Dispatcher 設定ファイルのいくつかのセクションでは、`glob` �
 |--- |--- |--- |
 | `*` | 文字列に含まれる任意の文字の 0 個以上の連続するインスタンスに一致します。 一致の最後の文字は、次のどちらかの状況によって決まります：<br/>文字列内のある文字がパターン内の次の文字に一致する場合またはパターンの文字が <br/> の特徴を持つ場合<ul><li>`*` 以外</li><li>`?` 以外</li><li>リテラル文字（空白を含む）または文字クラス。</li><li>パターンの終わりに達している。</li></ul>文字クラス内のこの文字は、リテラルとして解釈されます。 | `*/geo*` `/content/geometrixx`ノードと `/content/geometrixx-outdoors` ノードの下にあるすべてのページに一致します。 以下の HTTP 要求は、glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*`<br/> `/content/geometrixx-outdoors` ノードの下にあるすべてのページに一致します。 例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
 | `?` | 任意の 1 文字に一致します。 文字クラス外で使用します。 文字クラス内のこの文字は、リテラルとして解釈されます。 | `*outdoors/??/*`<br/> geometrixx-outdoors サイトのすべての言語のページに一致します。 例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の要求は glob パターンに一致しません。<br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
-| `[ and ]` | 文字クラスの最初と最後を定めます。 文字クラスには、1 つまたは複数の文字範囲および単一の文字を含めることができます。<br/>ターゲット文字が文字クラス内または定義されている範囲内のいずれかの文字に一致する場合、一致が発生します。<br/>閉じ角括弧が含まれない場合、パターンによって一致は発生しません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `[ and ]` | 文字クラスの最初と最後を定めます。 文字クラスには、1 つまたは複数の文字範囲と単一文字を含めることができます。<br/> 対象の文字が文字クラスの中のいずれかの文字に一致するか、または定義された範囲内にある場合、マッチが行われます。<br/> 閉じ括弧が含まれていない場合、パターンはマッチを行いません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | 文字の範囲を定めます。 文字クラス内で使用します。 文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[m-p]men.html*`次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 ワイルドカード文字 `^ wildcard`. <br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[!o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` または `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
-| `^` | 続く文字または文字範囲を打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `!` ワイルドカードに相当します。 <br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | ワイルドカード文字 `!` の例と同様、サンプルパターンの文字 `!` が 文字 `^` に置き換えられます。 |
+| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `^ wildcard`. <br/> と同じ文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[!o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` か `"GET /content/geometrixx-outdoors/en/men. html"` のどちらかにする必要があります。</li></ul> |
+| `^` | 続く文字または文字範囲を打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `!` のワイルドカード文字と同じです。<br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | ワイルドカード文字 `!` の例と同様、サンプルパターンの文字 `!` が 文字 `^` に置き換えられます。 |
 
 
-<!--- need to troubleshoot table
+<!--
+need to troubleshoot table
 
 The following table describes the wildcard characters.
 

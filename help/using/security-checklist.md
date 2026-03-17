@@ -6,13 +6,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 jcr-lastmodifiedby: remove-legacypath-6-1
-index: y
+index: true
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: ht
-source-wordcount: '582'
+source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+workflow-type: tm+mt
+source-wordcount: '625'
 ht-degree: 100%
 
 ---
@@ -34,11 +34,11 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
 >[!CAUTION]
 >
->稼動させる前に、使用するバージョンの AEM のセキュリティチェックリストを確認します。詳しくは、対応する [Adobe Experience Manager ドキュメント](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/security-checklist)を参照してください。
+>稼動させる前に、使用するバージョンの AEM のセキュリティチェックリストを確認します。 詳しくは、対応する [Adobe Experience Manager ドキュメント](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/security-checklist)を参照してください。
 
 ## 最新バージョンの Dispatcher の使用 {#use-the-latest-version-of-dispatcher}
 
-ご使用のプラットフォームで利用可能な最新バージョンをインストールします。製品とセキュリティの機能強化を活用するには、Dispatcher インスタンスをアップグレードして最新バージョンを使用してください。詳しくは、[Dispatcher のインストール](dispatcher-install.md)を参照してください。
+ご使用のプラットフォームで利用可能な最新バージョンをインストールします。 製品とセキュリティの機能強化を活用するには、Dispatcher インスタンスをアップグレードして最新バージョンを使用してください。 詳しくは、[Dispatcher のインストール](dispatcher-install.md)を参照してください。
 
 >[!NOTE]
 >
@@ -75,7 +75,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## アクセスの制限 {#restrict-access}
 
-Dispatcher の設定時に、できる限り外部アクセスを制限します。Dispatcher に関するドキュメントで[サンプルの /filter セクション](dispatcher-configuration.md#main-pars_184_1_title)を参照してください。
+Dispatcher の設定時に、できる限り外部アクセスを制限します。 Dispatcher に関するドキュメントで[サンプルの /filter セクション](dispatcher-configuration.md#main-pars_184_1_title)を参照してください。
 
 ## 管理 URL へのアクセスの拒否 {#make-sure-access-to-administrative-urls-is-denied}
 
@@ -85,11 +85,11 @@ Dispatcher の設定時に、できる限り外部アクセスを制限します
 
 ## ブロックリストの代わりに許可リストを使用 {#use-allowlists-instead-of-blocklists}
 
-アクセスを制御する方法としては、許可リストのほうが優れています。許可リストは、明示的に許可リストに含まれているもの以外はすべてのアクセス要求を拒否するからです。このモデルでは、未確認だったり、特定の設定ステージで考慮されていなかった可能性がある新しい要求に対して、より厳しい制御を提供します。
+アクセスを制御する方法としては、許可リストのほうが優れています。許可リストは、明示的に許可リストに含まれているもの以外はすべてのアクセス要求を拒否するからです。 このモデルでは、未確認だったり、特定の設定ステージで考慮されていなかった可能性がある新しい要求に対して、より厳しい制御を提供します。
 
 ## 専用システムユーザーでの Dispatcher の実行 {#run-dispatcher-with-a-dedicated-system-user}
 
-最小限の権限を持つ専用のユーザーアカウントが web サーバーを実行するように、Dispatcher を設定します。Dispatcher のキャッシュフォルダーへの書き込みアクセス権のみを付与することをお勧めします。
+最小限の権限を持つ専用のユーザーアカウントが web サーバーを実行するように、Dispatcher を設定します。 Dispatcher のキャッシュフォルダーへの書き込みアクセス権のみを付与することをお勧めします。
 
 また、IIS ユーザーは、web サイトを次のように設定する必要があります。
 
@@ -116,7 +116,7 @@ Dispatcher レベルでは、DoS 攻撃を防御するように設定する方�
    * `.pdf`
    * `.ppt`
 
-  [外部アクセスを制限する](#restrict-access)ための設定ファイルのサンプルを参照できます。これには、MIME タイプに関する制限も含まれます。
+  [外部アクセスを制限する](#restrict-access)ための設定ファイルのサンプルを参照できます。 これには、MIME タイプに関する制限も含まれます。
 
 パブリッシュインスタンス上ですべての機能を有効にするには、以下のノードへのアクセスを防ぐようにフィルターを設定します。
 
@@ -148,7 +148,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## CSRF 攻撃を防止するための Dispatcher の設定 {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM には、クロスサイトリクエストフォージェリ攻撃を防ぐことを目的とした[フレームワーク](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)があります。このフレームワークを適切に利用するには、次の手順を実行して、Dispatcher で CSRF トークンサポートを許可リストに登録します。
+AEM には、クロスサイトリクエストフォージェリ攻撃を防ぐことを目的とした[フレームワーク](https://experienceleague.adobe.com/ja/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)があります。 このフレームワークを適切に利用するには、次の手順を実行して、Dispatcher で CSRF トークンサポートを許可リストに登録します。
 
 1. `/libs/granite/csrf/token.json` パスを許可するフィルターを作成する。
 1. Dispatcher 設定の `clientheaders` セクションに `CSRF-Token` ヘッダーを追加する。

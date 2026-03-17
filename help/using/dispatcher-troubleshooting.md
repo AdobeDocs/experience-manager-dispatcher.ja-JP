@@ -9,9 +9,9 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: ht
-source-wordcount: '472'
+source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+workflow-type: tm+mt
+source-wordcount: '488'
 ht-degree: 100%
 
 ---
@@ -20,9 +20,9 @@ ht-degree: 100%
 
 >[!NOTE]
 >
->Dispatcher のバージョンは AEM とは無関係です。ただし、Dispatcher のドキュメントは AEM のドキュメントに組み込まれています。最新バージョンの AEM のドキュメントに組み込まれている Dispatcher のドキュメントを必ず使用してください。
+>Dispatcher のバージョンは AEM とは無関係です。 ただし、Dispatcher のドキュメントは AEM のドキュメントに組み込まれています。 最新バージョンの AEM のドキュメントに組み込まれている Dispatcher のドキュメントを必ず使用してください。
 >
->Dispatcher のドキュメントへのリンクをたどると、このページにリダイレクトされる可能性があります。このリンクは、旧バージョンの AEM のドキュメントに埋め込まれていたものです。
+>Dispatcher のドキュメントへのリンクをたどると、このページにリダイレクトされる可能性があります。 このリンクは、旧バージョンの AEM のドキュメントに埋め込まれていたものです。
 
 >[!NOTE]
 >
@@ -33,7 +33,7 @@ ht-degree: 100%
 通常どおり、基本事項を確認することが最初の手順です。
 
 * [基本操作の確認](/help/using/dispatcher-configuration.md#confirming-basic-operation)
-* Web サーバーおよび Dispatcher のログファイルをすべて確認します。必要に応じて、Dispatcher の[ログ](/help/using/dispatcher-configuration.md#logging)に使用する `loglevel` を増やします。
+* Web サーバーおよび Dispatcher のログファイルをすべて確認します。 必要に応じて、Dispatcher の[ログ](/help/using/dispatcher-configuration.md#logging)に使用する `loglevel` を増やします。
 
 * [設定の確認](/help/using/dispatcher-configuration.md)：
 
@@ -54,7 +54,8 @@ IIS には、実際のバージョンに応じて様々なトレースツール�
 
 これらのツールを使用して、アクティビティを監視できます。
 
-<!-- Both URLs in this topic 404! >
+<!-- 
+Both URLs in this topic 404! >
 ## IIS and 404 Not Found {#iis-and-not-found}
 
 When using IIS, you might experience `404 Not Found` being returned in various scenarios. If so, see the following Knowledge Base articles.
@@ -62,7 +63,8 @@ When using IIS, you might experience `404 Not Found` being returned in various s
 * [IIS 6/7: POST method returns 404](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
 * [IIS 6: Requests to URLs that contain the base path `/bin` return a `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-Also check that the Dispatcher cache root and the IIS document root are set to the same directory. -->
+Also check that the Dispatcher cache root and the IIS document root are set to the same directory. 
+-->
 
 ## ワークフローモデルの削除に関する問題 {#problems-deleting-workflow-models}
 
@@ -116,9 +118,9 @@ Dispatcher が有効な場合、Dispatcher をコンテンツタイプ `httpd/un
 
 ### Apache 2.x {#apache-x}
 
-Apache 2.x では、内容が異なります。モジュールで、URL の修正など、リクエストの様々なステージを処理できます。`mod_dir` でこのステージを処理するには、リクエスト（URL がディレクトリにマッピングされている場合）を `/` 付きの URL にリダイレクトします。
+Apache 2.x では、内容が異なります。 モジュールで、URL の修正など、リクエストの様々なステージを処理できます。 `mod_dir` でこのステージを処理するには、リクエスト（URL がディレクトリにマッピングされている場合）を `/` 付きの URL にリダイレクトします。
 
-Dispatcher は `mod_dir` による修正の処理に影響しませんが、リダイレクトされた（`/` 付きの）URL へのリクエストを完全に処理します。この処理は、リモートサーバー（AEM など）で `/a_path` へのリクエストの処理が `/a_path/` へのリクエストの処理と異なる場合（`/a_path` が既存のディレクトリにマッピングされる場合）に、問題となることがあります。
+Dispatcher は `mod_dir` による修正の処理に影響しませんが、リダイレクトされた（`/` 付きの）URL へのリクエストを完全に処理します。 この処理は、リモートサーバー（AEM など）で `/a_path` へのリクエストの処理が `/a_path/` へのリクエストの処理と異なる場合（`/a_path` が既存のディレクトリにマッピングされる場合）に、問題となることがあります。
 
 状況が発生した場合は、次のいずれかを実行します。
 

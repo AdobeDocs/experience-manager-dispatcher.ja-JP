@@ -5,14 +5,14 @@ contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-index: y
+index: true
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: ht
-source-wordcount: '1305'
-ht-degree: 100%
+source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+workflow-type: tm+mt
+source-wordcount: '1390'
+ht-degree: 98%
 
 ---
 
@@ -25,13 +25,13 @@ Dispatcher とレンダリングコンピューター間には次の SSL 接続�
 
 >[!NOTE]
 >
->SSL 証明書に関連する操作は、サードパーティ製品に固有です。Adobe Platinum Maintenance and Support 契約の対象ではありません。
+>SSL 証明書に関連する操作は、サードパーティ製品に固有です。 Adobe Platinum Maintenance and Support 契約の対象ではありません。
 
 ## Dispatcher が AEM に接続するときに SSL を使用する {#use-ssl-when-dispatcher-connects-to-aem}
 
 Dispatcher が SSL 接続を使用して AEM または CQ レンダーインスタンスと通信するように設定します。
 
-Dispatcher を設定する前に、SSL を使用するように AEM または CQ を設定します。詳しくは、次のセクションを参照してください。
+Dispatcher を設定する前に、SSL を使用するように AEM または CQ を設定します。 詳しくは、次のセクションを参照してください。
 
 * [デフォルトの SSL/TLS](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/security/ssl-by-default)
 * [AEM での SSL ウィザードの使用](https://experienceleague.adobe.com/ja/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
@@ -120,7 +120,7 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 * Dispatcher が、レンダーインスタンスの証明書の CA が信頼済みであることを確認します。
 * （オプション）Dispatcher が、レンダーインスタンスの証明書がレンダーインスタンスのサーバーアドレスと一致することを確認します。
 
-相互 SSL を設定するには、信頼済みの証明機関（CA）によって署名されている証明書が必要です。自己署名証明書では不十分です。証明書に署名するために、ユーザーが CA の役目を果たすことも、サードパーティ CA のサービスを利用することもできます。相互 SSL を設定するには、以下のアイテムが必要です。
+相互 SSL を設定するには、信頼済みの証明機関（CA）によって署名されている証明書が必要です。 自己署名証明書では不十分です。 証明書に署名するために、ユーザーが CA の役目を果たすことも、サードパーティ CA のサービスを利用することもできます。 相互 SSL を設定するには、以下のアイテムが必要です。
 
 * レンダーインスタンスおよび Dispatcher 用の署名済み証明書
 * CA 証明書（ユーザーが CA の役割を果たす場合）
@@ -128,7 +128,7 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
 相互 SSL を設定するには、次の手順を実行します。
 
-1. 使用するプラットフォームに適した最新バージョンの Dispatcher を[インストール](dispatcher-install.md)します。SSL をサポートしている Dispatcher バイナリを使用してください（SSL はファイル名に含まれています。例：`dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`）。
+1. 使用するプラットフォームに適した最新バージョンの Dispatcher を[インストール](dispatcher-install.md)します。 SSL をサポートしている Dispatcher バイナリを使用してください（SSL はファイル名に含まれています。例：`dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`）。
 1. Dispatcher およびレンダーインスタンス用に [CA 署名済みの証明書を作成または取得](dispatcher-ssl.md#main-pars-title-3)します。
 1. [レンダーの証明書を格納したキーストアを作成](dispatcher-ssl.md#main-pars-title-6)し、レンダーの HTTP サービスを設定します。
 1. 相互 SSL 用に [Dispatcher の web サーバーモジュールを設定](dispatcher-ssl.md#main-pars-title-4)します。
@@ -139,7 +139,7 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
 #### CA の作成 {#creating-your-ca}
 
-ユーザーが CA の役目を果たす場合は、[OpenSSL](https://www.openssl.org/) を使用して、サーバーとクライアントの証明書に署名する証明機関を作成します。（OpenSSL ライブラリがインストールされている必要があります）。サードパーティの CA を使用している場合は、この手順を実行しないでください。
+ユーザーが CA の役目を果たす場合は、[OpenSSL](https://www.openssl.org/) を使用して、サーバーとクライアントの証明書に署名する証明機関を作成します。 （OpenSSL ライブラリがインストールされている必要があります）。 サードパーティの CA を使用している場合は、この手順を実行しないでください。
 
 1. ターミナルを開き、現在のディレクトリを `CA.sh` ファイルを含むディレクトリ（例：`/usr/local/ssl/misc`）に変更します。
 1. CA を作成するには、次のコマンドを入力し、プロンプトに従って値を指定します。
@@ -150,22 +150,22 @@ SSL 経由で AEM または CQ と接続するように Dispatcher を設定す�
 
    >[!NOTE]
    >
-   >`openssl.cnf` ファイルのいくつかのプロパティによって、CA.sh スクリプトの動作が制御されます。CA を作成する前に、必要に応じてこのファイルを編集します。
+   >`openssl.cnf` ファイルのいくつかのプロパティによって、CA.sh スクリプトの動作が制御されます。 CA を作成する前に、必要に応じてこのファイルを編集します。
 
 #### 証明書の作成 {#creating-the-certificates}
 
 OpenSSL を使用して証明書要求を作成し、サードパーティ CA に送信するか、自身の CA によって署名します。
 
-証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。レンダーインスタンスの証明書については、証明書を受け入れるように Dispatcher を設定する場合、インスタンスコンピューターのホスト名を Common Name として使用します。この手順は、証明書がパブリッシュインスタンスのホスト名と一致する場合にのみ実行してください。[DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティを参照してください。
+証明書を作成する際、OpenSSL は Common Name プロパティを使用して証明書所有者を識別します。 レンダーインスタンスの証明書については、証明書を受け入れるように Dispatcher を設定する場合、インスタンスコンピューターのホスト名を Common Name として使用します。 この手順は、証明書がパブリッシュインスタンスのホスト名と一致する場合にのみ実行してください。 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) プロパティを参照してください。
 
 1. ターミナルを開き、現在のディレクトリを OpenSSL ライブラリの CH.sh ファイルを含むディレクトリに変更します。
-1. 次のコマンドを入力し、プロンプトが表示されたら値を指定します。必要に応じて、パブリッシュインスタンスのホスト名を Common Name として使用します。ホスト名は、レンダーの IP アドレスに対して DNS 解決可能な名前です。
+1. 次のコマンドを入力し、プロンプトが表示されたら値を指定します。 必要に応じて、パブリッシュインスタンスのホスト名を Common Name として使用します。 ホスト名は、レンダーの IP アドレスに対して DNS 解決可能な名前です。
 
    ```shell
    ./CA.sh -newreq
    ```
 
-   サードパーティ CA を使用する場合は、署名するために CA に newreq.pem ファイルを送信します。ユーザーが CA の役目を果たす場合は、手順 3 に進みます。
+   サードパーティ CA を使用する場合は、署名するために CA に newreq.pem ファイルを送信します。 ユーザーが CA の役目を果たす場合は、手順 3 に進みます。
 
 1. CA の証明書を使用して証明書に署名するには、次のコマンドを入力します。
 
@@ -173,10 +173,10 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
    ./CA.sh -sign
    ```
 
-   `newcert.pem` と `newkey.pem` という名前の 2 つのファイルが、CA 管理ファイルを含むディレクトリに作成されます。この 2 つのファイルは、それぞれレンダリングコンピューターの公開証明書と秘密鍵です。
+   `newcert.pem` と `newkey.pem` という名前の 2 つのファイルが、CA 管理ファイルを含むディレクトリに作成されます。 この 2 つのファイルは、それぞれレンダリングコンピューターの公開証明書と秘密鍵です。
 
 1. `newcert.pem` の名前を `rendercert.pem` に変更し、`newkey.pem` の名前を `renderkey.pem` に変更します。
-1. 手順 2 と 3 を繰り返して、Dispatcher モジュール用の証明書と公開鍵を作成します。必ず Dispatcher インスタンスに固有の Common Name を使用してください。
+1. 手順 2 と 3 を繰り返して、Dispatcher モジュール用の証明書と公開鍵を作成します。 必ず Dispatcher インスタンスに固有の Common Name を使用してください。
 1. `newcert.pem` の名前を `dispcert.pem` に変更し、`newkey.pem` の名前を `dispkey.pem` に変更します。
 
 ### レンダーコンピュータでの SSL の設定 {#configuring-ssl-on-the-render-computer}
@@ -185,10 +185,10 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
 
 #### レンダー証明書の JKS（Java™ KeyStore）形式への変換 {#converting-the-render-certificate-to-jks-format}
 
-次のコマンドを使用して、PEM ファイルであるレンダー証明書を PKCS#12 ファイルに変換します。レンダー証明書に署名した CA の証明書も含めます。
+次のコマンドを使用して、PEM ファイルであるレンダー証明書を PKCS#12 ファイルに変換します。 レンダー証明書に署名した CA の証明書も含めます。
 
 1. ターミナルウィンドウで、現在のディレクトリをレンダー証明書と秘密鍵の場所に変更します。
-1. PEM ファイルであるレンダー証明書を PKCS#12 ファイルに変換するには、次のコマンドを入力します。レンダー証明書に署名した CA の証明書も含めます。
+1. PEM ファイルであるレンダー証明書を PKCS#12 ファイルに変換するには、次のコマンドを入力します。 レンダー証明書に署名した CA の証明書も含めます。
 
    ```shell
    openssl pkcs12 -export -in rendercert.pem -inkey renderkey.pem  -certfile demoCA/cacert.pem -out rendercert.p12
@@ -200,7 +200,7 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
    keytool -importkeystore -srckeystore servercert.p12 -srcstoretype pkcs12 -destkeystore render.keystore
    ```
 
-1. Java™ Keystore は、デフォルトのエイリアスを使用して作成されます。必要に応じてエイリアスを変更します。
+1. Java™ Keystore は、デフォルトのエイリアスを使用して作成されます。 必要に応じてエイリアスを変更します。
 
    ```shell
    keytool -changealias -alias 1 -destalias jettyhttp -keystore render.keystore
@@ -208,7 +208,7 @@ OpenSSL を使用して証明書要求を作成し、サードパーティ CA �
 
 #### CA 証明書をレンダーの Truststore に追加 {#adding-the-ca-cert-to-the-render-s-truststore}
 
-ユーザーが CA の機役目を果たす場合は、CA 証明書をキーストアに読み込みます。次に、キーストアを信頼するように、レンダーインスタンスを実行する JVM を設定します。
+ユーザーが CA の機役目を果たす場合は、CA 証明書をキーストアに読み込みます。 次に、キーストアを信頼するように、レンダーインスタンスを実行する JVM を設定します。
 
 <!-- 
 
@@ -258,7 +258,7 @@ SSL を使用するようにレンダーインスタンスの HTTP サービス�
 
 ### Dispatcher の統合証明書の作成 {#creating-a-unified-dispatcher-certificate}
 
-Dispatcher 証明書と暗号化されていない秘密鍵を組み合わせて、単一の PEM ファイルにします。テキストエディターまたは `cat` コマンドを使用して、以下のサンプルのようなファイルを作成します。
+Dispatcher 証明書と暗号化されていない秘密鍵を組み合わせて、単一の PEM ファイルにします。 テキストエディターまたは `cat` コマンドを使用して、以下のサンプルのようなファイルを作成します。
 
 1. ターミナルを開き、現在のディレクトリを dispkey.pem ファイルがある場所に変更します。
 1. 秘密鍵を復号化するには、次のコマンドを入力します。
@@ -284,8 +284,8 @@ Dispatcher 証明書と暗号化されていない秘密鍵を組み合わせて
 
 以下のプロパティを（`httpd.conf` の）[Dispatcher モジュールの設定](dispatcher-install.md#main-pars-55-35-1022)に追加します。
 
-* `DispatcherCertificateFile`：公開証明書と暗号化されていない秘密鍵を含む、Dispatcher の統合証明書ファイルへのパス。このファイルは、SSL サーバーが Dispatcher のクライアント証明書を要求する場合に使用します。
-* `DispatcherCACertificateFile`：CA 証明書ファイルへのパス。SSL サーバーがルート証明機関によって信頼されていない CA を提示する場合に使用されます。
+* `DispatcherCertificateFile`：公開証明書と暗号化されていない秘密鍵を含む、Dispatcher の統合証明書ファイルへのパス。 このファイルは、SSL サーバーが Dispatcher のクライアント証明書を要求する場合に使用します。
+* `DispatcherCACertificateFile`：CA 証明書ファイルへのパス。 SSL サーバーがルート証明機関によって信頼されていない CA を提示する場合に使用されます。
 * `DispatcherCheckPeerCN`：リモートサーバー証明書のホスト名チェックを有効（`On`）にするか無効（`Off`）にするか。
 
 以下のコードは設定のサンプルです。
