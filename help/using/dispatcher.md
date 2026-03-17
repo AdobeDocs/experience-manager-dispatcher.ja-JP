@@ -281,7 +281,7 @@ CDN では、Web インターフェイスを使用してリソースをキャッ
 
 >[!NOTE]
 >
->[AEM (CQ) Dispatcher Security and CDN+Browser Caching](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023) および [Dispatcher のキャッシュ](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/overview#)に関する録画済みのプレゼンテーションも参照してください。
+>[AEM (CQ) Dispatcher Security and CDN+Browser Caching](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023) および [Dispatcher のキャッシュ](https://experienceleague.adobe.com/ja/docs/events/experience-manager-gems-recordings/overview#)に関する録画済みのプレゼンテーションも参照してください。
 
 ## オーサリングサーバーでの Dispatcher の使用 {#using-a-dispatcher-with-an-author-server}
 
