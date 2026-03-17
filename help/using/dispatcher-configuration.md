@@ -551,7 +551,7 @@ Dispatcher バージョン **4.1.6** では、次のように `/always-resolve` 
 
 Dispatcher が受け入れる HTTP 要求を指定するには、`/filter` セクションを使用します。 それ以外のすべての要求は、エラーコード 404（ページが見つかりません）で Web サーバーに返送されます。 `/filter` セクションが存在しない場合は、すべての要求が受け入れられます。
 
-**注意：**[statfile](#naming-the-statfile) に対する要求は常に拒否されます。
+**注意：**&#x200B;[statfile](#naming-the-statfile) に対する要求は常に拒否されます。
 
 >[!CAUTION]
 >
@@ -1645,7 +1645,7 @@ Dispatcher 設定ファイルのいくつかのセクションでは、`glob` �
 | `?` | 任意の 1 文字に一致します。 文字クラス外で使用します。 文字クラス内のこの文字は、リテラルとして解釈されます。 | `*outdoors/??/*`<br/> geometrixx-outdoors サイトのすべての言語のページに一致します。 例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の要求は glob パターンに一致しません。<br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
 | `[ and ]` | 文字クラスの最初と最後を定めます。 文字クラスには、1 つまたは複数の文字範囲と単一文字を含めることができます。<br/> 対象の文字が文字クラスの中のいずれかの文字に一致するか、または定義された範囲内にある場合、マッチが行われます。<br/> 閉じ括弧が含まれていない場合、パターンはマッチを行いません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | 文字の範囲を定めます。 文字クラス内で使用します。 文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[m-p]men.html*`次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `^ wildcard`. <br/> と同じ文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[!o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` か `"GET /content/geometrixx-outdoors/en/men. html"` のどちらかにする必要があります。</li></ul> |
+| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `^ wildcard`. <br/> と同じ文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[ !o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[ !o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` か `"GET /content/geometrixx-outdoors/en/men. html"` のどちらかにする必要があります。</li></ul> |
 | `^` | 続く文字または文字範囲を打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `!` のワイルドカード文字と同じです。<br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | ワイルドカード文字 `!` の例と同様、サンプルパターンの文字 `!` が 文字 `^` に置き換えられます。 |
 
 
