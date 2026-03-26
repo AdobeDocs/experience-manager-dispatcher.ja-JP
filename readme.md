@@ -1,16 +1,10 @@
 ---
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
-workflow-type: ht
-source-wordcount: '70'
-ht-degree: 100%
+source-git-commit: d889ccdf4b8ea169a21658e8a2251e70dfa5596c
+workflow-type: tm+mt
+source-wordcount: '7'
+ht-degree: 0%
 
 ---
-# Adobe Experience Manager パターン検出
+# アーカイブ
 
-このリポジトリは、Adobe Experience Manager パターン検出用です。
-
-ドキュメントに関するご意見やご提案をお寄せください。次のリソースを参照してください。
-
-* [contributing.md](contributing.md)：ドキュメントに対する投稿方法の概要。
-* [guidelines.md](guidelines.md)：投稿で期待される内容とドキュメント投稿の作成方法の概要。
-* [code-of-conduct.md](code-of-conduct.md)：このドキュメントプロジェクトへの貢献時にアドビが期待する行動の基準の概要。
+このリポジトリは<https://github.com/Adobe-Enterprise-Docs/experience-manager-dispatcher.en>に移行されました
