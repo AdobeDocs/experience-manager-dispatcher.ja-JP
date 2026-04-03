@@ -2,10 +2,10 @@
 title: AEM Dispatcher の設定
 description: Dispatcher の設定方法について説明します。 IPv4 と IPv6 のサポート、設定ファイル、環境変数およびインスタンスの命名について説明します。 ファームの定義、仮想ホストの識別などについて説明します。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+source-git-commit: 97c7cec0b89dd20532e35e026281c19a55aa61f9
 workflow-type: tm+mt
 source-wordcount: '9194'
-ht-degree: 99%
+ht-degree: 97%
 
 ---
 
@@ -127,7 +127,7 @@ AEM と Dispatcher のすべての要素は、IPv4 と IPv6 の両方のネッ�
 
 値を直接記述する代わりに、dispatcher.any ファイルの単一値プロパティに環境変数を使用できます。 環境変数の値を含めるには、`${variable_name}` という形式を使用します。
 
-例えば、dispatcher.any ファイルがキャッシュディレクトリと同じディレクトリにある場合は、[docroot](#specifying-the-cache-directory) プロパティに次の値を使用できます。
+例えば、`dispatcher.any` ファイルがキャッシュディレクトリと同じディレクトリにある場合、[docroot](#specifying-the-cache-directory) プロパティの次の値を使用できます。
 
 ```xml
 /docroot "${PWD}/cache"
@@ -551,7 +551,7 @@ Dispatcher バージョン **4.1.6** では、次のように `/always-resolve` 
 
 Dispatcher が受け入れる HTTP 要求を指定するには、`/filter` セクションを使用します。 それ以外のすべての要求は、エラーコード 404（ページが見つかりません）で Web サーバーに返送されます。 `/filter` セクションが存在しない場合は、すべての要求が受け入れられます。
 
-**注意：**&#x200B;[statfile](#naming-the-statfile) に対する要求は常に拒否されます。
+**注意：**[statfile](#naming-the-statfile) に対する要求は常に拒否されます。
 
 >[!CAUTION]
 >
@@ -1209,7 +1209,7 @@ Glob プロパティについては、[Glob プロパティのパターンの設
 
 この設定によって、`/content/wknd/us/en` がアクティブ化されると、以下のアクティビティが発生します。
 
-* パターン en.*の付いたすべてのファイルは、`/content/wknd/us` フォルダーから削除されます。
+* パターン en.*を持つすべてのファイルが`/content/wknd/us` フォルダーから削除されます。
 * `/content/wknd/us/en./_jcr_content` フォルダーは削除されます。
 * `/invalidate` 設定に一致するその他すべてのファイルは、即座には削除されません。 これらのファイルは、次回のリクエストが発生すると削除されます。 この例では、`/content/wknd.html` は削除されません。`/content/wknd.html` がリクエストされた際に削除されます。
 
@@ -1643,10 +1643,10 @@ Dispatcher 設定ファイルのいくつかのセクションでは、`glob` �
 |--- |--- |--- |
 | `*` | 文字列に含まれる任意の文字の 0 個以上の連続するインスタンスに一致します。 一致の最後の文字は、次のどちらかの状況によって決まります：<br/>文字列内のある文字がパターン内の次の文字に一致する場合またはパターンの文字が <br/> の特徴を持つ場合<ul><li>`*` 以外</li><li>`?` 以外</li><li>リテラル文字（空白を含む）または文字クラス。</li><li>パターンの終わりに達している。</li></ul>文字クラス内のこの文字は、リテラルとして解釈されます。 | `*/geo*` `/content/geometrixx`ノードと `/content/geometrixx-outdoors` ノードの下にあるすべてのページに一致します。 以下の HTTP 要求は、glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*`<br/> `/content/geometrixx-outdoors` ノードの下にあるすべてのページに一致します。 例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
 | `?` | 任意の 1 文字に一致します。 文字クラス外で使用します。 文字クラス内のこの文字は、リテラルとして解釈されます。 | `*outdoors/??/*`<br/> geometrixx-outdoors サイトのすべての言語のページに一致します。 例えば、次の HTTP 要求は glob パターンに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の要求は glob パターンに一致しません。<br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
-| `[ and ]` | 文字クラスの最初と最後を定めます。 文字クラスには、1 つまたは複数の文字範囲と単一文字を含めることができます。<br/> 対象の文字が文字クラスの中のいずれかの文字に一致するか、または定義された範囲内にある場合、マッチが行われます。<br/> 閉じ括弧が含まれていない場合、パターンはマッチを行いません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `[ and ]` | 文字クラスの最初と最後を定めます。 文字クラスには、1つ以上の文字範囲と1つの文字を含めることができます。<br/> ターゲット文字が文字クラス内の任意の文字と一致するか、定義された範囲内にある場合、一致が発生します。<br/>閉じ角括弧が含まれない場合、パターンによって一致は発生しません。 | `*[o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>次の HTTP 要求に一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | 文字の範囲を定めます。 文字クラス内で使用します。 文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[m-p]men.html*`次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `^ wildcard`. <br/> と同じ文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[ !o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[ !o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` か `"GET /content/geometrixx-outdoors/en/men. html"` のどちらかにする必要があります。</li></ul> |
-| `^` | 続く文字または文字範囲を打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `!` のワイルドカード文字と同じです。<br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | ワイルドカード文字 `!` の例と同様、サンプルパターンの文字 `!` が 文字 `^` に置き換えられます。 |
+| `!` | 続く文字または文字クラスを打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 ワイルドカード文字 `^ wildcard`. <br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | `*[!o]men.html*`<br/>次の HTTP リクエストに一致します。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>次の HTTP リクエストに一致しません。<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` か `"GET /content/geometrixx-outdoors/en/men. html"` のどちらかにする必要があります。</li></ul> |
+| `^` | 続く文字または文字範囲を打ち消します。 文字クラス内の文字および文字範囲の打ち消しにのみ使用してください。 `!` ワイルドカードに相当します。 <br/>文字クラス外のこの文字は、リテラルとして解釈されます。 | ワイルドカード文字 `!` の例と同様、サンプルパターンの文字 `!` が 文字 `^` に置き換えられます。 |
 
 
 <!--
@@ -1870,18 +1870,18 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/wknd/us/en.html
   ターゲットファイルはキャッシュに含まれており、Dispatcher は、そのファイルを配信することが妥当であると判断しました。
 * **キャッシュ**\
   ターゲットファイルはキャッシュに含まれていないので、Dispatcher は、出力をキャッシュして配信することが妥当であると判断しました。
-* **caching: stat file is more recent** 
+* **キャッシュ：統計ファイルは最新です**
 ターゲットファイルはキャッシュに含まれています。 ただし、より新しい stat ファイルによって無効化される可能性があります。 Dispatcher はターゲットファイルを削除し、出力から再作成して配信します。
-* **not cacheable: document root non-existent**
-ファームの設定にドキュメントルート（設定要素 `cache.docroot`）が含まれていません。
+* **キャッシュできません：ドキュメント ルートが存在しません**
+ファームの設定にドキュメントルートが含まれていません（設定要素`cache.docroot`）。
 * **キャッシュ不可 : キャッシュファイルのパスが長すぎます**\
   ターゲットファイル（ドキュメントルートと URL ファイルが連結されたものが）が、システム上で使用可能な最長ファイル名を超えています。
 * **キャッシュ不可 : 一時ファイルのパスが長すぎます**\
   一時ファイル名テンプレートが、システムで使用可能な最長ファイル名を超えています。 Dispatcher は、キャッシュされたファイルを実際に作成または上書きする前に、まず一時ファイルを作成します。 一時ファイル名は、ターゲットファイル名に文字 `_YYYYXXXXXX` が追加された名前です。`Y` と `X` が置き換えられ、一意の名前が作成されます。
 * **キャッシュ不可 : リクエスト URL に拡張子がありません**\
   リクエスト URL に拡張子がないか、ファイル拡張子の後にパスがあります（例：`/test.html/a/path`）。
-* **not cacheable: request needed to be a GET or HEAD**
-HTTP メソッドが GET でも HEAD でもありません。 Dispatcher は、キャッシュすべきでない動的データが出力に含まれていると見なします。
+* **キャッシュできません：リクエストはGETまたはHEADである必要があります**
+HTTP メソッドは、GETやHEADではありません。 Dispatcher は、キャッシュすべきでない動的データが出力に含まれていると見なします。
 * **キャッシュ不可 : リクエストにクエリ文字列が含まれています**\
   リクエストにクエリ文字列が含まれていました。 Dispatcher は、出力が、提供されたクエリ文字列に依存しているのでキャッシュされないと見なします。
 * **キャッシュ不可 : セッションマネージャーが認証を必要とします**\
@@ -1896,10 +1896,10 @@ HTTP メソッドが GET でも HEAD でもありません。 Dispatcher は、�
   このファームのキャッシュルールは、一部のリクエスト URL の出力をキャッシュすることを明示的に拒否しています。
 * **キャッシュ不可 : 認証チェッカーがアクセスを拒否しました**\
   ファームの認証チェッカーがキャッシュされたファイルへのアクセスを拒否しました。
-* **not cacheable: session is invalid**
-セッションマネージャー（設定には `sessionmanagement` ノードを含む）はファームのキャッシュを管理し、ユーザーのセッションが有効でないか、有効でなくなりました。
-* **not cacheable: response contains`no_cache`** 
-リモートサーバーが `Dispatcher: no_cache` ヘッダーを返し、Dispatcher による出力のキャッシュが禁止されています。
-* **not cacheable: response content length is zero** 
-応答のコンテンツ長がゼロになっています。Dispatcher では長さゼロのファイルは作成されません。
+* **キャッシュできません：セッションが無効です**
+セッションマネージャー（設定に`sessionmanagement` ノードが含まれる）がファームのキャッシュを管理し、ユーザーのセッションが無効であるか、無効になりました。
+* **キャッシュできません：応答に次が含まれています`no_cache`**
+リモート サーバーが`Dispatcher: no_cache` ヘッダーを返したため、Dispatcherは出力をキャッシュできません。
+* **キャッシュできません：応答コンテンツの長さが0です**
+レスポンスのコンテンツの長さは0です。Dispatcherは0長のファイルを作成しません。
 
