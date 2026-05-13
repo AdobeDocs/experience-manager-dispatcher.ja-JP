@@ -5,10 +5,21 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+TQID: https://experienceleague.adobe.com/Ir-slXay90FcQsvKGLioMgFhmhsaTfkYxIQJzfjDsfY
+product_v2:
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2:
+  - id: b1210526-416b-4ef6-bcc0-1692e99f30e9
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: c1579802-ddd4-4214-8a91-97b2066abe11
+  - id: d095671a-1355-40aa-8b5f-06c33c68080b
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
-source-wordcount: '3227'
-ht-degree: 98%
+source-wordcount: 3227
+ht-degree: 96%
 
 ---
 
@@ -40,7 +51,7 @@ Dispatcher をデプロイするプロセスは、選択した web サーバー�
 
 * [Dispatcher のセキュリティチェックリスト](security-checklist.md)
 <!-- URL is 404! * [The Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html) -->
-* [キャッシュパフォーマンスのための web サイトの最適化](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+* [Web サイトのキャッシュ パフォーマンスの最適化](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
 * [複数ドメインでの Dispatcher の使用](dispatcher-domains.md)
 * [Dispatcher での SSL の使用](dispatcher-ssl.md)
 * [権限に影響を受けるキャッシュの実装](permissions-cache.md)
@@ -129,7 +140,7 @@ Web サイトに変更があったとき、Dispatcher では主に 2 つの方�
 次の点に注意してください。
 
 * コンテンツの更新は、通常、置き換える必要のあるコンテンツを「把握している」オーサリングシステムと組み合わせて使用します。
-* コンテンツの更新の影響を受けたファイルは削除されますが、すぐに置き換えられることはありません。 そのファイルが次回リクエストされると、DispatcherはAEM インスタンスから更新されたバージョンを取得し、キャッシュされたコピーを置き換えます。
+* コンテンツの更新の影響を受けるファイルは削除されますが、すぐに置き換えることはできません。 次回そのファイルが要求されたときに、DispatcherはAEM インスタンスから更新されたバージョンを取得し、キャッシュされたコピーを置き換えます。
 * 通常、ページのテキストを取り込んで自動生成された画像は、同じハンドルで始まる画像ファイルに格納されます。したがって、ページと画像ファイルは関連があり、削除の対象となります。 例えば、mypage.html というページのタイトルテキストを、mypage.titlePicture.gif ファイルとして同じフォルダーに格納できます。 したがって、ページの更新ごとにキャッシュにある画像が自動的に削除されるので、画像のバージョンを常にページの現在のバージョンと合わせることができます。
 * statfile は複数持つことができます。例えば、言語フォルダーごとに 1 つずつ持つことができます。 ページが更新されると、AEM は statfile を含む次の親フォルダーを探し、そのファイルに *touch* します。
 
@@ -191,11 +202,11 @@ Dispatcher はキャッシュされたファイルを、静的 Web サイトに�
 
 以下のようなメリットがあります。
 
-* **処理能力の向上**
-実際には、処理能力の向上は、Dispatcher が複数の AEM インスタンス間でドキュメントリクエストを共有することです。 各インスタンスで処理するドキュメントの数が少なくなるので、応答時間を短縮できます。 Dispatcher はドキュメントカテゴリごとに内部統計を保持するので、負荷を予測してクエリを効率的に分散させることができます。
+* 処理能力が&#x200B;**向上**
+実際には、処理能力の向上により、DispatcherはAEMの複数のインスタンス間でドキュメントリクエストを共有します。 各インスタンスで処理するドキュメントの数が少なくなるので、応答時間を短縮できます。 Dispatcher はドキュメントカテゴリごとに内部統計を保持するので、負荷を予測してクエリを効率的に分散させることができます。
 
-* **フェールセーフ範囲の拡大**
-インスタンスからの応答が受信されない場合、Dispatcher はリクエストを他のいずれかのインスタンスに自動的にリレーします。 あるインスタンスが無効になった場合は、計算能力の低下と比例してサイトの処理が遅くなること以外に影響はありません。 サービスはすべて続行します。
+* **フェイルセーフの適用範囲を拡大**
+Dispatcherがインスタンスから応答を受け取らない場合、リクエストは自動的に他のインスタンスにリレーされます。 あるインスタンスが無効になった場合は、計算能力の低下と比例してサイトの処理が遅くなること以外に影響はありません。 サービスはすべて続行します。
 
 * 同じ静的 web サーバー上で異なる web サイトを管理することもできます。
 
