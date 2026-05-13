@@ -5,10 +5,14 @@ topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: f4ed724deccf14c570ca873728a97d0ae5fe0e4f
+TQID: https://experienceleague.adobe.com/9k2g0y1gnTAwUmLbFw4ZXAfE3z3Y8tAggojWRBknhTg
+product_v2: id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: d095671a-1355-40aa-8b5f-06c33c68080bid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
-source-wordcount: '1105'
-ht-degree: 93%
+source-wordcount: 1345
+ht-degree: 80%
 
 ---
 
@@ -37,13 +41,13 @@ ht-degree: 93%
 
 ## リリース履歴 {#release-history}
 
-### リリース 4.3.8 （2025 年 11 月 20 日）
+### リリース 4.3.8 （2025年11月20日）
 
 **改善点**：
 
-* DISP-1040 - Dispatcher 設定に `/allowedClients` を実装して、明示的に必要でない限り、キャッシュ無効化を実行したり、ヘッダー（`handle`、`cq-handle` など）をブロックまたは削除したりできる IP を制御します
-* DISP-1046 - stale-while-error は、AEMからの 429 応答も処理する必要がある
-* SKYOPS-107219 - vanityUrl を読み込む現在の実装を最適化する
+* DISP-1040 - Dispatcher設定に`/allowedClients`を実装して、キャッシュ無効化を実行したり、ヘッダーをブロックまたは削除したりできるIPを制御します（`handle`、`cq-handle`など）。 ただし、明示的に必要な場合を除きます
+* DISP-1046 - stale-while-errorもAEMからの429件の回答を処理する必要があります
+* SKYOPS-107219 - VanityUrlの読み込みの現在の実装を最適化する
 
 ### リリース 4.3.7（2024年3月27日（PT）） {#march}
 
@@ -78,7 +82,7 @@ ht-degree: 93%
 
 **改善点**：
 
-* DISP-874 - `DispatcherRestrictUncacheableContent` フラグを使用して、DISP-818 の実装をオンまたはオフにする Dispatcher 設定を作成する。デフォルト値はオフです。オンにすると、キャッシュできないコンテンツに対して mod 期限切れによって設定されたキャッシュヘッダーが削除されます。この設定は、バージョン 4.3.3（デフォルトはオン）の動作とは異なりますが、4.3.3 より前のバージョン（デフォルトはオフ）と同じです。ブラウザーのキャッシュの柔軟性を高めるため、`DispatcherRestrictUncacheableContent` のデフォルトをオフのままにすることをお勧めします。バージョン 4.3.3 から 4.3.4 にアップグレードする際に、バージョン 4.3.3 と同じ動作を保持する場合は、`DispatcherRestrictUncacheableContent` を明示的にオンに設定する必要があります。
+* DISP-874 - `DispatcherRestrictUncacheableContent` フラグを使用して、DISP-818 の実装をオンまたはオフにする Dispatcher 設定を作成する。 デフォルト値はオフです。 オンにすると、キャッシュできないコンテンツに対して mod 期限切れによって設定されたキャッシュヘッダーが削除されます。 この設定は、バージョン 4.3.3（デフォルトはオン）の動作とは異なりますが、4.3.3 より前のバージョン（デフォルトはオフ）と同じです。 ブラウザーのキャッシュの柔軟性を高めるため、`DispatcherRestrictUncacheableContent` のデフォルトをオフのままにすることをお勧めします。 バージョン 4.3.3 から 4.3.4 にアップグレードする際に、バージョン 4.3.3 と同じ動作を保持する場合は、`DispatcherRestrictUncacheableContent` を明示的にオンに設定する必要があります。
 * DISP-841 - Dispatcher が 504 応答コードの /serverStaleOnError を考慮しない
 * DISP-874 - DISP-818 の実装をオンまたはオフにする Dispatcher 設定を作成する
 * DISP-883 - Dispatcher での URL リクエストの分解を示すトレース
