@@ -28,7 +28,7 @@ ht-degree: 93%
 + 設定 {#configuring}
    + [Dispatcher の設定](dispatcher-configuration.md)
    + [AEM からのキャッシュされたページの無効化](page-invalidate.md)
-   + [CDN 再検証のためのDispatcher ETag の機能強化](dispatcher-etag-enhancement.md)
+   + [CDN再検証のためのDispatcher ETagの機能強化](dispatcher-etag-enhancement.md)
    + [Web サイトのキャッシュパフォーマンスの最適化](https://experienceleague.adobe.com/ja/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [セキュリティ保護されたコンテンツのキャッシュ](permissions-cache.md)
    + [複数ドメインでの AEM Dispatcher の使用](dispatcher-domains.md)
