@@ -6,19 +6,13 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 TQID: https://experienceleague.adobe.com/Ir-slXay90FcQsvKGLioMgFhmhsaTfkYxIQJzfjDsfY
-product_v2:
-  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
-feature_v2:
-  - id: b1210526-416b-4ef6-bcc0-1692e99f30e9
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: c1579802-ddd4-4214-8a91-97b2066abe11
-  - id: d095671a-1355-40aa-8b5f-06c33c68080b
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2: id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2: id: b1210526-416b-4ef6-bcc0-1692e99f30e9
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: c1579802-ddd4-4214-8a91-97b2066abe11id: d095671a-1355-40aa-8b5f-06c33c68080bid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
-source-wordcount: 3227
+source-wordcount: 3169
 ht-degree: 96%
 
 ---
@@ -273,14 +267,14 @@ HTTP インフラストラクチャコンポーネントとして、CDN は Disp
 
 CDN が Dispatcher から再取得するまでのリソースのキャッシュ期間を制御するには、いくつかの方法があります。
 
-1. 明確な設定。
-MIME タイプ、拡張子、リクエストタイプなどに応じて、特定のリソースを CDN のキャッシュに保持する期間を設定します。
+1. 明示的な設定：
+MIME タイプ、拡張機能、リクエストタイプなどに応じて、特定のリソースがCDNのキャッシュに保持される時間を設定します。
 
-1. 有効期限およびキャッシュ制御ヘッダー。
-ほとんどの CDN は、アップストリームサーバーから送信される場合に、HTTP ヘッダー `Expires:` および `Cache-Control:` を保持します。 この方法は、例えば、Apache モジュール [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html?lang=ja) を使用するなどして実行できます。
+1. 有効期限ヘッダーとキャッシュ制御ヘッダー。
+ほとんどのCDNは、アップストリームサーバーから送信された場合、`Expires:`および`Cache-Control:`個のHTTP ヘッダーを尊重します。このメソッドは、例えば、[mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html?lang=ja) Apache モジュールを使用することで実現できます。
 
-1. 手動での無効化。
-CDN では、Web インターフェイスを使用してリソースをキャッシュから削除できます。
+1. 手動無効化：
+CDNでは、web インターフェイスを介してリソースをキャッシュから削除できます。
 1. API ベースの無効化。\
    ほとんどの CDN には、リソースをキャッシュから削除できる REST または SOAP API も用意されています。
 
@@ -292,7 +286,7 @@ CDN では、Web インターフェイスを使用してリソースをキャッ
 
 >[!NOTE]
 >
->[AEM (CQ) Dispatcher Security and CDN+Browser Caching](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023) および [Dispatcher のキャッシュ](https://experienceleague.adobe.com/ja/docs/events/experience-manager-gems-recordings/overview#)に関する録画済みのプレゼンテーションも参照してください。
+>[AEM (CQ) Dispatcher Security and CDN+Browser Caching](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023) および [Dispatcher のキャッシュ](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/overview#)に関する録画済みのプレゼンテーションも参照してください。
 
 ## オーサリングサーバーでの Dispatcher の使用 {#using-a-dispatcher-with-an-author-server}
 

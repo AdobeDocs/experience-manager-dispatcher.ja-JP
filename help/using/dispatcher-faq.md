@@ -3,18 +3,13 @@ title: Dispatcher に関する主な問題
 description: Adobe Experience Manager Dispatcher に関する主な問題
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 TQID: https://experienceleague.adobe.com/NQdA2gQ1pBYAiVrjO1arci4qp6cGIKpZZHWimEfB9T0
-product_v2:
-  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: c1579802-ddd4-4214-8a91-97b2066abe11
-  - id: d095671a-1355-40aa-8b5f-06c33c68080b
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2: id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: c1579802-ddd4-4214-8a91-97b2066abe11id: d095671a-1355-40aa-8b5f-06c33c68080bid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
-source-wordcount: 1625
-ht-degree: 100%
+source-wordcount: 1530
+ht-degree: 97%
 
 ---
 
@@ -112,9 +107,9 @@ Content-Length: 0
 
 Dispatcher は、CQ-Handle ヘッダーの値に一致する名前を持つ、キャッシュされたファイルおよびフォルダーを削除します。 例えば、`/content/geomtrixx-outdoors/en` という CQ-Handle は、以下のアイテムに一致します。
 
-geometrixx-outdoors ディレクトリ内の en という名前を持つ（あらゆるファイル拡張子の）すべてのファイル
-en ディレクトリ（存在する場合、ページのサブノードのキャッシュされたレンダリングが含まれます）の下にある `_jcr_content` という名前のすべてのディレクトリ
-ディレクトリ `en` は、`CQ-Action` が `Delete` または `Deactivate` である場合のみ削除されます。
+geometrixx-outdoors ディレクトリ内のenという名前のすべてのファイル（任意のファイル拡張子）。
+en ディレクトリの下の`_jcr_content`という名前のディレクトリ （存在する場合は、ページのサブノードのキャッシュされたレンダリングが含まれます）。
+ディレクトリ `en`は、`CQ-Action`が`Delete`または`Deactivate`の場合にのみ削除されます。
 
 このトピックの詳細については、[手動での Dispatcher キャッシュの無効化](page-invalidate.md)を参照してください。
 
@@ -158,11 +153,11 @@ en ディレクトリ（存在する場合、ページのサブノードのキ�
 
 ## その他
 
-Dispatcher はドキュメントが最新かどうかをどう判断しますか？
-ドキュメントが最新かどうかを判断するために、Dispatcher は次の操作を実行します。
+ドキュメントが最新であるかどうかをDispatcherはどのように判断しますか？
+ドキュメントが最新かどうかを判断するには、Dispatcherで次の操作を実行します。
 
-ドキュメントが自動無効化の対象であるかどうかチェックします。 そうでない場合、ドキュメントは最新と見なされます。
-ドキュメントが自動無効化の対象として設定されている場合、Dispatcher は最新の変更情報と比べてドキュメントが古いかどうかチェックします。 ドキュメントが古い場合、Dispatcher は AEM インスタンスに最新バージョンを要求し、キャッシュ内のバージョンを置き換えます。
+ドキュメントが自動無効化の対象であるかどうかを確認します。そうでない場合、ドキュメントは最新のものと見なされます。
+ドキュメントが自動無効化に設定されている場合、Dispatcherは、使用可能な最後の変更内容よりも古いか新しいかを確認します。古い場合、DispatcherはAEM インスタンスから現在のバージョンをリクエストし、キャッシュ内のバージョンを置き換えます。
 
 ### Dispatcher はどのようにドキュメントを返しますか？
 
