@@ -624,7 +624,7 @@ Web サーバーは、`obj.conf` を使用して設定する必要がありま�
    `Init fn="dispInit"`\
    `obj.conf.disp` から `magnus.conf` の初期化セクションにコピーします。
 
-1. 変更を保存します。
+1. 変更内容を保存します。
 
 >[!NOTE]
 >
