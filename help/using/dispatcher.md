@@ -18,7 +18,7 @@ topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
-source-wordcount: 3227
+source-wordcount: 3169
 ht-degree: 96%
 
 ---
@@ -273,14 +273,14 @@ HTTP インフラストラクチャコンポーネントとして、CDN は Disp
 
 CDN が Dispatcher から再取得するまでのリソースのキャッシュ期間を制御するには、いくつかの方法があります。
 
-1. 明確な設定。
-MIME タイプ、拡張子、リクエストタイプなどに応じて、特定のリソースを CDN のキャッシュに保持する期間を設定します。
+1. 明示的な設定：
+MIME タイプ、拡張機能、リクエストタイプなどに応じて、特定のリソースがCDNのキャッシュに保持される時間を設定します。
 
-1. 有効期限およびキャッシュ制御ヘッダー。
-ほとんどの CDN は、アップストリームサーバーから送信される場合に、HTTP ヘッダー `Expires:` および `Cache-Control:` を保持します。 この方法は、例えば、Apache モジュール [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html?lang=ja) を使用するなどして実行できます。
+1. 有効期限ヘッダーとキャッシュ制御ヘッダー。
+ほとんどのCDNは、アップストリームサーバーから送信された場合、`Expires:`および`Cache-Control:`個のHTTP ヘッダーを尊重します。このメソッドは、例えば、[mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html?lang=ja) Apache モジュールを使用することで実現できます。
 
-1. 手動での無効化。
-CDN では、Web インターフェイスを使用してリソースをキャッシュから削除できます。
+1. 手動無効化：
+CDNでは、web インターフェイスを介してリソースをキャッシュから削除できます。
 1. API ベースの無効化。\
    ほとんどの CDN には、リソースをキャッシュから削除できる REST または SOAP API も用意されています。
 
