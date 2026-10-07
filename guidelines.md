@@ -36,7 +36,7 @@ AEMのドキュメントでは、標準的なユースケースをカバーし�
 
 AEMのドキュメントを改善するために必要なアイデアは、コントリビューションとして歓迎されます。 ただし、コメント、イシュー、およびプルリクエストはすべて&#x200B;*寄付*&#x200B;としてのみ意図されています。 AEMの使用方法や、AEM プロジェクトの導入方法、技術的な課題の解決に関する質問には答えません。
 
-AEMの使用状況や技術的なエラーについて、何か質問があれば報告できます。 通常のサポートプロセスは、[Experience Cloud エンタープライズサポートポータル ](https://experienceleague.adobe.com/ja?support-solution=General#support)経由で使用するか、[Experience Manager コミュニティ ](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/ct-p/adobe-experience-manager-community)で説明します。
+AEMの使用状況や技術的なエラーについて、何か質問があれば報告できます。 通常のサポートプロセスは、[Experience Cloud エンタープライズサポートポータル &#x200B;](https://experienceleague.adobe.com/ja?support-solution=General#support)経由で使用するか、[Experience Manager コミュニティ &#x200B;](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/ct-p/adobe-experience-manager-community)で説明します。
 
 ***AEM ドキュメントの投稿は、Adobe カスタマーケア***&#x200B;の代替となるものではなく、サポート関連の質問に対する回答を求めるそのような投稿は拒否されます。
 
@@ -64,7 +64,7 @@ AEMのドキュメントの読者は世界中に広がっており、ネイテ�
 
 #### Microsoft® スタイルマニュアルに従う
 
-[Microsoft® スタイルマニュアル ](https://learn.microsoft.com/en-us/style-guide/welcome/)は、ソフトウェアのドキュメントに焦点を当てた無料のドキュメントスタイルガイドです。AEMのドキュメントは、可能な限りこのガイドに従います。
+[Microsoft® スタイルマニュアル &#x200B;](https://learn.microsoft.com/en-us/style-guide/welcome/)は、ソフトウェアのドキュメントに焦点を当てた無料のドキュメントスタイルガイドです。AEMのドキュメントは、可能な限りこのガイドに従います。
 
 ### 書式設定
 
