@@ -2,13 +2,17 @@
 title: CDN再検証のためのDispatcher ETagの機能強化
 description: AEM as a Cloud ServiceのINTERNAL_AEM_DISPATCHER_ETAG_ENHANCEMENTの可用性、サポートステータス、動作。
 exl-id: 4409d0f0-05db-42f3-ace9-1516f1970891
-source-git-commit: cddffe2194beea628f71b6631faada5df4555267
+product_v2:
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+    internal-label: Experience Manager
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+source-git-commit: e2e1f00ed10637e4cbc09d879ef91ec657cab914
 workflow-type: tm+mt
 source-wordcount: '308'
 ht-degree: 0%
-
 ---
-
 # CDN再検証のためのDispatcher ETagの機能強化
 
 ## 概要
@@ -54,7 +58,7 @@ Dispatcher vhost コンテキストでのApache ディレクティブの例：
 FileETag none
 ```
 
-ベースラインヘッダーキャッシングのガイダンスについては、[HTTP応答ヘッダーのキャッシュ &#x200B;](dispatcher-configuration.md#caching-http-response-headers)を参照してください。
+ベースラインヘッダーキャッシングのガイダンスについては、[HTTP応答ヘッダーのキャッシュ ](dispatcher-configuration.md#caching-http-response-headers)を参照してください。
 
 ## 検証例
 
@@ -68,6 +72,6 @@ FileETag none
 
 Dispatcherでのヘッダーキャッシュと`ETag`処理に関するお客様向けベースラインガイダンスについては、次を参照してください。
 
-- [Dispatcherの設定 – HTTP レスポンスヘッダーのキャッシュ](https://experienceleague.adobe.com/ja/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
+- [Dispatcherの設定 – HTTP レスポンスヘッダーのキャッシュ](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
 
 「この機能は、Dispatcher `2.0.264` （AEM SDK `2026.2.24464`）で利用できます。 有効にすると、Dispatcherはキャッシュされた`ETag`値に対して`If-None-Match`を検証し、キャッシュヒット時に`304 Not Modified`を返すことができます。 AEM as a Cloud Serviceでは、これはサポートされており、Cloud Manager環境設定を通じて有効にできます。」

@@ -5,17 +5,18 @@ contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-redirecttarget: https://helpx.adobe.com/jp/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: true
-internal: n
-snippet: y
-source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+internal: 'n'
+snippet: 'y'
+product_v2:
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+    internal-label: Experience Manager
+source-git-commit: e2e1f00ed10637e4cbc09d879ef91ec657cab914
 workflow-type: tm+mt
 source-wordcount: '1140'
 ht-degree: 100%
-
 ---
-
 
 # Web サイトのキャッシュパフォーマンスの最適化 {#optimizing-a-website-for-cache-performance}
 
@@ -39,10 +40,10 @@ Dispatcher には、パフォーマンスの最適化に利用できる、複数
 >
 >まず覚えておいてほしいのは、Dispatcher は標準の web サーバーにキャッシュを格納するという点です。 これは、次のことを意味します。
 >
->* URL を使用してページおよび要求として格納できるすべてのデータをキャッシュできます。
+>* ページとして保存し、URL を使用してリクエストできるすべてのものをキャッシュできます。
 >* その他のデータ（HTTP ヘッダー、cookie、セッションデータ、フォームデータなど）は格納できません。
 >
->通常、多くのキャッシュ戦略は適切な URL の選択を含んでおり、この追加データには依存しないことです。
+>通常、多くのキャッシュ戦略では、適切な URL を選択し、この追加データに依存しないようにします。
 
 ## 一貫したページエンコーディングの使用 {#using-consistent-page-encoding}
 
@@ -118,7 +119,7 @@ www.myCompany.com/news/main.large.html
 * `.normal` リクエストを処理し、通常の画像を返すスクリプト。
 * `.active` リクエストを処理し、アクティベートされた画像を返すスクリプト。
 
-ページと同じ命名ハンドルを使用してこれらの写真を作成し、コンテンツの更新によって写真とページが削除されるようにすることが重要です。
+コンテンツの更新によってこれらの画像とページが削除されるように、ページと同じ命名ハンドルでこれらの画像を作成することが重要です。
 
 変更されていないページの場合、画像はキャッシュに残りますが、ページ自体は自動的に無効化されます。
 
@@ -162,5 +163,5 @@ MIME タイプは HTTP ヘッダーに含まれており、Dispatcher は HTTP �
 ファイルが適切にキャッシュされるようにするには、次のガイドラインに従います。
 
 * ファイルの拡張子が常に適切であることを確認します。
-* download.jsp?file=2214 などの URL を含む汎用的なファイル提供スクリプトの使用を避けます。 ファイル仕様を含む URL を使用するようにスクリプトを書き換えます。 前の例では、`download.2214.pdf` のようになります。
+* download.jsp?file=2214 などの URL を含む汎用的なファイル提供スクリプトの使用を避けます。 ファイル指定を含む URL を使用するようにスクリプトを書き換えます。 前の例では、`download.2214.pdf` のようになります。
 
