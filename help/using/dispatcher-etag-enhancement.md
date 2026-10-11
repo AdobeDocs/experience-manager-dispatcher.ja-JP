@@ -58,7 +58,7 @@ Dispatcher vhost コンテキストでのApache ディレクティブの例：
 FileETag none
 ```
 
-ベースラインヘッダーキャッシングのガイダンスについては、[HTTP応答ヘッダーのキャッシュ ](dispatcher-configuration.md#caching-http-response-headers)を参照してください。
+ベースラインヘッダーキャッシングのガイダンスについては、[HTTP応答ヘッダーのキャッシュ &#x200B;](dispatcher-configuration.md#caching-http-response-headers)を参照してください。
 
 ## 検証例
 
